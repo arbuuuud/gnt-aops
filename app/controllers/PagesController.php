@@ -11,11 +11,8 @@ class PagesController extends \BaseController {
 		// Sidebar related
 		// $popular_news = $category_news->posts()->published()->popular()->take(5)->get();
 		$popular_news = Post::published()->popular()->take(5)->get();
-		$latest_surat_pembaca = Guestmail::published()->latest()->take(5)->get();
-		$latest_magazine = Magazine::published()->latest()->take(1)->get();
-		// $latest_ads = Ad::orderBy('created_at', 'desc')->take(1)->get();
 
-		return View::make('pages.templates.home', compact('latest_news','latest_magazine', 'popular_news','latest_surat_pembaca'));
+		return View::make('pages.templates.home', compact('latest_news', 'popular_news'));
 	}
 
 	/**
