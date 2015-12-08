@@ -77,6 +77,40 @@ class UsersController extends BaseController {
 		$inputs['first_name'] = Input::get('first_name');
 		$inputs['last_name'] = Input::get('last_name');
 		$inputs['email'] = Input::get('email');
+		$inputs['active'] = Input::get('active');
+
+		if(Input::has('password'))
+		{
+			$inputs['password']					= Hash::make(Input::get('password'));
+			$rules['password'] 					= 'required|min:8|confirmed';
+			$rules['password_confirmation'] 	= 'required|min:8';
+		}
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		$user->update($inputs);
+
+		return Redirect::route('admin.users.index')->with("message","Data berhasil disimpan");
+	}
+
+	public function updateProfile()
+	{
+		$user = User::findOrFail($id);
+		
+		// define rules
+		$rules['first_name'] = 'required';
+		$rules['last_name'] = 'required';
+		$rules['email'] = 'required|email';
+
+		// define input
+		$inputs['first_name'] = Input::get('first_name');
+		$inputs['last_name'] = Input::get('last_name');
+		$inputs['email'] = Input::get('email');
 
 		if(Input::has('password'))
 		{
@@ -183,11 +217,10 @@ class UsersController extends BaseController {
 
 	public function edit($id)
 	{
-		$post = Post::find($id);
-		$category = $post->category;
-		$postcategories = Postcategory::lists('title', 'id');
-
-		return View::make('posts.edit', compact('post', 'category', 'postcategories','members'));
+		$user = User::find($id);
+		$status = ['1' => 'Active','0' => 'Not Active'];
+		$roles = Role::lists('name', 'id');
+		return View::make('users.edit', compact('user', 'roles', 'status'));
 	}
 
 }
