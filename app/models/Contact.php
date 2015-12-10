@@ -1,6 +1,7 @@
 <?php
 
 class Contact extends \Eloquent {
+
 	protected $fillable = [];
 
 	public function checkStatusScheduller($template_id)
@@ -30,4 +31,21 @@ class Contact extends \Eloquent {
 		return 0;
         
     }
+	
+	// Add your validation rules here
+	public static $rules = [
+		'first_name' => 'required',
+		'email' => 'required',
+		'address' => 'required',
+		'phone_home' => 'required',
+	];
+
+
+	protected $guarded = array();
+
+	public function user()
+    {
+        return $this->hasMany('user');
+    }
+
 }

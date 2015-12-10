@@ -65,6 +65,7 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::get('dashboard', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     
     // Resources
+    Route::resource('contacts', 'ContactsController');
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
     Route::resource('pages', 'PagesController');

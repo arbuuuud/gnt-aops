@@ -163,6 +163,7 @@
         </li>
         <li><a href="{{ route('admin.guestmails.index') }}"><i class="fa fa-comments"></i> Surat Pembaca</a></li>
         <li><a href="{{ route('admin.contactmails.index') }}"><i class="fa fa-comment"></i> Pesan Pembaca</a></li>
+        <li><a href="{{ route('admin.contacts.index') }}"><i class="fa fa-comment"></i> Contacts</a></li>
         <li>
           <a href="javascript:;">
             <i class="fa fa-cogs"></i> Settings
