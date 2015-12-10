@@ -10,9 +10,11 @@ class MemberConfigurationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::all();
+		$contact = Contact::find(1);
+		$sced = $contact->checkStatusScheduller(1);
 
-		return View::make('users.index', compact('users'));	}
+		return 'is exist '+$sced;
+	}
 
 	/**
 	 * Show the form for creating a new resource.
