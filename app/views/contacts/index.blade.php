@@ -39,11 +39,11 @@
 				@foreach($contacts as $contact)
 					<tr>
 						<td>{{$contact->id}}</td>
-						<td>{{ $contact->first_name }}</a></td>
+						<td><a href="{{ route('admin.contacts.show', $contact->id) }}">{{ $contact->first_name }}</a></td>
 						<td>{{$contact->last_name}}</td>
 						<td>{{$contact->email}}</td>
 						<td>{{$contact->last_follow_up}}</td>
-						<td>{{$contact->email_sent}}</td>
+						<td class="text-center">{{$contact->email_sent}}</td>
 						<td>{{ $contact->active == '1' ? 'Yes' : 'No' }}</td>
 						<td class="text-center">{{ $contact->isAutomaticFollowUp == '1' ? 'Yes' : 'No' }}</td>
 						<td>{{$contact->address}}</td>
