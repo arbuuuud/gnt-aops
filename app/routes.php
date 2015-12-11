@@ -94,6 +94,7 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::get('profile', array('uses' => 'UsersController@showProfile', 'as' => 'user.profile'));
     Route::any('updateProfile', array('uses' => 'UsersController@updateProfile', 'as' => 'user.updateProfile'));
     Route::get('phpinfo', array('uses' => 'PagesController@showPHPInfo'));
+    Route::resource('member_configurations', 'MemberConfigurationsController');
 });
 
 // Ajax routes
