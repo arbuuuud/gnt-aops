@@ -32,6 +32,47 @@ class Contact extends \Eloquent {
         
     }
 	
+    public function insertPoolingSchedule($contact_id,$member_id,$template_id){
+        $contactTarget = Contact::find($contact_id);
+        $memberTarget = Member::find($member_id);
+        // $templateTarget = Email_Template::find($member_id);
+//!!!!!!!!!!!!! arbud: Template blom ada !!!!!!!!!!!!!!
+        if(!$contactTarget || !$memberTarget){
+        	return null ;
+        }
+        $stag = new EmailSchedullerPool();
+        $stag->contact_id = $contact_id;
+        $stag->member_id = $member_id;
+        $stag->template_id = $template_id;
+        $configurationMember = MemberConfiguration::where('member_id',$member_id)->where('param_code',MemberConfiguration::FOLLOW_UP_SEQUENCE)->first();
+		if(!$configurationMember){
+        	return null ;
+		}        
+		$followUpSequence = $configurationMember->param_value;
+        $stag->execution_date = date('Y-m-d H:i:s',strtotime("+".$followUpSequence." day"));
+        $emailSchedullerPool = EmailSchedullerPool::where('member_id',$member_id)->where('contact_id',$contact_id)->where('template_id',$template_id)->first();
+
+        if($emailSchedullerPool){
+            //save history       
+            $emailHistory = new emailHistory();
+            $emailHistory->template_id= $emailSchedullerPool->template_id;
+            $emailHistory->member_id = $emailSchedullerPool->member_id;
+            $emailHistory->contact_id = $emailSchedullerPool->contact_id;
+//!!!!!!!!!!!!! arbud: add status in delete !!!!!!!!!!!!!!
+            $emailHistory->date_sent = date('Y-m-d H:i:s');
+            $emailHistory->save();
+            //delete pool
+            $emailSchedullerPool->delete();   
+        }
+        //add entry
+        if($contactTarget->active && $memberTarget->active){
+        	$stag->save();
+        	return $stag->toJson();	
+        }else{
+        	return null;
+        }
+    }
+
 	// Add your validation rules here
 	public static $rules = [
 		'first_name' => 'required',

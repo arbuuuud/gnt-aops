@@ -10,10 +10,12 @@ class MemberConfigurationsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$contact = Contact::find(1);
-		$sced = $contact->checkStatusScheduller(1);
+		// $contact = Contact::find(1);
+		// // return 'return '.$contact;
+		// // return date('Y-m-d H:i:s',strtotime("+3 day"));
+		// $temp = $contact->insertPoolingSchedule(1,1,1);
 
-		return 'is exist '+$sced;
+		// return 'return '.$temp;
 	}
 
 	/**
