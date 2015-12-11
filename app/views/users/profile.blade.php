@@ -5,7 +5,7 @@ Edit Profil
 @stop
 
 @section('form-open')
-{{ Form::open(array('class' => 'form form-bordered', 'method' => 'PATCH', 'route' => array('admin.users.update', $user->id))) }}
+{{ Form::open(array('class' => 'form form-bordered', 'method' => 'PATCH', 'route' => array('user.updateProfile'))) }}
 @stop
 
 @section('form-actions')
@@ -14,12 +14,6 @@ Edit Profil
 
 @section('form-left')
 <div class="form-body form-horizontal">
-  <div class="form-group">
-    {{ Form::label('role', 'Role:', array('class'=>'col-md-4 control-label')) }}
-    <div class="col-sm-8">
-      <p class="form-control-static">{{$user->role->name}}</p>
-    </div>
-  </div>
   <div class="form-group">
     {{ Form::label('first_name', 'First Name:', array('class'=>'col-md-4 control-label')) }}
     <div class="col-sm-8">

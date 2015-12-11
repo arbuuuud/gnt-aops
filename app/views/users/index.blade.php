@@ -19,11 +19,11 @@
 						<th>ID</th>
 						<th>First Name</th>
 						<th>Last Name</th>
-						<th>User Name</th>
 						<th>Email</th>
 						<th>Role</th>
 						<th>Active</th>
 						<th>Created At</th>
+						<th>Last Update</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -33,11 +33,11 @@
 						<td>{{$user->id}}</td>
 						<td><a href="{{ route('admin.users.edit', $user->id) }}">{{ $user->first_name }}</a></td>
 						<td>{{$user->last_name}}</td>
-						<td>{{$user->user_name}}</td>
 						<td>{{$user->email}}</td>
 						<td>{{$user->role->name}}</td>
 						<td>{{ $user->active == '1' ? '<span class="label label-success">Aktif</span>' : '<span class="label label-default">Non-aktif</span>' }}</td>
 						<td>{{ $user->translateDate($user->created_at) }}</td>
+						<td>{{ $user->translateDate($user->updated_at) }}</td>
 						<td>
 							<div class="btn-group">
 								<a href="{{ route('admin.users.edit', $user->id) }}"><button type="button" class="btn yellow">Edit</button></a>

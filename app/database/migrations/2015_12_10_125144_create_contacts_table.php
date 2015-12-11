@@ -25,8 +25,8 @@ class CreateContactsTable extends Migration {
 			$table->string('address');
 			$table->string('state');
 			$table->string('city');
-			$table->integer('phone_home');
-			$table->integer('phone_mobile');
+			$table->string('phone_home');
+			$table->string('phone_mobile');
 			$table->string('province');
 			$table->string('gender');
 			$table->string('description');
