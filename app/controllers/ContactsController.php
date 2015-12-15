@@ -56,9 +56,11 @@ class ContactsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$Contact = Contact::findOrFail($id);
+		$contact = Contact::findOrFail($id);
+		$contacts = Contact::all();
+		$email_histories = $contact->emailhistories;
 
-		return View::make('contacts.show', compact('Contact'));
+		return View::make('contacts.show', compact('contact','contacts','email_histories'));
 	}
 
 	/**
@@ -72,9 +74,9 @@ class ContactsController extends \BaseController {
 		$active = ['1' => 'Active','0' => 'Not Active'];
 		$automaticFollowUp = ['1' => 'Automatic','0' => 'Manual'];
 		$gender = ['1'=>'Male','0'=>'Female'];
-		$Contact = Contact::find($id);
+		$contact = Contact::find($id);
 
-		return View::make('contacts.edit', compact('Contact', 'active','automaticFollowUp','gender'));
+		return View::make('contacts.edit', compact('contact', 'active','automaticFollowUp','gender'));
 	}
 
 	/**
@@ -85,7 +87,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$Contact = Contact::findOrFail($id);
+		$contact = Contact::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), Contact::$rules);
 
@@ -94,7 +96,7 @@ class ContactsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$Contact->update($data);
+		$contact->update($data);
 
 		return Redirect::route('admin.contacts.index');
 	}

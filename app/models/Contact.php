@@ -84,9 +84,9 @@ class Contact extends \Eloquent {
 
 	protected $guarded = array();
 
-	public function user()
+	public function emailhistories()
     {
-        return $this->hasMany('user');
+        return $this->hasMany('EmailHistory','contact_id');
     }
 
 }

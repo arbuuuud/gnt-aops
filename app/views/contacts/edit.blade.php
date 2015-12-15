@@ -5,13 +5,13 @@ Edit Contact Data
 @stop
 
 @section('form-open')
-{{ Form::model($Contact, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array('admin.contacts.update', $Contact->id), 'files' => true)) }}
+{{ Form::model($contact, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array('admin.contacts.update', $contact->id), 'files' => true)) }}
 @stop
 
 @section('form-actions')
 {{ link_to_route('admin.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
-<a href="{{URL::to('admin/contacts/'.$Contact->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
+<a href="{{URL::to('admin/contacts/'.$contact->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
 @stop
 
 @section('form-left')
