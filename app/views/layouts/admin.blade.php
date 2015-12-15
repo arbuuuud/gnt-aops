@@ -111,6 +111,9 @@
           <a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
+          <a href="{{ route('admin.members.index') }}"><i class="fa fa-user"></i> Members</a>
+        </li>
+        <li>
           <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> Users</a>
         </li>
         <li>

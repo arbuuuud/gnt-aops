@@ -6,14 +6,13 @@ class Member extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		'number' 	=> 'required|unique:members',
-		'name' 		=> 'required',
-        'slug'      => 'required|alpha_dash|unique:members',
-		'pob' 		=> 'required',
-		'dob' 		=> 'required'
+        'first_name' => 'required',
+        'email' => 'required|email',
+        'address' => 'required',
+        'phone_home' => 'required|string',
 	];
 
-	// Custom validation rules for store (update)
+	/* Custom validation rules for store (update)
 	public static function rules ($id=0, $merge=[]) {
         return array_merge(
             [
@@ -24,58 +23,13 @@ class Member extends \Eloquent {
 				'dob' 		=> 'required'
             ], 
         $merge);
-    }
+    }*/
 
-    public function period()
+    public function users()
     {
-    	return $this->belongsTo('Period');
+    	return $this->belongsTo('users');
     }
-
-    public function area()
-    {
-        return $this->belongsTo('Area');
-    }
-
-    public function fraction()
-    {
-        return $this->belongsTo('Fraction');
-    }
-
-    public function organization()
-    {
-        return $this->belongsTo('Organization');
-    }
-
-    public function posts()
-    {
-        return $this->belongsToMany('Post','member_post');
-    }
-
-    public function galleries()
-    {
-        return $this->belongsToMany('Gallery','member_galleries');
-    }
-
-    public function scopeOrganizationLeader($query)
-    {
-        return $query->where('organization_position', '=', '1');
-    }
-
-    public function scopeOfId($query, $id)
-    {
-        return $query->where('organization_id', '=', $id);
-    }
-
-    public function scopePublished($query)
-    {
-        return $query->whereStatus('1');
-    }
-
-    public function scopeOrganizationSort($query)
-    {
-        return $query->orderBy('organization_order', 'ASC');
-    }
-
+/*
     public static function translateDate($date)
     {
         $convert_date = strtotime($date);
@@ -120,5 +74,6 @@ class Member extends \Eloquent {
 
         return $day . ", " . $daynum . " " . $month . " " . $year . " - " . $hour . ":" . $minute;
     }
+    */
 
 }

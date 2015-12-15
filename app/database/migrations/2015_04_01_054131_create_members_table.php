@@ -18,18 +18,18 @@ class CreateMembersTable extends Migration {
 			$table->integer('user_id')->unsigned();
 			$table->string('first_name');
 			$table->string('last_name');
+			$table->string('email');
+			$table->integer('active')->default(1);
+			$table->string('address');
+			$table->string('city');
+			$table->string('phone_home');
+			$table->string('phone_mobile');
+			$table->string('province');
+			$table->string('gender');
 			$table->string('slug');
 			$table->string('image')->nullable();
 			$table->string('pob');
 			$table->string('dob');
-			$table->string('gender');
-			$table->string('email');
-			$table->string('address');
-			$table->string('city');
-			$table->string('province');
-			$table->string('phone_home');
-			$table->string('phone_mobile');
-			$table->integer('active')->default(1);
 			$table->timestamps();
 		});
 	}
