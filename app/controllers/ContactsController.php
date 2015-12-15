@@ -42,9 +42,17 @@ class ContactsController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-
-		Contact::create($data);
-
+		
+		$data['member_id'] = 1;   //anto : isi ngasal dulu deh to pake id 1 (pastiin member id 1 ada di phpmyadmin ya nto.. kalo g ada buat aja ngasal) 
+									// anto : sama di table member_configuration insert manual dlu ya nto di phpmyadmin biar function insertpool dibawah g error
+									        //isi pake : id=1, member_id=1, param_code=FOLLOW_UP_SEQUENCE, param_value= 3
+		$data['active'] = 1;
+		$data['isAutomaticFollowUp'] = 1;
+		$data['email_sent'] = "";
+		
+		$contact = Contact::create($data);
+		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
+		 
 		return Redirect::route('admin.contacts.index');
 	}
 
