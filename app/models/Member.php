@@ -7,9 +7,14 @@ class Member extends \Eloquent {
 	// Add your validation rules here
 	public static $rules = [
         'first_name' => 'required',
+        'last_name' => 'required',
         'email' => 'required|email',
+        'password' => 'required|min:6|confirmed',
+        'password_confirmation'     => 'required|min:6',
         'address' => 'required',
-        'phone_home' => 'required|string',
+        'city' => 'required',
+        'gender' => 'required',
+        'phone_mobile' => 'required|string',
 	];
 
 	/* Custom validation rules for store (update)

@@ -39,10 +39,16 @@ Edit Member Data
         </div>
     </div>
   <div class="form-group">
-    {{ Form::label('active', 'Active', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::select('active', $active, null, array('class'=>'form-control')) }}
-        </div>
+    {{ Form::label('password', 'Password:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+      {{ Form::password('password', array('class'=>'form-control')) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {{ Form::label('password_confirmation', 'Password Confirmation:', array('class'=>'col-md-2 control-label')) }}
+    <div class="col-sm-10">
+      {{ Form::password('password_confirmation', array('class'=>'form-control')) }}
+    </div>
   </div>
 	<div class="form-group">
 		{{ Form::label('address', 'Address:', array('class'=>'col-md-2 control-label')) }}
