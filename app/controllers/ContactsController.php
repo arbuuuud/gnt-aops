@@ -52,7 +52,7 @@ class ContactsController extends \BaseController {
 		
 		$contact = Contact::create($data);
 		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
-		 
+		
 		return Redirect::route('admin.contacts.index');
 	}
 
@@ -106,7 +106,7 @@ class ContactsController extends \BaseController {
 
 		$contact->update($data);
 
-		return Redirect::route('admin.contacts.index');
+		return Redirect::route('admin.contacts.edit', $member->id)->with("message","Data berhasil disimpan");
 	}
 
 	/**
@@ -119,7 +119,8 @@ class ContactsController extends \BaseController {
 	{
 		Contact::destroy($id);
 
-		return Redirect::route('admin.contacts.index');
+		return Redirect::route('admin.contacts.index')->with('message', 'Data deleted successfully');
+
 	}
 
 }

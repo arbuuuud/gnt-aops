@@ -11,7 +11,7 @@ Edit Contact Data
 @section('form-actions')
 {{ link_to_route('admin.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
-<a href="{{URL::to('admin/contacts/'.$contact->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
+<a href="{{URL::to('admin/contacts/'.$contact->id)}}" class="btn red" data-method="delete" data-confirm="Are you sure you want to delete this entry?">Delete</a>
 @stop
 
 @section('form-left')

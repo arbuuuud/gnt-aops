@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
-			Daftar Anggota
+			Member List
 			<a href="{{route('admin.members.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
 		</h3>
 		@if (Session::get('message'))
@@ -17,42 +17,49 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>#Anggota</th>
-						<th></th>
-						<th>Nama</th>
-						<th>Fraksi</th>
-						<th>Daerah Pemilihan</th>
-						<th>Badan</th>
-						<th>Periode</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Active</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>Phone (Home)</th>
+						<th>Phone (Mobile)</th>
+						<th>Province</th>
+						<th>Gender</th>
+						<th>Photo</th>
+						<th>Place Of Birth</th>
+						<th>Date Of Birth</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-				@foreach($members as $item)
+				@foreach($members as $member)
 					<tr>
-						<td>{{ $item->id }}</td>
-						<td>{{ $item->number }}</td>
+						<td>{{ $member->id }}</td>
+						<td>{{ $member->first_name }}</td>
+						<td>{{ $member->last_name}}</td>
+						<td>{{ $member->email }}</td>
+						<td>{{ $member->active == '1' ? 'Yes' : 'No' }}</td>
+						<td>{{ $member->address }}</td>
+						<td>{{ $member->city }}</td>
+						<td>{{ $member->phone_home }}</td>
+						<td>{{ $member->phone_mobile }}</td>
+						<td>{{ $member->province }}</td>
+						<td>{{ $member->gender }}</td>
 						<td>
-						@if($item->image)
-		               		{{ HTML::image( $item->image, $item->name, array( 'width' => '125', 'class' => 'media-object' ) ) }}
+						@if($member->image)
+		               		{{ HTML::image( $member->image, $member->name, array( 'width' => '125', 'class' => 'media-object' ) ) }}
 			            @else
-			            	{{ HTML::image( 'img/default-members.jpg', $item->name, array( 'width' => '125', 'class' => 'media-object' ) ) }}
+			            	{{ HTML::image( 'img/default-members.jpg', $member->name, array( 'width' => '125', 'class' => 'media-object' ) ) }}
 			            @endif
 						</td>
-						<td><strong>{{ $item->name }}</strong><br/>{{ $item->pob.", ".$item->dob }}</td>
-						<td>
-							<p><a href="{{ route('admin.fractions.show', $item->fraction->slug) }}">{{$item->fraction->name}}</a></p>
-							<label class="label label-primary">{{($item->fraction_position == '1') ? 'Pimpinan' : 'Anggota'}}</label>
-						</td>
-						<td>{{$item->area->name}}</td>
-						<td>
-							<p><a href="{{ route('admin.organizations.show', $item->organization->slug) }}">{{$item->organization->name}}</a></p>
-							<label class="label label-primary">{{($item->organization_position == '1') ? 'Pimpinan' : 'Anggota'}}</label>
-						</td>
-						<td>{{$item->period->name}}</td>
+						<td>{{ $member->pob }}</td>
+						<td>{{ $member->dob }}</td>
+						
 						<td>
 							<div class="btn-group">
-								<a href="{{ route('admin.members.edit', $item->id) }}"><button type="button" class="btn yellow">Edit</button></a>
+								<a href="{{ route('admin.members.edit', $member->id) }}"><button type="button" class="btn yellow">Edit</button></a>
 							</div>
 						</td>
 					</tr>

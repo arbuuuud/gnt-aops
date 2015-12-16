@@ -9,7 +9,8 @@ class MembersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$members = Member::orderBy('name', 'asc')->get();
+		$members = Member::all();
+//		$members = Member::orderBy('first_name', 'asc')->get();
 
 		return View::make('members.index', compact('members'));
 	}
@@ -21,12 +22,10 @@ class MembersController extends \BaseController {
 	 */
 	public function create()
 	{
-		$periods = Period::lists('name', 'id');
-		$areas = Area::lists('name', 'id');
-		$organizations = Organization::lists('name', 'id');
-		$fractions = Fraction::lists('name', 'id');
+		$active = ['1' => 'Active','0' => 'Not Active'];
+		$gender = ['1'=>'Male','0'=>'Female'];
 
-		return View::make('members.create', compact('periods','areas','organizations','fractions'));
+		return View::make('members.create', compact('members','active','gender'));
 	}
 
 	/**
@@ -37,7 +36,6 @@ class MembersController extends \BaseController {
 	public function store()
 	{
 		$data = Input::all();
-		$data['slug'] = $this->slugify(Input::get('name'));
 
 		$validator = Validator::make($data, Member::$rules);
 
@@ -118,13 +116,11 @@ class MembersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		$active = ['1' => 'Active','0' => 'Not Active'];
+		$gender = ['1'=>'Male','0'=>'Female'];
 		$member = Member::find($id);
-		$periods = Period::lists('name', 'id');
-		$areas = Area::lists('name', 'id');
-		$organizations = Organization::lists('name', 'id');
-		$fractions = Fraction::lists('name', 'id');
 
-		return View::make('members.edit', compact('member','periods','areas','organizations','fractions'));
+		return View::make('members.edit', compact('member','active','gender'));
 	}
 
 	/**
@@ -133,6 +129,23 @@ class MembersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	
+	public function update($id)
+	{
+		$member = Member::findOrFail($id);
+
+		$validator = Validator::make($data = Input::all(), Member::$rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		$member->update($data);
+
+		return Redirect::route('admin.members.edit', $member->id)->with("message","Data saved successfully");
+	}
+/*
 	public function update($id)
 	{
 		$member = Member::findOrFail($id);
@@ -167,7 +180,7 @@ class MembersController extends \BaseController {
 
 		return Redirect::route('admin.members.edit', $member->id)->with("message","Data berhasil disimpan");
 	}
-
+*/
 	/**
 	 * Remove the specified member from storage.
 	 *
@@ -178,9 +191,9 @@ class MembersController extends \BaseController {
 	{
 		Member::destroy($id);
 
-		return Redirect::route('admin.members.index')->with('message', 'Data berhasil dihapus');
+		return Redirect::route('admin.members.index')->with('message', 'Data deleted successfully');
 	}
-
+/*
 	public function slugify($text)
     { 
       // replace non letter or digits by -
@@ -205,5 +218,5 @@ class MembersController extends \BaseController {
 
       return $text;
     }
-
+*/
 }
