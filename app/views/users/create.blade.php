@@ -51,11 +51,5 @@ Tambah Data User
       {{ Form::password('password_confirmation', array('class'=>'form-control')) }}
     </div>
   </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Status:', array('class'=>'col-md-4 control-label')) }}
-        <div class="col-sm-8">
-          {{ Form::select('active', $status, null, array('class'=>'form-control')) }}
-        </div>
-    </div>
 </div>
 @stop
