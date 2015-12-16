@@ -68,7 +68,7 @@ class MembersController extends \BaseController {
 		$memberconfig = new MemberConfiguration();
 		$memberconfig->param_code = "FOLLOW_UP_SEQUENCE";
 		$memberconfig->param_value = 3;
-		$memberconfig->member_id = $member->user_id;
+		$memberconfig->member_id = $member->id;
 		$memberconfig->save();
 
 		if (Input::hasFile('image')) {
