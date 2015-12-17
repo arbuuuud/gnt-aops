@@ -1,15 +1,15 @@
-@extends('layouts.adminform')
+@extends('layouts.'.Auth::user()->roleString().'form')
 
 @section('form-title')
 Contacts
 @stop
 
 @section('form-open')
-{{ Form::open(array('class' => 'form form-bordered', 'route' => array('admin.contacts.store'), 'files' => true)) }}
+{{ Form::open(array('class' => 'form form-bordered', 'route' => array(Auth::user()->roleString().'.contacts.store'), 'files' => true)) }}
 @stop
 
 @section('form-actions')
-{{ link_to_route('admin.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
+{{ link_to_route(Auth::user()->roleString().'.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
 @stop
 

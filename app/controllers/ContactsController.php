@@ -9,8 +9,16 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$contacts = Contact::all();
-
+		if(Auth::user()->isAdmin()){
+			$contacts = Contact::all();
+		}else{
+			$member = Member::where('user_id',Auth::user()->id)->first();
+			if($member){
+				$contacts = Contact::where('member_id',$member->id)->get();
+			}else{
+				$contacts = null;
+			}
+		}
 		return View::make('contacts.index', compact('contacts'));
 	}
 
@@ -25,7 +33,6 @@ class ContactsController extends \BaseController {
 		$active = ['1' => 'Active','0' => 'Not Active'];
 		$automaticFollowUp = ['1' => 'Automatic','0' => 'Manual'];
 		$gender = ['1'=>'Male','0'=>'Female'];
-
 		return View::make('contacts.create', compact('active','automaticFollowUp','gender'));
 	}
 

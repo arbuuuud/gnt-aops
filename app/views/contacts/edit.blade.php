@@ -1,17 +1,16 @@
-@extends('layouts.adminform')
-
+@extends('layouts.'.Auth::user()->roleString().'form')
 @section('form-title')
 Edit Contact Data
 @stop
 
 @section('form-open')
-{{ Form::model($contact, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array('admin.contacts.update', $contact->id), 'files' => true)) }}
+{{ Form::model($contact, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array(.Auth::user()->roleString().'.contacts.update', $contact->id), 'files' => true)) }}
 @stop
 
 @section('form-actions')
-{{ link_to_route('admin.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
+{{ link_to_route(.Auth::user()->roleString().'.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
-<a href="{{URL::to('admin/contacts/'.$contact->id)}}" class="btn red" data-method="delete" data-confirm="Are you sure you want to delete this entry?">Delete</a>
+<a href="{{URL::to(Auth::user()->roleString().'/contacts/'.$contact->id)}}" class="btn red" data-method="delete" data-confirm="Are you sure you want to delete this entry?">Delete</a>
 @stop
 
 @section('form-left')
