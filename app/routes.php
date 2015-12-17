@@ -58,6 +58,12 @@ Route::get('rss/suratpembaca', array('uses' => 'RSSController@generateSuratPemba
 Route::get('rss/beritaterkini', array('uses' => 'RSSController@generateLatestPost'));
 Route::get('rss/beritaterpopuler', array('uses' => 'RSSController@generatePopularPost'));
 
+// Member routes
+Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
+{
+    Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
+    Route::resource('contacts', 'ContactsController');
+});
 // Admin routes
 Route::group(array('prefix' => 'admin','before' => 'auth'), function()
 {

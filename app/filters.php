@@ -46,8 +46,28 @@ Route::filter('auth', function()
 			return Redirect::guest('login');
 		}
 	}
+	if(Auth::user()->role_id!=1){
+		return Response::make('Unauthorized', 401);
+	}
 });
 
+Route::filter('memberauth', function()
+{
+	if (Auth::guest())
+	{
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('login');
+		}
+	}
+	if(Auth::user()->role_id!=2){
+		return Response::make('Unauthorized', 401);
+	}
+});
 
 Route::filter('auth.basic', function()
 {

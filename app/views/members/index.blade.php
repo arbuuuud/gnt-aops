@@ -5,7 +5,7 @@
 	<div class="col-md-12">
 		<h3 class="page-title">
 			Member List
-			<a href="{{route('admin.members.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
+			<a href="{{route('admin.members.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Registrasi Member</a>
 		</h3>
 		@if (Session::get('message'))
 		<div class="alert alert-success">

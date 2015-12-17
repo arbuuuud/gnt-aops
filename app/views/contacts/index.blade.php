@@ -1,11 +1,11 @@
-@extends('layouts.admin')
+@extends('layouts.'.Auth::user()->roleString())
 
 @section('content')
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
 			Daftar Semua Contact
-			<a href="{{route('admin.contacts.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
+			<a href="{{route(Auth::user()->roleString().'.contacts.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Registrasi Contact</a>
 		</h3>
 		@if (Session::get('message'))
 		<div class="alert alert-success">
@@ -36,10 +36,11 @@
 					</tr>
 				</thead>
 				<tbody>
+				@if($contacts)
 				@foreach($contacts as $contact)
 					<tr>
 						<td>{{$contact->id}}</td>
-						<td><a href="{{ route('admin.contacts.show', $contact->id) }}">{{ $contact->first_name }}</a></td>
+						<td><a href="{{ route(Auth::user()->roleString().'.contacts.show', $contact->id) }}">{{ $contact->first_name }}</a></td>
 						<td>{{$contact->last_name}}</td>
 						<td>{{$contact->email}}</td>
 						<td>{{$contact->last_follow_up}}</td>
@@ -56,11 +57,12 @@
 						<td>{{$contact->description}}</td>
 						<td>
 							<div class="btn-group">
-								<a href="{{ route('admin.contacts.edit', $contact->id) }}"><button type="button" class="btn yellow">Edit</button></a>
+								<a href="{{ route(Auth::user()->roleString().'.contacts.edit', $contact->id) }}"><button type="button" class="btn yellow">Edit</button></a>
 							</div>
 						</td>
 					</tr>
 				@endforeach
+				@endIf
 				</tbody>
 			</table>
 		</div>

@@ -35,6 +35,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		
 	];
 
+	public function roleString(){
+		if($this->role_id==1){
+			return "admin";
+		}else{
+			return "member";
+		}
+	}
+	public function isAdmin(){
+		if($this->role_id==1){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function role()
     {
         return $this->belongsTo('role');

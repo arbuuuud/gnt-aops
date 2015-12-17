@@ -7,6 +7,12 @@ class MembersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+    public function showDashboard()
+	{
+		return View::make('members.dashboard');
+	}
+
 	public function index()
 	{
 		$members = Member::all();
