@@ -88,4 +88,53 @@ class MemberConfigurationsController extends \BaseController {
 		//
 	}
 
+	public function config()
+	{
+		$id = Auth::user()->id;
+		$member = Member::where('user_id', $id)->first();
+		$member_id = $member->id;
+		$member_configurations = MemberConfiguration::where ('member_id', $member_id)->get();
+		return View::make('member_configurations.member', compact('member_configurations'));
+	}
+
+	public function storeconfig() 
+	{
+		$input = Input::all();
+
+		$id = Auth::user()->id;
+		$member = Member::where('user_id', $id)->first();
+		$member_id = $member->id;
+		$member_configurations = MemberConfiguration::where('member_id', $member_id)->get();
+
+		foreach ($member_configurations as $member_configuration) {
+			$param_code = $member_configuration->param_code;
+			$param_value = $input[$param_code];
+			$member_configuration->param_value = $param_value;
+			$member_configuration->save();
+
+		}
+
+
+
+		return Redirect::route('member.storeconfig', $member->id)->with("message","Data berhasil disimpan");
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
