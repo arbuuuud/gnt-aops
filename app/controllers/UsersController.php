@@ -39,7 +39,7 @@ class UsersController extends BaseController {
 		    	// validation successful!
 		        // redirect them to the secure section or whatever
 		        // Auth::user()->role;
-		        return Redirect::to('admin/dashboard');
+		        return Redirect::to(Auth::user()->roleString().'/dashboard');
 
 		    } else {        
 
@@ -125,7 +125,7 @@ class UsersController extends BaseController {
 			'last_name'		=> Input::get('last_name'),
 			'password'		=> Hash::make(Input::get('password')),
 			'email'			=> Input::get('email'),
-			'active'		=> Input::get('active'),
+			'active'		=> 1,
 			'role_id'		=> Input::get('role_id'),
 		);
 
