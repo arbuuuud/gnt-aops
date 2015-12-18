@@ -64,6 +64,8 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 {
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
     Route::resource('contacts', 'ContactsController');
+    Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
+    Route::post('configuration', array('uses'=>'MemberConfigurationsController@storeconfig', 'as' => 'member.storeconfig'));
 });
 // Admin routes
 Route::group(array('prefix' => 'admin','before' => 'auth'), function()
