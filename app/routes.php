@@ -10,18 +10,10 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('test', function()
+Route::get('sendmail', function()
 {
-    try
-    {
-        $response = Twitter::getUserTimeline(['count' => 20, 'format' => 'array']);
-    }
-    catch (Exception $e)
-    {
-        dd(Twitter::logs());
-    }
-
-    dd($response);
+    $email = new EmailSchedullerPool;
+    $email->sendmail();
 });
 Route::get('/', array('uses' => 'PagesController@showHome'));
 
