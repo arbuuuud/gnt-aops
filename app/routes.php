@@ -29,6 +29,7 @@ Route::get('/', array('uses' => 'PagesController@showHome'));
 Route::get('login', array('uses' => 'UsersController@showLogin'));
 Route::post('login', array('uses' => 'UsersController@doLogin'));
 Route::get('logout', array('uses' => 'UsersController@doLogout'));
+Route::get('runscheduller', array('uses' => 'EmailSchedullerPoolsController@runscheduller'));
 
 // Media routes
 Route::get('foto', array('uses' => 'GalleryCategoriesController@showPublicIndex'));
