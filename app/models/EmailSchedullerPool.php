@@ -18,7 +18,8 @@ class EmailSchedullerPool extends \Eloquent {
     //     return $this->belongsTo('EmailTemplate');
     // }
 
-   	public function sendmail($memberid,$contactid,templateid)
+/* ENGINE FOR SEND EMAIL*/
+   	private function sendmail($memberid,$contactid,$templateid)
     {
     	// Sample Data
     	$data['member'] = Member::findOrFail($memberid);
@@ -37,11 +38,37 @@ class EmailSchedullerPool extends \Eloquent {
         }
 
     }
+/* get email to be executed in date now */
     public function getTargetEmails(){
         
         $polls = EmailSchedullerPool::where( DB::raw('DAY(execution_date)'), '=', date('d') )->get();
         return $polls;
     }
+/*
+Send Email Manual
+*/
+    public function sendManualEmail($memberid,$contactid,$templateid){
+        $contact = Contact::findOrFail($contactid);
+        if($this->sendmail($memberid,$contactid,$templateid)){
+            if($contact->email_sent == "" ||$contact->email_sent ==0){
+                $contact->email_sent=$templateid;
+                $contact->save();
+            }else if($contact->templateExist($templateid)){
+                //do nothing
+            }else{
+                $contact->email_sent=$contact->email_sent.",".$templateid;
+                $contact->save();
+            }
+            $contact->saveHistory("success",$memberid,$templateid);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+/*
+AUTOMATIC EMAIL TRIGER
+*/
     public function executeEmails(){
         $pools = $this->getTargetEmails();
         if(!$pools){

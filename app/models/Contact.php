@@ -3,7 +3,7 @@
 class Contact extends \Eloquent {
 
 	protected $fillable = [];
-
+/* Check template if exist in contact history */
 	public function templateExist($template_id)
     {
     	//$memberConfiguration  = MemberConfiguration::where('param_code','FOLLOW_UP_SEQUENCE')->where('member_id',$member_id)->first();
