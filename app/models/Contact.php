@@ -4,7 +4,7 @@ class Contact extends \Eloquent {
 
 	protected $fillable = [];
 
-	public function checkStatusScheduller($template_id)
+	public function templateExist($template_id)
     {
     	//$memberConfiguration  = MemberConfiguration::where('param_code','FOLLOW_UP_SEQUENCE')->where('member_id',$member_id)->first();
         
@@ -12,7 +12,7 @@ class Contact extends \Eloquent {
         // 	return -1;
         // }
         $emailSent = $this->email_sent;
-        if($emailSent == "" || $emailSent == null){
+        if($emailSent == "" || $emailSent == null|| $emailSent == "0"){
         	return 0;
         }
         if (strpos($emailSent,',') !== false) {	
@@ -54,25 +54,39 @@ class Contact extends \Eloquent {
 
         if($emailSchedullerPool){
             //save history       
-            $emailHistory = new emailHistory();
-            $emailHistory->template_id= $emailSchedullerPool->template_id;
-            $emailHistory->member_id = $emailSchedullerPool->member_id;
-            $emailHistory->contact_id = $emailSchedullerPool->contact_id;
-//!!!!!!!!!!!!! arbud: add status in delete !!!!!!!!!!!!!!
-            $emailHistory->date_sent = date('Y-m-d H:i:s');
-            $emailHistory->save();
+            $this->saveHistory("canceled",$emailSchedullerPool->member_id,$emailSchedullerPool->template_id);
             //delete pool
             $emailSchedullerPool->delete();   
         }
         //add entry
         if($contactTarget->active && $memberTarget->active){
-        	$stag->save();
-        	return $stag->toJson();	
+            $stag->save();
+            return $stag->toJson(); 
         }else{
-        	return null;
+            return null;
         }
     }
-
+    public function getAvalaibleTemplate(){
+        $maxtemplate = 8;
+        $templateTarget=1;
+        while($templateTarget<=$maxtemplate){
+            if($this->templateExist($templateTarget)){
+                $templateTarget++;
+            }else{
+                return $templateTarget;
+            } 
+        }
+        return 0;
+    }
+    public function saveHistory($status,$member_id,$template_id){
+            $emailHistory = new emailHistory();
+            $emailHistory->template_id= $template_id;
+            $emailHistory->member_id = $member_id;
+            $emailHistory->contact_id = $this->id;
+            $emailHistory->status = $status;
+            $emailHistory->date_sent = date('Y-m-d H:i:s');
+            $emailHistory->save();
+    }
 	// Add your validation rules here
 	public static $rules = [
 		'first_name' => 'required',
@@ -88,6 +102,26 @@ class Contact extends \Eloquent {
 	public function emailhistories()
     {
         return $this->hasMany('EmailHistory','contact_id');
+    }
+
+    public function encryptContact(){
+        $secret = Crypt::encrypt($this->id); //encrypted
+        return $secret;
+    }
+    public static function decryptContact($contactString){
+        try{
+            $decrypted_secret = Crypt::decrypt($contactString); //decrypted
+            $contact = Contact::find($decrypted_secret);
+
+        }catch(Exception $e){
+            return null;
+        }
+
+        return $contact;
+
+
+
+
     }
 
 }

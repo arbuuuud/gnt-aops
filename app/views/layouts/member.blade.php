@@ -116,10 +116,10 @@
             <i class="fa fa-cogs"></i> Settings
             <span class="arrow "></span>
             <ul class="sub-menu">
-              <!-- <li>
-                <a href="{{ route('admin.sysparams.index') }}">
-                <i class="fa fa-cogs"></i> Interfaces</a>
-              </li> -->
+              <li>
+                <a href="{{ route('member.configuration') }}">
+                <i class="fa fa-cogs"></i> Member Configuration</a>
+              </li>
             </ul>
           </a>
       </ul>

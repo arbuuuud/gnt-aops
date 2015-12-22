@@ -17,6 +17,7 @@ class CreateEmailHistoriesTable extends Migration {
 			$table->increments('id');
 			$table->integer('template_id');
 			$table->integer('member_id');
+			$table->string('status');
 			$table->integer('contact_id')->unsigned();
 			$table->datetime('date_sent');
 			$table->integer('is_automatic');

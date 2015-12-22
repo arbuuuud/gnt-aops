@@ -16,11 +16,14 @@ Route::get('sendmail', function()
     $email->sendmail();
 });
 Route::get('/', array('uses' => 'PagesController@showHome'));
+Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
+Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
 // Auth routes
 Route::get('login', array('uses' => 'UsersController@showLogin'));
 Route::post('login', array('uses' => 'UsersController@doLogin'));
 Route::get('logout', array('uses' => 'UsersController@doLogout'));
+Route::get('runscheduller', array('uses' => 'EmailSchedullerPoolsController@runscheduller'));
 
 // Media routes
 Route::get('foto', array('uses' => 'GalleryCategoriesController@showPublicIndex'));
@@ -55,6 +58,8 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 {
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
     Route::resource('contacts', 'ContactsController');
+    Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
+    Route::post('configuration', array('uses'=>'MemberConfigurationsController@storeconfig', 'as' => 'member.storeconfig'));
 });
 // Admin routes
 Route::group(array('prefix' => 'admin','before' => 'auth'), function()

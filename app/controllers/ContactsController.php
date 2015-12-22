@@ -130,4 +130,26 @@ class ContactsController extends \BaseController {
 
 	}
 
+	public function unsubscribe($contactstring)
+	{
+		// return $this->encryptContact(1);
+		// $contact = Contact::decryptContact($contactstring);
+		// return $contact->email;	
+		return View::make('pages.templates.unsubscribe')->with('contactstring', $contactstring);;
+	}
+	public function unsubscribeconfirm($contactString)
+	{
+		//return page unsubscribe
+		$contact = Contact::decryptContact($contactString);
+		if($contact){
+			$contact->active = 0;
+			$contact->save();
+			$message = 'Contact berhasil di unsubscribe';
+		}else{
+			$message = 'gagal';
+		}
+		return View::make('pages.templates.unsubscribe')->with('message', $message);
+
+	}
+
 }
