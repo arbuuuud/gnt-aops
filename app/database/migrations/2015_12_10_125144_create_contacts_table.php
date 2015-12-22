@@ -19,12 +19,11 @@ class CreateContactsTable extends Migration {
 			$table->string('first_name');
 			$table->string('last_name');
 			$table->string('email');
-			$table->datetime('last_follow_up');
+			$table->datetime('last_follow_up')->dateTime('created_at');
 			$table->string('email_sent');
-			$table->integer('active');
-			$table->integer('isAutomaticFollowUp');
+			$table->integer('active')->default(1);
+			$table->integer('isAutomaticFollowUp')->default(1);
 			$table->string('address');
-			$table->string('state');
 			$table->string('city');
 			$table->string('phone_home');
 			$table->string('phone_mobile');

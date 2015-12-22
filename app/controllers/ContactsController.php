@@ -72,7 +72,7 @@ class ContactsController extends \BaseController {
 	public function show($id)
 	{
 		$contact = Contact::findOrFail($id);
-		$contacts = Contact::all();
+		$contacts = Contact::find($id);
 		$email_histories = $contact->emailhistories;
 
 		return View::make('contacts.show', compact('contact','contacts','email_histories'));
