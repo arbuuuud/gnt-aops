@@ -38,6 +38,8 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('ContactmailsTableSeeder');
 		// $this->call('VideosTableSeeder');
 		// $this->call('DocumentsTableSeeder');
+
+		$this->call('ContactsTableSeeder');
 	}
 
 }

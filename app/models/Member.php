@@ -34,6 +34,11 @@ class Member extends \Eloquent {
     {
     	return $this->belongsTo('users');
     }
+
+    public function contacts()
+    {
+        return $this->hasMany('Contact', 'member_id');
+    }
 /*
     public static function translateDate($date)
     {
