@@ -163,16 +163,42 @@ class MembersController extends \BaseController {
 	
 	public function update($id)
 	{
+
 		$member = Member::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Member::$rules);
+		$validator = Validator::make($data = Input::all(), Member::$ruleUpdate);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$member->update($data);
+		$user = new User();
+		$user->first_name = $data['first_name'];
+		$user->last_name = $data['last_name'];
+		$user->email = $data['email'];
+		$user->password = Hash::make($data['password']);
+		$user->save();	
+
+		$member = new Member();
+		$member->first_name = $data['first_name'];
+		$member->last_name = $data['last_name'];
+		$member->email = $data['email'];
+		$member->address = $data['address'];
+		$member->active = 1;
+		$member->user_id = $user->id;
+		$member->city = $data['city'];
+		$member->province = $data['province'];
+		$member->gender = $data['gender'];
+		$member->phone_mobile = $data['phone_mobile'];
+		$member->save();
+
+		$memberconfig = new MemberConfiguration();
+		$memberconfig->param_code = "FOLLOW_UP_SEQUENCE";
+		$memberconfig->param_value = 3;
+		$memberconfig->member_id = $member->id;
+		$memberconfig->save();
+
 
 		return Redirect::route('admin.members.edit', $member->id)->with("message","Data saved successfully");
 	}

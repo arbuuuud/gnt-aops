@@ -18,7 +18,6 @@
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
-          @foreach($contacts as $contact)
             <div role="tabpanel" class="tab-pane active container-fluid portlet box grey-cascade" id="details">
                 <div class="portlet-title">
                     <div class="caption">
@@ -39,8 +38,6 @@
                     <p>Description : {{$contact->description}}</p>
                 </div>
             </div>
-          @endforeach
-          @foreach($email_histories as $email_history)
             <div role="tabpanel" class="tab-pane" id="history">
                 <table class="table mpr_datatable">
                 <thead>
@@ -51,15 +48,16 @@
                     </tr>
                 </thead>
                 <tbody>
+          @foreach($email_histories as $email_history)
                     <tr>
                         <td class="text-center">{{$email_history->template_id}}</td>
                         <td class="text-center">{{date('d F, Y', strtotime($email_history->date_sent))}}</td>
                         <td class="text-center">{{$email_history->status}}</td>
                     </tr>
+            @endforeach
                 </tbody>
             </table>
             </div>
-            @endforeach
           </div>
         </div>
 

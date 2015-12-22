@@ -17,6 +17,16 @@ class Member extends \Eloquent {
         'phone_mobile' => 'required|string',
 	];
 
+    public static $ruleUpdate = [
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'email' => 'required|email',
+        'address' => 'required',
+        'city' => 'required',
+        'gender' => 'required',
+        'phone_mobile' => 'required|string',
+    ];
+
 	/* Custom validation rules for store (update)
 	public static function rules ($id=0, $merge=[]) {
         return array_merge(
