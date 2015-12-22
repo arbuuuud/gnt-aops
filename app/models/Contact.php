@@ -109,8 +109,14 @@ class Contact extends \Eloquent {
         return $secret;
     }
     public static function decryptContact($contactString){
-        $decrypted_secret = Crypt::decrypt($contactString); //decrypted
-        $contact = Contact::find($decrypted_secret);
+        try{
+            $decrypted_secret = Crypt::decrypt($contactString); //decrypted
+            $contact = Contact::find($decrypted_secret);
+
+        }catch(Exception $e){
+            return null;
+        }
+
         return $contact;
 
 
