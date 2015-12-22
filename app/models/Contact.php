@@ -104,4 +104,18 @@ class Contact extends \Eloquent {
         return $this->hasMany('EmailHistory','contact_id');
     }
 
+    public function encryptContact($contact){
+        $secret = Crypt::encrypt('1'); //encrypted
+        return $secret;
+    }
+    public static function decryptContact($contactString){
+        $decrypted_secret = Crypt::decrypt($contactString); //decrypted
+        $contact = Contact::find($decrypted_secret);
+        return $contact;
+
+
+
+
+    }
+
 }

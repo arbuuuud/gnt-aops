@@ -24,6 +24,8 @@ Route::get('test', function()
     dd($response);
 });
 Route::get('/', array('uses' => 'PagesController@showHome'));
+Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
+Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
 // Auth routes
 Route::get('login', array('uses' => 'UsersController@showLogin'));
