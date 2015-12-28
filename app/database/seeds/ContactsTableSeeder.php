@@ -21,7 +21,6 @@ class ContactsTableSeeder extends Seeder {
 			'active'					=> 1,
 			'isAutomaticFollowUp'		=> 1,
 			'address'					=> $faker->address,
-			'state'						=> $faker->state,
 			'city'						=> $faker->city,
 			'phone_home'				=> $faker->phoneNumber,
 			'phone_mobile'				=> $faker->phoneNumber,
