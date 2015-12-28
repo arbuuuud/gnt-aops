@@ -9,6 +9,11 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
+
+		$member = Member::all();
+
+		return var_dump($member->toJson());
+
 		if(Auth::user()->isAdmin()){
 			$contacts = Contact::all();
 		}else{

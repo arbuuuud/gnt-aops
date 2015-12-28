@@ -21,7 +21,6 @@ class CreateEmailHistoriesTable extends Migration {
 			$table->integer('contact_id')->unsigned();
 			$table->datetime('date_sent');
 			$table->integer('is_automatic');
-			$table->string('status');
 			$table->timestamps();
 		});
 	}
