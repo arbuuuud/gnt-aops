@@ -34,8 +34,6 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('MemberGalleriesTableSeeder');
 		// $this->call('QuotesTableSeeder');
 		// $this->call('MagazinesTableSeeder');
-		// $this->call('GuestmailsTableSeeder');
-		// $this->call('ContactmailsTableSeeder');
 		// $this->call('VideosTableSeeder');
 		// $this->call('DocumentsTableSeeder');
 
