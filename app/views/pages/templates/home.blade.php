@@ -63,6 +63,36 @@ Home
     </div>
 
     <div class="row">
+      <div id="peluang-textbanner" class="col-sm-12 text-center">
+          <h1 class="peluang-textbanner text-center"> 
+            Pilihan produk kami
+          </h1>
+      </div>
+      <div class="col-sm-4 text-center">
+        {{ HTML::image( 'img/product.png', 'logo-small', array( 'class' => 'product-image' ) ) }} 
+        <p><strong>GNT FIBER @ 6 sachet</strong></p>
+        <p>Harga: Rp. 120.000</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        {{ HTML::image( 'img/product-2.png', 'logo-small', array( 'class' => 'product-image' ) ) }} 
+        <p><strong>GNT FIBER @ 15 sachet</strong></p>
+        <p>Harga: Rp. 280.000</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        {{ HTML::image( 'img/product-3.png', 'logo-small', array( 'class' => 'product-image' ) ) }} 
+        <p><strong>GNT FIBER @ 30 sachet</strong></p>
+        <p>Harga: Rp. 500.000</p>
+      </div>
+    </div>
+
+    <div id="subscribe-row" class="row">
+      <div id="subscribe-button">
+        Klik disini untuk informasi lebih lanjut
+      </div>
+    </div>
+
+
+    <div class="row">
       <div class="col-sm-12">
         <h1 class="title text-center">JANGAN Bergabung Jika</h1>
         <span>Karena paket Franchise Online Store DASH2 adalah paket bisnis yang sangat serius dan berpotensi mendongkrak penghasilan Anda dengan CEPAT (dari Rp.1juta... Rp.5juta... Rp.10juta... Rp.50juta... Rp.100juta ... dan seterusnya) walaupun Anda hanya mengerjakannya secara sambilan, maka sebaiknya Anda tidak perlu bergabung jika:</span>

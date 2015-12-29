@@ -6,106 +6,101 @@ Home
 
 @section('content')
 <div class="container nopadding">
-        <div id="main-banner">
+        <div id="peluang-main-banner">
           {{ HTML::image( 'img/peluang.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
-          <div id="registration-box" class="col-sm-4">
-            <h1 class="registration-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </h1> 
-            <h2 class="registration-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet cursus dui vitae gravida.
-            </h2> 
-
-          {{ Form::text('last_name', Input::old('last_name'), array('class'=>'form-control','placeholder'=> 'Nama Lengkap')) }}
-          {{ Form::text('last_name', Input::old('last_name'), array('class'=>'form-control','placeholder'=> 'Email')) }}
-          {{ Form::text('last_name', Input::old('last_name'), array('class'=>'form-control','placeholder'=> 'No. Telepon')) }}
-
-            <button id="registration-box-submit">
-              Daftar
-            </button>
+          <div id="peluang-banner-text">
+            <h2 class="peluang text-lightgreen">Perhatian : Semua Pebisnis, Karyawan & Apapun profesi Anda!</h2>
+            <h2 class="peluang text-white">"Bagaimana Jika Hari Ini, ANDA BISA Memiliki Toko Online Kelas Dunia Seperti Amazon.com?"</h2>
+            <h2 class="peluang text-green">Walaupun saat ini Anda merasa GAPTEK, Tidak punya pengalaman dan Belum pernah bisnis online sama sekali. Mulai hari ini Anda bisa mendapatkan passive income dari Toko Online. </h2>
+            <div id="subscribe-row" class="row">
+              <div id="subscribe-button">
+                MULAI SEKARANG
+              </div>
+            </div>
           </div>
         </div>
     <div class="row">
-      <div class="col-sm-6 col-sm-offset-6">
-          <h1 class="title">
-          Franchise Online Store DASH2 adalah Satu-satunya solusi bisnis Toko Online/ eCommerce yang paling siap membantu Anda atau siapapun, termasuk orang awam untuk menjadi pengusaha ecommerce sukses karena:
-          </h1>
-      </div>        
-    </div>
-    <div id="small-items" class="row">
-      <div class="col-sm-4">
-          {{ HTML::image( 'img/logo-ecommerce.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
-          <h1 class="title text-center">
-              Sistem E-Commerce Ready
-          </h1>
-          <span class="text-center">Anda tidak perlu membuat website, dan mempersiapkan infrastruktur sendiri yang sangat rumit dan mahal</span>
-      </div>
-      <div class="col-sm-4">
-          {{ HTML::image( 'img/logo-box.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
-          <h1 class="title text-center">
-              Produk Mutakhir
-          </h1>
-          <span class="text-center">Produk ANTI AGING yang sangat laku dan dicari-cari orang di seluruh dunia, sehingga Anda Tidak perlu melakukan riset dan mencari supplier lagi.</span>
-      </div>
-      <div class="col-sm-4">
-          {{ HTML::image( 'img/logo-money.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
-          <h1 class="title text-center">
-              Potensi Income $100.000
-          </h1>
-          <span class="text-center">Tanpa perlu kantor, dan tanpa perlu karyawan, bahkan Anda tidak perlu stok dan mengatur pengirimannya, karena semua menggunakan sistem Dropshipping.</span>          
-      </div>
-    </div>
-
-    <div id="subscribe-row" class="row">
-      <div id="subscribe-button">
-        Klik Disini Untuk Isi Formulir
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 class="title text-center">JANGAN Bergabung Jika</h1>
-        <span>Karena paket Franchise Online Store DASH2 adalah paket bisnis yang sangat serius dan berpotensi mendongkrak penghasilan Anda dengan CEPAT (dari Rp.1juta... Rp.5juta... Rp.10juta... Rp.50juta... Rp.100juta ... dan seterusnya) walaupun Anda hanya mengerjakannya secara sambilan, maka sebaiknya Anda tidak perlu bergabung jika:</span>
-      </div>
-      <div class="col-sm-6">
-        <ul id="mainpage-tick">
-            <li>Anda Hanya Coba-Coba</li>
-            <li>Anda tidak bersedia mengikuti instruksi dalam membangun bisnis ini</li>
-            <li>Anda hanya menginginkan bisnis cepat kaya tanpa harus kerja</li>
-            <li>Anda tidak punya smartphone atau koneksi internet</li>
-            <li>Anda tidak bersedia investasi paket Basic senilai Rp.2,6Jt untuk memiliki bisnis Franchise Online Store tanpa resiko, bahkan mendapatkan Total Bonus senilai Rp.237juta</li>
-            <li>Anda sudah member Jeunesse</li>
-        </ul>
-      </div>
-      <div class="col-sm-6">
-        {{ HTML::image( 'img/banner-top.png', 'logo-small', array( 'class' => 'banner-image' ) ) }}  
-      </div>
-    </div>
-
-    <div id="subscribe-row" class="row">
-      <div id="subscribe-button">
-        Klik Disini Untuk Isi Formulir
-      </div>
-    </div>
-
-    <div class="row">
-        <div id="testimonial-box" class="col-sm-12">
-            <div class="col-sm-3 testimonial-photo">
-              {{ HTML::image( 'img/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
-            </div>
-            <div class="col-sm-9">
-              <h1 class="testimonial">
-                  Jessica Jones
-              </h1> 
-              <h2 class="testimonial">
-                  Phasellus laoreet cursus dui vitae gravida. Nam non eleifend ligula, vitae ultrices nisl.Lorem ipsum dolor sit amet.
-              </h2> 
-              <h3 class="testimonial">
-                  CEO Lorem
-              </h3> 
-            </div>
+      <div id="peluang-introduction" class="col-sm-12">
+        <span>
+          <p><strong>Dear Sahabatku,</strong></p>
+          <p>Berapa besar potensi penghasilan Anda per minggu, per bulan, per tahun?</p>
+          <p><strong>Bagaimana Jika</strong> Anda bisa memilikinya :</p>
+        </span> 
+        <div class="col-sm-6">
+          <ul id="cross-list">
+            <li><strong>TANPA</strong> Perlu Membuat Website</li>
+            <li><strong>TANPA</strong> Perlu mempersiapkan Produk & Supplier</li>
+            <li><strong>TANPA</strong> Perlu Stok Barang dan Pengirimannya</li>
+            <li><strong>TANPA</strong> Perlu Kantor dan Karyawan</li>
+          </ul> 
+        </div> 
+        <div class="col-sm-6">
+          <ul id="cross-list">
+            <li><strong>TANPA</strong> Perlu mengurus perijinan dan legalitas</li>
+            <li><strong>TANPA</strong> Perlu investasi ratusan juta</li>
+            <li><strong>TANPA</strong> Perlu pengalaman apapun</li>
+            <li><strong>TANPA</strong> Perlu meninggalkan kesibukkan Anda sekarang</li>
+          </ul> 
         </div>
+        <div class="col-sm-12">
+          <span>
+            <p>… bahkan yang lebih hebat lagi adalah: Anda bisa menikmati komisi yang datang dari 130 negara di seluruh dunia, dan semua transaksinya terjadi secara otomatis 24jam 365hari langsung masuk ke rekening bank Anda </p>
+            <p>Memang kedengarannya seperti tidak masuk akal, namun inilah kesempatan yang sedang menghampiri Anda sekarang ini.</p>
+            <p>Oleh karena itu, hentikan semua kesibukan Anda, tutup pintu & jendela, matikan radio & tv, lalu baca isi surat ini dengan teliti, karena surat singkat ini akan menjadi surat terpenting yang bisa merubah total kehidupan Anda hanya dalam waktu 12 bulan dari sekarang!</p>
+            <p>Saya tahu persis, bahwa ini adalah kenyataan, karena saya sendiri sudah melihat & bertemu ribuan orang biasa, tanpa pengalaman apapun, sudah menikmati penghasilan puluhan juta/minggu, sampai ratusan juta/minggu dari toko online ini, padahal mereka sebelumnya hanya ibu rumah tangga biasa, karyawan, mahasiswa, pengusaha, profesional, agen asuransi/ properti, dll</p>
+          </span>
+        </div>
+      </div>
     </div>
+
+    <div id="subscribe-row" class="row">
+      <div id="subscribe-button">
+        Klik Disini Untuk Isi Formulir
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="peluang-textbanner" class="col-sm-12 text-center">
+          <h1 class="peluang-textbanner">
+            Saya Mau... Berapa Investasinya? 
+          </h1>
+          <h2 class="peluang-textbanner">
+             Menurut Anda, Sebuah bisnis dengan potensi income Rp.100Jt dalam 90 Hari, berapa Investasi yang harus Anda keluarkan ?
+          </h2> 
+      </div>
+      <div class="col-sm-12">
+        <span>
+              <p>Walaupun Franchise Online Store DASH2 berpotensi menghasilkan Rp.100jt pertama Anda dalam 90 hari, namun Anda tidak perlu mengeluarkan Rp.100jt.</p>
+              <p>Walaupun lisensi Master Franchise Online Store DASH2 memberikan Anda hak untuk ekspansi ke seluruh dunia, namun Anda tidak perlu membayar royalti lebih.</p>
+              <p>Dan sebenarnya investasi Anda hari ini adalah TANPA RESIKO sedikitpun, karena hari ini Anda akan mendapatkan total bonus eksklusif dari DASH2 senilai Rp.177jt hanya dengan investasi <span class="text-green">Rp.2.6juta (paket Basic Jeunesse Global)</span> dimana Anda langsung mendapatkan paket produk Rp.3.5jt</p>
+        </span>
+     </div>
+    </div>
+
+      <div id="subscribe-row" class="row">
+        <div id="subscribe-button">
+          SAYA SIAP BERGABUNG !
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-3">
+          {{ HTML::image( 'img/peluang-testimonial.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
+        </div>
+        <div class="col-sm-9">
+          <p>Saya bersama komunitas DASH2 membuka kesempatan ini hanya dengan 1 alasan utama, yaitu kami ingin membantu Anda yang sungguh-sungguh ingin meraih impian.</p>
+          <p>Kami sudah bertemu dengan kendaraan yang TEPAT, dan kami sangat yakin bahwa Anda juga akan mencapai impian Anda jika memiliki kendaraan ini.</p>
+          <p>Saya sangat bersemangat dengan program DASH2 ini, karena Anda akan bisa menikmati dollar pertama Anda dalam bulan ini juga.</p>
+          <p>Setulusnya, saya bersama-sama dengan coach Komunitas DASH2 berharap Anda segera take action sekarang, sebagai hadiah terindah yang bisa Anda berikan untuk masa depan orang-orang yang Anda cintai</p>
+          <p>Salam Sukses,</p>
+        </div>
+        <div class="col-sm-12 text-red">
+          <p><strong>PS: Coba Anda tanyakan pada diri Anda sendiri, adakah peluang bisnis toko online lain yang kelas dunia dan tanpa resiko, namun bisa memberikan Anda penghasilan rutin passive income Rp.10jt/minggu ... Rp.50jt/minggu ... Rp.100jt/minggu?</strong></p>
+          <p><strong>Bahkan Anda hari ini, hanya dengan investasi Rp.2.6juta  Anda langsung mendapatkan Total Bonus senilai Rp.237jt, oleh karena itu segera Pesan Franchise Toko Online Anda sekarang sebelum terlambat!</strong></p>
+        </div>
+      </div>
+
+
 
 </div>
 @stop

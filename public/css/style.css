@@ -99,6 +99,12 @@ h1.title {
 	left:25%;
 }
 
+.product-image {
+	border:5px solid #00A14B;
+	width: 100%;
+	position:relative;
+}
+
 #subscribe-button {
 	position:relative;
 	left:20%;
@@ -160,6 +166,72 @@ h3.testimonial {
 	font-size: 16px;
 }
 
+#peluang-main-banner {
+	position: relative;
+	margin:0px;
+	width:100%;
+	text-align: center;
+}
+
+#peluang-main-banner:after {
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:100%;
+	width:100%;
+	content:"";
+	background-color:rgba(0,0,0,0.6);
+	z-index:2;
+}
+
+#peluang-banner-text {
+	position:absolute;
+	top:0px;
+	left:15%;
+	width:70%;
+	z-index:10;
+}
+
+#peluang-introduction {
+	padding: 20px;
+}
+
+#peluang-textbanner {
+	background-color:#41919A;
+}
+
+h2.peluang {
+	margin:20px;
+	font-size: 22px;
+	font-weight:900;
+	line-height:1.25em;
+}
+
+ul#cross-list {
+	list-style-image: url('images/cross.png');
+	list-style-position: outside;
+	margin-bottom: 20px;
+}
+
+ul#cross-list li {
+	margin-top: 10px;
+}
+
+#peluang-textbanner {
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+.peluang-textbanner {
+	color:#fff;
+	font-weight:900;
+	text-transform: capitalize;
+}
+
+h2.peluang-textbanner {
+	font-size: 20px;
+}
+
 #main-top-menu {
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 12px;
@@ -211,6 +283,15 @@ h3.testimonial {
 }
 
 /** Global Classes **/
+.text-red {
+	color:#ED1C24;
+}
+.text-lightgreen {
+	color:#C0D741;
+}
+.text-green {
+	color:#53B849;
+}
 .text-grey {
 	color: #999;
 }
