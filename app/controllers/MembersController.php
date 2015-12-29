@@ -10,7 +10,9 @@ class MembersController extends \BaseController {
 
     public function showDashboard()
 	{
-		return View::make('members.dashboard');
+		$htmltree = MemberAPI::getmemberchilds();
+		return View::make('members.dashboard')->with('htmltree',$htmltree);
+
 	}
 
 	public function index()

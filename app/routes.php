@@ -20,6 +20,7 @@ Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'
 Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
 // Auth routes
+Route::any('/api', array('uses' => 'ApiController@execute'));
 Route::get('login', array('uses' => 'UsersController@showLogin'));
 Route::post('login', array('uses' => 'UsersController@doLogin'));
 Route::get('logout', array('uses' => 'UsersController@doLogout'));
@@ -53,7 +54,38 @@ Route::get('rss/suratpembaca', array('uses' => 'RSSController@generateSuratPemba
 Route::get('rss/beritaterkini', array('uses' => 'RSSController@generateLatestPost'));
 Route::get('rss/beritaterpopuler', array('uses' => 'RSSController@generatePopularPost'));
 
+
+
+
+
+Route::get('testlogin', function(){
+    Auth::loginUsingId(2);
+});
+    
+// Route::get('loginapi', function(){
+
+//     $member = '{"username": "bar", "token": "attr"}';
+//     // $model = json_decode($string);
+//     $model = new Member;
+//     $model->first_name = "haloo";
+//     Cookie::queue('model', $model, 60 * 24); // 30 days
+//     Cookie::queue('loginname', 'arbud', 60 * 24); // 30 days
+//     return $model->foo;
+
+// });
+/*API */
+Route::get('loginapi/{token}', array('uses' => 'UsersController@loginByToken', 'as' => 'user.loginbytoken'));
+// Route::get('loginapi', array('uses' => 'UsersController@loginapi', 'as' => 'user.loginapi'));
+Route::get('logoutapi', array('uses' => 'UsersController@logoutapi', 'as' => 'user.logoutapi'));
+
 // Member routes
+Route::group(array('prefix' => 'memberapi','before' => 'memberauthapi'), function(){
+    Route::get('testapinext', function()
+    {
+        return 'works';
+    });
+
+});
 Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 {
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));

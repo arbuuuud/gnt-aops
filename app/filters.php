@@ -51,6 +51,11 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('memberauthapi', function(){
+	if(Cookie::get('loginname')==null||Cookie::get('loginname')==""){
+		return Response::make('Unauthorized', 401);
+	}
+});
 Route::filter('memberauth', function()
 {
 	if (Auth::guest())
