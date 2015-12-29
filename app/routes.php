@@ -16,6 +16,7 @@ Route::get('sendmail', function()
     $email->sendmail();
 });
 Route::get('/', array('uses' => 'PagesController@showHome'));
+Route::get('/peluang', array('uses' => 'PagesController@peluang'));
 Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
 Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
@@ -29,10 +30,6 @@ Route::get('runscheduller', array('uses' => 'EmailSchedullerPoolsController@runs
 Route::get('foto', array('uses' => 'GalleryCategoriesController@showPublicIndex'));
 Route::get('kategori-galeri/{category}', array('uses' => 'GalleryCategoriesController@showArchive'));
 Route::get('galeri/{slug}', array('uses' => 'GalleriesController@show'));
-Route::get('majalah', array('uses' => 'MagazinesController@show'));
-Route::resource('surat', 'GuestmailsController', array('only' => array('show', 'create', 'store')));
-Route::get('surat', array('uses' => 'GuestmailsController@showArchive'));
-Route::resource('kontak', 'ContactmailsController', array('only' => array('create', 'store')));
 Route::get('video', array('uses' => 'VideocategoriesController@showPublicIndex'));
 Route::get('kategori-video/{category}', array('uses' => 'VideocategoriesController@showArchive'));
 Route::get('video/{slug}', array('uses' => 'VideosController@show'));
@@ -45,13 +42,6 @@ Route::get('kategori/{category}/{filter?}', array('uses' => 'PostCategoriesContr
 // Members specific routes
 Route::get('search', array('uses' => 'PagesController@search'));
 Route::get('sitemap', array('uses' => 'PagesController@showSitemap'));
-
-// RSS
-Route::get('rss', array('uses' => 'RSSController@index'));
-Route::get('rss/artikel/{category}', array('uses' => 'RSSController@generatePosts'));
-Route::get('rss/suratpembaca', array('uses' => 'RSSController@generateSuratPembaca'));
-Route::get('rss/beritaterkini', array('uses' => 'RSSController@generateLatestPost'));
-Route::get('rss/beritaterpopuler', array('uses' => 'RSSController@generatePopularPost'));
 
 // Member routes
 Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
@@ -83,9 +73,6 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::any('galleries/uploadfoto/{gallery}', array('uses' => 'GalleriesController@uploadfoto', 'as' => 'admin.galleries.uploadfoto'));
     Route::any('photos/upload/{gallery}', array('uses' => 'PhotosController@upload', 'as' => 'admin.photos.upload'));
     Route::any('photos/bulkprocess/{gallery}', array('uses' => 'PhotosController@bulkprocess', 'as' => 'admin.photos.bulkprocess'));
-    Route::resource('magazines', 'MagazinesController', array('except' => array('show')));
-    Route::resource('guestmails', 'GuestmailsController', array('only' => array('index', 'edit', 'update', 'destroy')));
-    Route::resource('contactmails', 'ContactmailsController', array('only' => array('index', 'edit', 'update', 'destroy')));
     Route::resource('videocategories', 'VideocategoriesController');
     Route::resource('videos', 'VideosController');
     Route::get('search', array('uses' => 'PagesController@searchAdmin'));
