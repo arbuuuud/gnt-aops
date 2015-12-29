@@ -10,6 +10,19 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+Route::get('loginapi/{token}', array('uses' => 'UsersController@loginByToken', 'as' => 'user.loginbytoken'));
+// Route::get('loginapi', array('uses' => 'UsersController@loginapi', 'as' => 'user.loginapi'));
+Route::get('logoutapi', array('uses' => 'UsersController@logoutapi', 'as' => 'user.logoutapi'));
+
+// Member routes
+Route::group(array('prefix' => 'memberapi','before' => 'memberauthapi'), function(){
+    Route::get('testapinext', function()
+    {
+        return 'works';
+    });
+
+});
 Route::get('sendmail', function()
 {
     $email = new EmailSchedullerPool;

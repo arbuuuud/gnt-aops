@@ -2,8 +2,15 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-8 col-md-offset-2 text-center">
-		{{ HTML::image( Sysparam::getValue('main_logo'), 'Logo', array( 'height' => '200px') ) }}
+	<div class="col-md-4">
+		<h2 class="page-header">
+			Member Structure
+		</h2>
+		@if(isset($htmltree))
+			{{$htmltree}}
+		@endIf
+	</div>
+	<div class="col-md-8 text-center">
 		<h1 class="page-header">{{Sysparam::getValue('web_title')}}</h1>
 		<div class="text-center">
 			<p>Ini adalah backend CMS (Content Management System) dari website.</p>
