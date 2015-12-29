@@ -15,6 +15,11 @@ class PagesController extends \BaseController {
 		return View::make('pages.templates.home', compact('latest_news', 'popular_news'));
 	}
 
+	public function peluang()
+	{
+		return View::make('pages.templates.home', compact('latest_news', 'popular_news'));
+	}
+
 	/**
 	 * Display a listing of pages
 	 *

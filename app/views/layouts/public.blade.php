@@ -110,19 +110,20 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-@include('includes.main-nav')
 
 <div id="top-content">
   <div class="container">
     <div class="row">
-      <div class="col-md-12" style="position:relative;">
-        {{ HTML::image( Sysparam::getValue('homepage_slider'), 'Majelis Permusyawaratan Rakyat RI', array( 'width' => '100%' ) ) }}
+      <div id= "top-bar" class="col-md-12" style="position:relative;">
+      </div>
+      <div id="logo-bar" class="col-md-12">
+          {{ HTML::image( 'img/logo.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}
       </div>
     </div>
   </div>
 </div>
-
-<div id="bottom-content">
+ 
+ <div id="bottom-content">
   @yield('content')
 </div>
 
