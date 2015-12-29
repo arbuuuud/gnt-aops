@@ -11,6 +11,7 @@
 |
 */
 
+Route::any('/api', array('uses' => 'ApiController@execute'));
 Route::get('loginapi/{token}', array('uses' => 'UsersController@loginByToken', 'as' => 'user.loginbytoken'));
 // Route::get('loginapi', array('uses' => 'UsersController@loginapi', 'as' => 'user.loginapi'));
 Route::get('logoutapi', array('uses' => 'UsersController@logoutapi', 'as' => 'user.logoutapi'));
