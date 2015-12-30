@@ -108,6 +108,10 @@ class Contact extends \Eloquent {
     {
         return $this->belongsTo('Member');
     }
+    public function user() 
+    {
+        return $this->belongsTo('User','member_id');
+    }
 
     public function encryptContact(){
         $secret = Crypt::encrypt($this->id); //encrypted

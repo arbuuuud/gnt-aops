@@ -5,7 +5,7 @@ class UsersController extends BaseController {
 	public function loginByToken($token){
 		$user = User::Where('remember_token',$token)->first();
 		Auth::loginUsingId($user->id,true);
-		$htmltree = MemberAPI::getmemberchilds();
+		$htmltree = MemberAPI::getmemberchilds($user->id);
 		return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
 	}
 	public function showLogin()
@@ -47,7 +47,7 @@ class UsersController extends BaseController {
 		        if(Auth::user()->isAdmin()){
 			        return Redirect::to(Auth::user()->roleString().'/dashboard');
 		        }else{
-		        	$htmltree = MemberAPI::getmemberchilds();
+		        	$htmltree = MemberAPI::getmemberchilds(Auth::user()->id);
 		        	return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
 		        }
 
