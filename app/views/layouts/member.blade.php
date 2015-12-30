@@ -111,7 +111,7 @@
           <a href="{{ route('member.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
         </li>
        <li><a href="{{ route('member.contacts.index') }}"><i class="fa fa-comment"></i> Contacts</a></li>
-        <li>
+        <!-- <li>
           <a href="javascript:;">
             <i class="fa fa-cogs"></i> Settings
             <span class="arrow "></span>
@@ -122,6 +122,7 @@
               </li>
             </ul>
           </a>
+        </li> -->
       </ul>
       <!-- END SIDEBAR MENU -->
     </div>

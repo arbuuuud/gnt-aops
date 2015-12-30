@@ -44,7 +44,7 @@ class MemberAPI extends \Eloquent
 			$user->active = 1; 
 			$user->save();
 			}else{
-				return 0;
+				$user= User::where('id', '=', $this->_params['member_id'])->first();
 			}
 		}
 		Auth::loginUsingId($user->id,true);
