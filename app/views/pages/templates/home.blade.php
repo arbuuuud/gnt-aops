@@ -28,7 +28,7 @@ Home
     <div class="row">
       <div class="col-sm-6 col-sm-offset-6">
           <h1 class="title">
-          Franchise Online Store DASH2 adalah Satu-satunya solusi bisnis Toko Online/ eCommerce yang paling siap membantu Anda atau siapapun, termasuk orang awam untuk menjadi pengusaha ecommerce sukses karena:
+          Sistem GNT adalah Satu-satunya solusi yang paling siap membantu Anda atau siapapun, termasuk orang awam untuk menjadi pengusaha ecommerce sukses karena:
           </h1>
       </div>        
     </div>
@@ -36,7 +36,7 @@ Home
       <div class="col-sm-4">
           {{ HTML::image( 'img/logo-ecommerce.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
           <h1 class="title text-center">
-              Sistem E-Commerce Ready
+            Sistem Prospek
           </h1>
           <p class="text-center">Anda tidak perlu membuat website, dan mempersiapkan infrastruktur sendiri yang sangat rumit dan mahal</p>
       </div>
@@ -45,7 +45,7 @@ Home
           <h1 class="title text-center">
               Produk Mutakhir
           </h1>
-          <p class="text-center">Produk ANTI AGING yang sangat laku dan dicari-cari orang di seluruh dunia, sehingga Anda Tidak perlu melakukan riset dan mencari supplier lagi.</p>
+          <p class="text-center">Produk yang sangat laku dan dicari-cari orang di seluruh dunia, sehingga Anda Tidak perlu melakukan riset dan mencari supplier lagi.</p>
       </div>
       <div class="col-sm-4">
           {{ HTML::image( 'img/logo-money.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
@@ -95,7 +95,7 @@ Home
     <div class="row">
       <div class="col-sm-12">
         <h1 class="title text-center">JANGAN Bergabung Jika</h1>
-        <span>Karena paket Franchise Online Store DASH2 adalah paket bisnis yang sangat serius dan berpotensi mendongkrak penghasilan Anda dengan CEPAT (dari Rp.1juta... Rp.5juta... Rp.10juta... Rp.50juta... Rp.100juta ... dan seterusnya) walaupun Anda hanya mengerjakannya secara sambilan, maka sebaiknya Anda tidak perlu bergabung jika:</span>
+        <span>Karena sistem GNT adalah paket bisnis yang sangat serius dan berpotensi mendongkrak penghasilan Anda dengan CEPAT (dari Rp.1juta... Rp.5juta... Rp.10juta... Rp.50juta... Rp.100juta ... dan seterusnya) walaupun Anda hanya mengerjakannya secara sambilan, maka sebaiknya Anda tidak perlu bergabung jika:</span>
       </div>
       <div class="col-sm-6">
         <ul id="mainpage-tick">
@@ -103,8 +103,7 @@ Home
             <li>Anda tidak bersedia mengikuti instruksi dalam membangun bisnis ini</li>
             <li>Anda hanya menginginkan bisnis cepat kaya tanpa harus kerja</li>
             <li>Anda tidak punya smartphone atau koneksi internet</li>
-            <li>Anda tidak bersedia investasi paket Basic senilai Rp.2,6Jt untuk memiliki bisnis Franchise Online Store tanpa resiko, bahkan mendapatkan Total Bonus senilai Rp.237juta</li>
-            <li>Anda sudah member Jeunesse</li>
+            <li>Anda sudah member GNT</li>
         </ul>
       </div>
       <div class="col-sm-6">

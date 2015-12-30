@@ -142,6 +142,7 @@ h1.title {
 	text-transform: uppercase;
 	border-radius: 10px;	
 	margin: 20px 0px;
+	cursor: pointer;
 }
 
 ul#mainpage-tick {
@@ -151,6 +152,7 @@ ul#mainpage-tick {
 
 ul#mainpage-tick li {
 	font-weight:900;
+	margin: 5px 0px;
 }
 
 #testimonial-box {
