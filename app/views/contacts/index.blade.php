@@ -22,8 +22,8 @@
         <div class="col-sm-10">
         	  <select id="member" class="form-control" name="membername">
         	  	@foreach($memberCollection as $memberObject)
-        	  	<option value="{{$memberObject->first_name}}">
-        	  		{{$memberObject->first_name}}.{{$memberObject->last_name}}
+        	  	<option value="{{$memberObject->name}}">
+        	  		{{$memberObject->name}}
         	  	</option>
         	  	@endforeach
         	 </select>
@@ -56,7 +56,7 @@
 				@if($contacts)
 				@foreach($contacts as $contact)
 					<tr>
-						<td>{{$contact->member->first_name}}</td>
+						<td>{{$contact->user->first_name}}</td>
 						<td><a href="{{ route(Auth::user()->roleString().'.contacts.show', $contact->id) }}">{{ $contact->first_name }}</a></td>
 						<td>{{$contact->last_name}}</td>
 						<td>{{$contact->email}}</td>

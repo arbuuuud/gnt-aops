@@ -10,7 +10,7 @@ class MembersController extends \BaseController {
 
     public function showDashboard()
 	{
-		$htmltree = MemberAPI::getmemberchilds();
+		$htmltree = MemberAPI::getmemberchilds(Auth::user()->id);
 		return View::make('members.dashboard')->with('htmltree',$htmltree);
 
 	}

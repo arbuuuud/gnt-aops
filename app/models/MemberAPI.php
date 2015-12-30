@@ -8,7 +8,15 @@ class MemberAPI extends \Eloquent
 		$this->_params = $params;
 	}
 	public function checkparams(){
-		if(!$this->_params['member_id']||!$this->_params['username']||!$this->_params['name']||!$this->_params['tgllahir']||!$this->_params['tglaplikasi']||!$this->_params['sponsor_id']||!$this->_params['introducer_id']){
+		error_log($this->_params['member_id']);
+		if(!isset($this->_params['member_id'])||
+			!isset($this->_params['username'])||
+			!isset($this->_params['name'])||
+			!isset($this->_params['tgllahir'])||
+			!isset($this->_params['tglaplikasi'])||
+			!isset($this->_params['sponsor_id'])||
+			!isset($this->_params['introducer_id'])){
+		// if(!$this->_params['member_id']||!$this->_params['username']||!$this->_params['name']||!$this->_params['tgllahir']||!$this->_params['tglaplikasi']||$this->_params['sponsor_id']>=0||!$this->_params['introducer_id']>=0){
 			return false;
 		}
 		return true;
@@ -25,10 +33,11 @@ class MemberAPI extends \Eloquent
 
 		}else{
 			if(!User::where('id', '=', $this->_params['member_id'])->exists()){
+				error_log('ERROR 6');
 			$user = new User();
 			$user->id = $this->_params['member_id']; 
-			$user->first_name = $this->_params['username']; 
-			$user->last_name = $this->_params['name']; 
+			$user->first_name = $this->_params['name']; 
+			$user->last_name = $this->_params['username']; 
 			$user->email = $this->_params['name']; 
 
 			$user->password = Hash::make(rand());
@@ -62,7 +71,24 @@ class MemberAPI extends \Eloquent
 		// //return the todo item in array format
 		// return $memberItem;
 	}
-	public static function getmemberchilds(){
+	public static function getmemberapiselect($member_id){
+		try{
+
+			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+
+			$todo_items = $apicaller->sendRequest(array(
+				'controller' => 'member',
+				'action' => 'getmemberselect',
+				'username' => 'aops',
+				'userpass' => 'password',
+				'member_id' => $member_id
+			));
+			return $todo_items;
+		}catch(Exception $e){
+			return 'Trouble Connection';
+		}
+	}
+	public static function getmemberchilds($member_id){
 		try{
 
 			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
@@ -72,7 +98,7 @@ class MemberAPI extends \Eloquent
 				'action' => 'getmemberchilds',
 				'username' => 'aops',
 				'userpass' => 'password',
-				'member_id' => 1
+				'member_id' => $member_id
 			));
 			return $todo_items;
 		}catch(Exception $e){

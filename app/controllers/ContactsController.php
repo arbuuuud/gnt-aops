@@ -9,22 +9,34 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
-
+		$memberCollection = array();
 		if(Auth::user()->isAdmin()){
 			$contacts = Contact::all();
 		}else{
-			$member = Member::where('user_id',Auth::user()->id)->first();
-			if($member){
-				$contacts = Contact::where('member_id',$member->id)->get();
-				$memberCollection = $member->members;
-				$memberCollection->add($member);
-			}else{
-				$contacts = null;
-			}
+			$contacts = Contact::where('member_id',Auth::user()->id)->get();
+			$memberCollection = MemberAPI::getmemberapiselect(Auth::user()->id);
 		}
-
 		return View::make('contacts.index', compact('contacts', 'memberCollection'));
 	}
+
+	// public function index()
+	// {
+
+	// 	if(Auth::user()->isAdmin()){
+	// 		$contacts = Contact::all();
+	// 	}else{
+	// 		$member = Member::where('user_id',Auth::user()->id)->first();
+	// 		if($member){
+	// 			$contacts = Contact::where('member_id',$member->id)->get();
+	// 			$memberCollection = $member->members;
+	// 			$memberCollection->add($member);
+	// 		}else{
+	// 			$contacts = null;
+	// 		}
+	// 	}
+
+	// 	return View::make('contacts.index', compact('contacts', 'memberCollection'));
+	// }
 
 	/**
 	 * Show the form for creating a new Contact
@@ -54,9 +66,9 @@ class ContactsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$member = Member::where('user_id',Auth::user()->id)->first();
+		// $member = Member::where('user_id',Auth::user()->id)->first();
 
-		$data['member_id'] = $member->id;   
+		$data['member_id'] = Auth::user()->id;   
 		$data['active'] = 1;
 		$data['isAutomaticFollowUp'] = 1;
 		$data['email_sent'] = "";
