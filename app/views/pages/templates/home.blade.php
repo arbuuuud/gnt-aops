@@ -5,8 +5,8 @@ Home
 @stop
 
 @section('content')
-<div class="container nopadding">
-        <div id="main-banner">
+<div class="container">
+        <div id="main-banner" class="row">
           {{ HTML::image( 'img/mainbanner.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
           <div id="registration-box" class="col-sm-4">
             <h1 class="registration-box">
@@ -38,21 +38,21 @@ Home
           <h1 class="title text-center">
               Sistem E-Commerce Ready
           </h1>
-          <span class="text-center">Anda tidak perlu membuat website, dan mempersiapkan infrastruktur sendiri yang sangat rumit dan mahal</span>
+          <p class="text-center">Anda tidak perlu membuat website, dan mempersiapkan infrastruktur sendiri yang sangat rumit dan mahal</p>
       </div>
       <div class="col-sm-4">
           {{ HTML::image( 'img/logo-box.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
           <h1 class="title text-center">
               Produk Mutakhir
           </h1>
-          <span class="text-center">Produk ANTI AGING yang sangat laku dan dicari-cari orang di seluruh dunia, sehingga Anda Tidak perlu melakukan riset dan mencari supplier lagi.</span>
+          <p class="text-center">Produk ANTI AGING yang sangat laku dan dicari-cari orang di seluruh dunia, sehingga Anda Tidak perlu melakukan riset dan mencari supplier lagi.</p>
       </div>
       <div class="col-sm-4">
           {{ HTML::image( 'img/logo-money.png', 'logo-small', array( 'class' => 'small-image' ) ) }}  
           <h1 class="title text-center">
               Potensi Income $100.000
           </h1>
-          <span class="text-center">Tanpa perlu kantor, dan tanpa perlu karyawan, bahkan Anda tidak perlu stok dan mengatur pengirimannya, karena semua menggunakan sistem Dropshipping.</span>          
+          <p class="text-center">Tanpa perlu kantor, dan tanpa perlu karyawan, bahkan Anda tidak perlu stok dan mengatur pengirimannya, karena semua menggunakan sistem Dropshipping.</p>          
       </div>
     </div>
 
