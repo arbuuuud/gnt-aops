@@ -23,10 +23,10 @@ class MemberAPI extends \Eloquent
 	}
 	public function loginAction(){
 		if(!$this->checkparams()){
-			return 0;
+			return 1;
 		}
 		if($this->_params['member_id'] == 1){
-			return 0;
+			return 2;
 		}
 		$user = User::where('id',$this->_params['member_id'])->where('first_name',$this->_params['username'])->first();
 		if($user){
@@ -44,7 +44,7 @@ class MemberAPI extends \Eloquent
 			$user->active = 1; 
 			$user->save();
 			}else{
-				return 0;
+				$user = User::find($this->_params['member_id']);
 			}
 		}
 		Auth::loginUsingId($user->id,true);
