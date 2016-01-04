@@ -2,9 +2,8 @@
         <div class="container nopadding">
             <div class="well well-lg">
                 <div class="row text-center">
-                  <p>Website ini adalah milik Jeunesse Independent Distributor dan bukan milik Jeunesse Global</p>
                   <p>Copyright - All Right Reserved | Terms & Condition | Privacy Policy | Disclaimer</p>
-                  <p>supported by DASH2 Online Academy</p>
+                  <p>Supported by GNT </p>
                 </div>
             </div>
         </div>
