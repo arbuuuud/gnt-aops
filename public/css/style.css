@@ -62,17 +62,6 @@ body {
 }
 
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px) {
-  	#registration-box {
-		position:relative;
-		top:0;
-		left:0;
-		width:100%;
-	}
-}
-
 #registration-box input {
 	margin:20px 0px;
 }
@@ -269,6 +258,7 @@ ul#cross-list li {
 	color:#fff;
 	font-weight:900;
 	text-transform: capitalize;
+	margin-top:10px;
 }
 
 h2.peluang-textbanner {
@@ -638,5 +628,22 @@ a.hoverwhite:hover {
 @media (min-width:768px){
 	.navbar-right{
 		margin-right:0
+	}
+}
+
+@media all and (max-width:980px) {
+  	#registration-box {
+		position:relative;
+		top:0;
+		left:0;
+		width:100%;
+	}
+
+	#peluang-main-banner {
+		position:relative;
+	}
+
+	#peluang-banner-text {
+		position:relative;
 	}
 }

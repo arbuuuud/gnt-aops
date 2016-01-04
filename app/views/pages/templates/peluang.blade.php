@@ -5,7 +5,7 @@ Home
 @stop
 
 @section('content')
-<div class="container nopadding">
+<div class="container">
         <div id="peluang-main-banner">
           {{ HTML::image( 'img/peluang.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
           <div id="peluang-banner-text">
@@ -19,6 +19,8 @@ Home
             </div>
           </div>
         </div>
+</div>
+<div class="container">
     <div class="row">
       <div id="peluang-introduction" class="col-sm-12">
         <span>
@@ -58,7 +60,9 @@ Home
         Klik Disini Untuk Isi Formulir
       </div>
     </div>
+</div>
 
+<div class="container-fluid">
     <div class="row">
       <div id="peluang-textbanner" class="col-sm-12 text-center">
           <h1 class="peluang-textbanner">
@@ -68,6 +72,9 @@ Home
              Menurut Anda, Sebuah bisnis dengan potensi income Rp.100Jt dalam 90 Hari, berapa Investasi yang harus Anda keluarkan ?
           </h2> 
       </div>
+</div>
+<div class="container">
+  <div class="row">
       <div class="col-sm-12">
         <span>
               <p>Walaupun Franchise Online Store DASH2 berpotensi menghasilkan Rp.100jt pertama Anda dalam 90 hari, namun Anda tidak perlu mengeluarkan Rp.100jt.</p>
@@ -75,14 +82,17 @@ Home
               <p>Dan sebenarnya investasi Anda hari ini adalah TANPA RESIKO sedikitpun, karena hari ini Anda akan mendapatkan total bonus eksklusif dari DASH2 senilai Rp.177jt hanya dengan investasi <span class="text-green">Rp.2.6juta (paket Basic Jeunesse Global)</span> dimana Anda langsung mendapatkan paket produk Rp.3.5jt</p>
         </span>
      </div>
-    </div>
+  </div>
+</div>
 
       <div id="subscribe-row" class="row">
         <div id="subscribe-button">
           SAYA SIAP BERGABUNG !
         </div>
       </div>
+</div>
 
+<div class="container">
       <div class="row">
         <div class="col-sm-3">
           {{ HTML::image( 'img/peluang-testimonial.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
@@ -99,8 +109,5 @@ Home
           <p><strong>Bahkan Anda hari ini, hanya dengan investasi Rp.2.6juta  Anda langsung mendapatkan Total Bonus senilai Rp.237jt, oleh karena itu segera Pesan Franchise Toko Online Anda sekarang sebelum terlambat!</strong></p>
         </div>
       </div>
-
-
-
 </div>
 @stop
