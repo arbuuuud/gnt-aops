@@ -2,16 +2,40 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-8 col-md-offset-2 text-center">
-		{{ HTML::image( Sysparam::getValue('main_logo'), 'Logo', array( 'height' => '200px') ) }}
-		<h1 class="page-header">{{Sysparam::getValue('web_title')}}</h1>
-		<div class="text-center">
-			<p>Ini adalah backend CMS (Content Management System) dari website.</p>
-			<p>Untuk mengubah konten dari website, silahkan menggunakan salah satu menu yang ada di samping.</p>
-			<p><a href="{{URL::to('/')}}" class="btn btn-primary" title="Visit Site" target="_blank">Kunjungi Website</a></p>
-			<p>Untuk melakukan pengaturan pada website, silahkan menggunakan menu Tampilan Web.</p>
-			<p><a href="{{URL::to('admin/sysparams')}}" class="btn btn-primary" title="Tampilan Web">Atur Tampilan Web</a></p>
-		</div>
+	<div class="col-md-4">
+		<h2 class="page-header text-center">
+			Member Structure
+		</h2>
+		@if(isset($htmltree))
+			{{$htmltree}}
+		@endIf
+	</div>
+	<div class="col-md-8 text-center">
+		<h2 class="page-header">
+			Recent Subscriber
+		</h2>
+		<table class="table display" id="tableone">
+				<thead>
+					<tr>
+						<th class="text-center">Member Name</th>
+						<th class="text-center">First Name</th>
+						<th class="text-center">Last Name</th>
+						<th class="text-center">Last Followed Up</th>
+					</tr>
+				</thead>
+				<tbody>
+				@if($contacts)
+				@foreach($contacts as $contact)
+					<tr>
+						<td>{{$contact->user->first_name}}</td>
+						<td>{{$contact->first_name }}</td>
+						<td>{{$contact->last_name}}</td>
+						<td>{{$contact->last_follow_up}}</td>
+					</tr>
+				@endforeach
+				@endIf
+				</tbody>
+			</table>
 	</div>
 </div>
 @stop

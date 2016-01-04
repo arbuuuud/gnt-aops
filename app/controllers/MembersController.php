@@ -10,7 +10,10 @@ class MembersController extends \BaseController {
 
     public function showDashboard()
 	{
-		return View::make('members.dashboard');
+		$htmltree = MemberAPI::getmemberchilds(Auth::user()->id);
+		$contacts = Contact::where('member_id',Auth::user()->id)->orderBy('created_at', 'desc')->take(5)->get();
+		return View::make('members.dashboard')->with('htmltree',$htmltree)->with('contacts',$contacts);
+
 	}
 
 	public function index()

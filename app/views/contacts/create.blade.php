@@ -64,12 +64,6 @@ Contacts
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('active', 'State', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('state', Input::old('state'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
     {{ Form::label('active', 'City', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
           {{ Form::text('city', Input::old('city'), array('class'=>'form-control')) }}

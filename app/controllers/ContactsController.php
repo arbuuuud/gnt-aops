@@ -9,23 +9,34 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
-
-		$member = Member::all();
-
-		return var_dump($member->toJson());
-
+		$memberCollection = array();
 		if(Auth::user()->isAdmin()){
 			$contacts = Contact::all();
 		}else{
-			$member = Member::where('user_id',Auth::user()->id)->first();
-			if($member){
-				$contacts = Contact::where('member_id',$member->id)->get();
-			}else{
-				$contacts = null;
-			}
+			$contacts = Contact::where('member_id',Auth::user()->id)->get();
+			$memberCollection = MemberAPI::getmemberapiselect(Auth::user()->id);
 		}
-		return View::make('contacts.index', compact('contacts'));
+		return View::make('contacts.index', compact('contacts', 'memberCollection'));
 	}
+
+	// public function index()
+	// {
+
+	// 	if(Auth::user()->isAdmin()){
+	// 		$contacts = Contact::all();
+	// 	}else{
+	// 		$member = Member::where('user_id',Auth::user()->id)->first();
+	// 		if($member){
+	// 			$contacts = Contact::where('member_id',$member->id)->get();
+	// 			$memberCollection = $member->members;
+	// 			$memberCollection->add($member);
+	// 		}else{
+	// 			$contacts = null;
+	// 		}
+	// 	}
+
+	// 	return View::make('contacts.index', compact('contacts', 'memberCollection'));
+	// }
 
 	/**
 	 * Show the form for creating a new Contact
@@ -54,10 +65,10 @@ class ContactsController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-		
-		$data['member_id'] = 1;   //anto : isi ngasal dulu deh to pake id 1 (pastiin member id 1 ada di phpmyadmin ya nto.. kalo g ada buat aja ngasal) 
-									// anto : sama di table member_configuration insert manual dlu ya nto di phpmyadmin biar function insertpool dibawah g error
-									        //isi pake : id=1, member_id=1, param_code=FOLLOW_UP_SEQUENCE, param_value= 3
+
+		// $member = Member::where('user_id',Auth::user()->id)->first();
+
+		$data['member_id'] = Auth::user()->id;   
 		$data['active'] = 1;
 		$data['isAutomaticFollowUp'] = 1;
 		$data['email_sent'] = "";
@@ -65,7 +76,7 @@ class ContactsController extends \BaseController {
 		$contact = Contact::create($data);
 		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
 		
-		return Redirect::route('admin.contacts.index');
+		return Redirect::route(Auth::user()->roleString().'.contacts.index');
 	}
 
 	/**

@@ -2,6 +2,12 @@
 
 class UsersController extends BaseController {
 
+	public function loginByToken($token){
+		$user = User::Where('remember_token',$token)->first();
+		Auth::loginUsingId($user->id,true);
+		$htmltree = MemberAPI::getmemberchilds($user->id);
+		return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
+	}
 	public function showLogin()
 	{
 	    // show the form
@@ -34,12 +40,16 @@ class UsersController extends BaseController {
 		    );
 
 		    // attempt to do the login
-		    if (Auth::attempt($userdata)) {
-
+		    if (Auth::attempt($userdata,true)) {
 		    	// validation successful!
 		        // redirect them to the secure section or whatever
 		        // Auth::user()->role;
-		        return Redirect::to(Auth::user()->roleString().'/dashboard');
+		        if(Auth::user()->isAdmin()){
+			        return Redirect::to(Auth::user()->roleString().'/dashboard');
+		        }else{
+		        	$htmltree = MemberAPI::getmemberchilds(Auth::user()->id);
+		        	return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
+		        }
 
 		    } else {        
 
@@ -200,5 +210,46 @@ class UsersController extends BaseController {
 
 		return Redirect::route('admin.users.index')->with('message', $message);
 	}
+
+	public function loginapi(){
+		// $input = Input::all();
+	    
+	    //$member = '{"username": "bar", "token": "attr"}';
+	    // $model = json_decode($string);
+	    $model = new Member;
+	    $model->first_name = "haloo";
+	    $model->last_name = "ajah";
+
+	    Cookie::queue('model', $model, 60 * 24); // 30 days
+	    Cookie::queue('loginname', $model->first_name, 60 * 24); // 30 days
+	    return 'true';
+	}
+	public function logoutapi(){
+		if (isset($_COOKIE['loginname'])) {
+		    unset($_COOKIE['loginname']);
+		    unset($_COOKIE['model']);
+		    setcookie('loginname', null, -1, '/');
+		    setcookie('model', null, -1, '/');
+		    return 'true';
+		} else {
+		    return 'false';
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
