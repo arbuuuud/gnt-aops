@@ -30,7 +30,7 @@ Route::get('sendmail', function()
     $email->sendmail();
 });
 Route::get('/', array('uses' => 'PagesController@showHome'));
-Route::get('/peluang', array('uses' => 'PagesController@peluang'));
+Route::any('/peluang', array('uses' => 'PagesController@peluang'));
 Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
 Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
