@@ -41,8 +41,8 @@ body {
 
 #registration-box {
 	position:absolute;
-	top: 30%;
-	left: 5%;
+	top: 10%;
+	left: 10%;
 	width: 40%;
 	padding: 30px 30px;
 	background: #c0d741; /* Old browsers */
@@ -61,17 +61,6 @@ body {
 	}
 }
 
-
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 568px) {
-  	#registration-box {
-		position:relative;
-		top:0;
-		left:0;
-		width:100%;
-	}
-}
 
 #registration-box input {
 	margin:20px 0px;
@@ -100,6 +89,15 @@ button#registration-box-submit {
 	width:100%;
 	box-shadow: none;
 	border:none;
+	-webkit-transition: width 5s; /* Safari */
+    transition: width 5s;
+}
+
+button#registration-box-submit:hover {
+	background: #00A550;
+	color: #FFF;
+	-webkit-transition: width 5s; /* Safari */
+    transition: width 5s;
 }
 
 h1.title {
@@ -143,6 +141,18 @@ h1.title {
 	border-radius: 10px;	
 	margin: 20px 0px;
 	cursor: pointer;
+}
+
+#subscribe-row a:hover {
+	text-decoration: none;
+}
+
+#subscribe-row a:hover #subscribe-button {
+	background: #53b84a; /* Old browsers */
+	background: -moz-linear-gradient(top,  #53b84a 0%, #c0d741 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #53b84a 0%,#c0d741 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #53b84a 0%,#c0d741 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0d741', endColorstr='#53b84a',GradientType=0 ); /* IE6-9 */
 }
 
 ul#mainpage-tick {
@@ -248,6 +258,7 @@ ul#cross-list li {
 	color:#fff;
 	font-weight:900;
 	text-transform: capitalize;
+	margin-top:10px;
 }
 
 h2.peluang-textbanner {
@@ -274,22 +285,21 @@ h2.peluang-textbanner {
 
 /* Footer */
 #footer {
-	margin: 0 0 10px 0;
-}
-#footer .well {
+	margin: 0;
 	background-color:#232D38;
-	color:#fff;
-	border-radius:0px;
+	color: #fff;
+	font-size: 12px;
+	padding: 20px 0;
 }
 #footer a {
-	color: #000;
+	color: #FFF;
 }
 #footer h4 {
 	font-weight: bold;
 	font-size: 14px;
 }
-#footer .well {
-	font-size: 12px;
+.homepage-members {
+	padding: 20px 0;
 }
 
 /* Home Page Related */
@@ -618,5 +628,22 @@ a.hoverwhite:hover {
 @media (min-width:768px){
 	.navbar-right{
 		margin-right:0
+	}
+}
+
+@media all and (max-width:980px) {
+  	#registration-box {
+		position:relative;
+		top:0;
+		left:0;
+		width:100%;
+	}
+
+	#peluang-main-banner {
+		position:relative;
+	}
+
+	#peluang-banner-text {
+		position:relative;
 	}
 }

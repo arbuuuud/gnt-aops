@@ -1,13 +1,11 @@
-    <div id="footer">
-        <div class="container nopadding">
-            <div class="well well-lg">
-                <div class="row text-center">
-                  <p>Copyright - All Right Reserved | Terms & Condition | Privacy Policy | Disclaimer</p>
-                  <p>Supported by GNT </p>
-                </div>
-            </div>
+<div id="footer">
+    <div class="container">
+        <div class="row text-center">
+          <p>Copyright &copy; 2016 - All Right Reserved | <a href="#">Terms & Condition</a> | <a href="#">Privacy Policy</a> | <a href="#">Disclaimer</a></p>
+          <p>Supported by PT. Guna Natur Tulen </p>
         </div>
     </div>
+</div>
 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */

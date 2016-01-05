@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Website Resmi Majelis Permusyawaratan Rakyat Republik Indonesia (MPR RI)">
-    <meta name="keywords" content="mpr, republik indonesia, Fraksi, Foto, Pimpinan, Anggota, Info Lelang, Katalog Buku, Majalah, Agenda, Berita" />
-    <meta name="author" content="Sekretariat Jenderal MPR-RI">
+    <meta name="description" content="{{ Sysparam::getValue('web_meta_description') }}">
+    <meta name="keywords" content="{{ Sysparam::getValue('web_meta_keywords') }}" />
+    <meta name="author" content="{{ Sysparam::getValue('web_meta_author') }}">
     <meta name="coauthor" content="PT. ASCLAR Indonesia">
     @section('head-meta')@show
-    <link rel="icon" href="icon.png">
+    <link rel="icon" href="favicon.ico">
     <title>@yield('head-title', 'Home') | {{ Sysparam::getValue('web_title') }}</title>
     
     {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all') }}
@@ -73,6 +73,7 @@
       $('.carousel').carousel({
         interval: 10000
       });
+      $('[data-toggle="tooltip"]').tooltip();
       $( ".archive-datepicker" ).datepicker({
         dateFormat: 'yy-mm-dd',
         maxDate: '0',
@@ -112,12 +113,13 @@
 </script>
 
 <div id="top-content">
-  <div class="container">
-    <div class="row">
-      <div id= "top-bar" class="col-md-12" style="position:relative;">
-      </div>
-      <div id="logo-bar" class="col-md-12">
+  <div id= "top-bar"></div>
+  <div id="logo-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
           {{ HTML::image( 'img/logo.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}
+        </div>
       </div>
     </div>
   </div>
