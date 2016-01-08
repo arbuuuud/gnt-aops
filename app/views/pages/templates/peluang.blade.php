@@ -5,109 +5,114 @@ Home
 @stop
 
 @section('content')
-<div class="container">
-        <div id="peluang-main-banner">
-          {{ HTML::image( 'img/peluang.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
-          <div id="peluang-banner-text">
-            <h2 class="peluang text-lightgreen">Perhatian : Semua Pebisnis, Karyawan & Apapun profesi Anda!</h2>
-            <h2 class="peluang text-white">"Bagaimana Jika Hari Ini, ANDA BISA Memiliki Toko Online Kelas Dunia Seperti Amazon.com?"</h2>
-            <h2 class="peluang text-green">Walaupun saat ini Anda merasa GAPTEK, Tidak punya pengalaman dan Belum pernah bisnis online sama sekali. Mulai hari ini Anda bisa mendapatkan passive income dari Toko Online. </h2>
-            <div id="subscribe-row" class="row">
-              <div id="subscribe-button">
-                MULAI SEKARANG
+<div class="container-fluid">
+  <div class="row">
+        <div id="peluang-main-banner"> 
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div id="peluang-banner-text">
+                  <h2 class="peluang text-lightgreen">Perhatian : Semua Pebisnis, Karyawan & Apapun profesi Anda!</h2>
+                  <h2 class="peluang text-white">"Bagaimana Jika Hari Ini, ANDA BISA Memiliki Toko Online Kelas Dunia Seperti Amazon.com?"</h2>
+                  <h2 class="peluang text-green">Walaupun saat ini Anda merasa GAPTEK, Tidak punya pengalaman dan Belum pernah bisnis online sama sekali. Mulai hari ini Anda bisa mendapatkan passive income dari Toko Online. </h2>
+                  <div class="subscribe-button-huge text-center">
+                    Mulai Sekarang
+                  </div> 
+                </div>
               </div>
             </div>
           </div>
         </div>
+  </div>
 </div>
 <div class="container">
     <div class="row">
       <div id="peluang-introduction" class="col-sm-12">
-        <span>
-          <p><strong>Dear Sahabatku,</strong></p>
-          <p>Berapa besar potensi penghasilan Anda per minggu, per bulan, per tahun?</p>
-          <p><strong>Bagaimana Jika</strong> Anda bisa memilikinya :</p>
-        </span> 
-        <div class="col-sm-6">
-          <ul id="cross-list">
-            <li><strong>TANPA</strong> Perlu Membuat Website</li>
-            <li><strong>TANPA</strong> Perlu mempersiapkan Produk & Supplier</li>
-            <li><strong>TANPA</strong> Perlu Stok Barang dan Pengirimannya</li>
-            <li><strong>TANPA</strong> Perlu Kantor dan Karyawan</li>
-          </ul> 
-        </div> 
-        <div class="col-sm-6">
-          <ul id="cross-list">
-            <li><strong>TANPA</strong> Perlu mengurus perijinan dan legalitas</li>
-            <li><strong>TANPA</strong> Perlu investasi ratusan juta</li>
-            <li><strong>TANPA</strong> Perlu pengalaman apapun</li>
-            <li><strong>TANPA</strong> Perlu meninggalkan kesibukkan Anda sekarang</li>
-          </ul> 
-        </div>
-        <div class="col-sm-12">
-          <span>
-            <p>… bahkan yang lebih hebat lagi adalah: Anda bisa menikmati komisi yang datang dari 130 negara di seluruh dunia, dan semua transaksinya terjadi secara otomatis 24jam 365hari langsung masuk ke rekening bank Anda </p>
-            <p>Memang kedengarannya seperti tidak masuk akal, namun inilah kesempatan yang sedang menghampiri Anda sekarang ini.</p>
-            <p>Oleh karena itu, hentikan semua kesibukan Anda, tutup pintu & jendela, matikan radio & tv, lalu baca isi surat ini dengan teliti, karena surat singkat ini akan menjadi surat terpenting yang bisa merubah total kehidupan Anda hanya dalam waktu 12 bulan dari sekarang!</p>
-            <p>Saya tahu persis, bahwa ini adalah kenyataan, karena saya sendiri sudah melihat & bertemu ribuan orang biasa, tanpa pengalaman apapun, sudah menikmati penghasilan puluhan juta/minggu, sampai ratusan juta/minggu dari toko online ini, padahal mereka sebelumnya hanya ibu rumah tangga biasa, karyawan, mahasiswa, pengusaha, profesional, agen asuransi/ properti, dll</p>
-          </span>
-        </div>
+          <h1 class="testimonial-title text-center">MLM ONLINE BERSAMA GNT</h1>
+          <p>Melalui website ini, Anda dapat berbelanja produk-produk GNT dan menjadi distributor perusahaan ini.</p>
+          <p>Tidak hanya itu, setelah menjadi distributor Anda juga bisa menggunakan Gntclub.com untuk menjual produk-produk GNT dan merekrut distributor baru, keduanya secara online. Silakan mendaftar di sini jika Anda ingin menjadi distributor GNT dan memanfaatkan fasilitas-fasilitas website ini.</p>
+          <p>Anda akan mendapatkan kemudahan dalam mengerjakan bisnis MLM Online bersama Gntclub.com. Kami menyediakan artikel-artikel yang bisa Anda share ke sosial media (Facebook, Twitter, Google+, LinkedIn), yang link-nya memuat kode referral Anda. Teman-teman Anda yang meng-klik link artikel, dan kemudian bergabung menjadi distributor GNT, secara otomatis akan menjadi downline Anda.</p>
+          <p>Bagi Anda yang hanya ingin menjadi affiliate, kami menyediakan komisi untuk setiap distributor baru yang bergabung melalui link referral Anda. Silakan mendaftar di sini jika Anda ingin menjadi Affiliate.</p>
       </div>
     </div>
-
-    <div id="subscribe-row" class="row">
-      <div id="subscribe-button">
-        Klik Disini Untuk Isi Formulir
-      </div>
-    </div>
+    <div class="subscribe-button-huge text-center">
+      Ya saya mau bergabung dengan gnt
+    </div> 
 </div>
 
-<div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
-      <div id="peluang-textbanner" class="col-sm-12 text-center">
-          <h1 class="peluang-textbanner">
-            Saya Mau... Berapa Investasinya? 
-          </h1>
-          <h2 class="peluang-textbanner">
-             Menurut Anda, Sebuah bisnis dengan potensi income Rp.100Jt dalam 90 Hari, berapa Investasi yang harus Anda keluarkan ?
-          </h2> 
+      <div id="profile-banner" class="col-sm-12">
+          <h1 class="testimonial-title text-white text-center">Untuk memesan silakan klik gambar produk dibawah</h1>
       </div>
-</div>
-<div class="container">
-  <div class="row">
-      <div class="col-sm-12">
-        <span>
-              <p>Walaupun Franchise Online Store DASH2 berpotensi menghasilkan Rp.100jt pertama Anda dalam 90 hari, namun Anda tidak perlu mengeluarkan Rp.100jt.</p>
-              <p>Walaupun lisensi Master Franchise Online Store DASH2 memberikan Anda hak untuk ekspansi ke seluruh dunia, namun Anda tidak perlu membayar royalti lebih.</p>
-              <p>Dan sebenarnya investasi Anda hari ini adalah TANPA RESIKO sedikitpun, karena hari ini Anda akan mendapatkan total bonus eksklusif dari DASH2 senilai Rp.177jt hanya dengan investasi <span class="text-green">Rp.2.6juta (paket Basic Jeunesse Global)</span> dimana Anda langsung mendapatkan paket produk Rp.3.5jt</p>
-        </span>
-     </div>
+    </div>
   </div>
-</div>
 
-      <div id="subscribe-row" class="row">
-        <div id="subscribe-button">
-          SAYA SIAP BERGABUNG !
-        </div>
+  <div id="product-list" class="container">
+    <div class="row">
+       <div class="col-sm-4 text-center">
+        {{ HTML::image( 'img/product.png', 'logo-small', array( 'class' => 'product-image' ) ) }} 
+        <p><strong>GNT FIBER @ 6 sachet</strong></p>
+        <p>Harga: Rp. 120.000</p>
       </div>
-</div>
+      <div class="col-sm-4 text-center">
+        {{ HTML::image( 'img/product-2.png', 'logo-small', array( 'class' => 'product-image' ) ) }} 
+        <p><strong>GNT FIBER @ 15 sachet</strong></p>
+        <p>Harga: Rp. 280.000</p>
+      </div>
+      <div class="col-sm-4 text-center">
+        {{ HTML::image( 'img/product-3.png', 'logo-small', array( 'class' => 'product-image' ) ) }} 
+        <p><strong>GNT FIBER @ 30 sachet</strong></p>
+        <p>Harga: Rp. 500.000</p>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
-      <div class="row">
-        <div class="col-sm-3">
-          {{ HTML::image( 'img/peluang-testimonial.png', 'main-banner', array( 'class' => 'banner-image' ) ) }}  
-        </div>
-        <div class="col-sm-9">
-          <p>Saya bersama komunitas DASH2 membuka kesempatan ini hanya dengan 1 alasan utama, yaitu kami ingin membantu Anda yang sungguh-sungguh ingin meraih impian.</p>
-          <p>Kami sudah bertemu dengan kendaraan yang TEPAT, dan kami sangat yakin bahwa Anda juga akan mencapai impian Anda jika memiliki kendaraan ini.</p>
-          <p>Saya sangat bersemangat dengan program DASH2 ini, karena Anda akan bisa menikmati dollar pertama Anda dalam bulan ini juga.</p>
-          <p>Setulusnya, saya bersama-sama dengan coach Komunitas DASH2 berharap Anda segera take action sekarang, sebagai hadiah terindah yang bisa Anda berikan untuk masa depan orang-orang yang Anda cintai</p>
-          <p>Salam Sukses,</p>
-        </div>
-        <div class="col-sm-12 text-red">
-          <p><strong>PS: Coba Anda tanyakan pada diri Anda sendiri, adakah peluang bisnis toko online lain yang kelas dunia dan tanpa resiko, namun bisa memberikan Anda penghasilan rutin passive income Rp.10jt/minggu ... Rp.50jt/minggu ... Rp.100jt/minggu?</strong></p>
-          <p><strong>Bahkan Anda hari ini, hanya dengan investasi Rp.2.6juta  Anda langsung mendapatkan Total Bonus senilai Rp.237jt, oleh karena itu segera Pesan Franchise Toko Online Anda sekarang sebelum terlambat!</strong></p>
-        </div>
+  <div id="gnt-advantages" class="container-fluid">
+    <div class="row">
+      <div id="profile-banner" class="col-sm-12">
+          <h1 class="testimonial-title text-white text-center">Keunggulan GNT</h1>
       </div>
-</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul>
+          <li>Perusahaan MLM yang baru saja berdiri</li>
+          <li>Walaupun baru saja berdiri, GNT sudah masuk ke dalam 10 besar perusahaan Direct Selling dunia</li>
+          <li>Punya produk-produk unggulan dengan nilai jual tinggi</li>
+          <li>Punya Marketing Plan terbaik yang pernah ada</li>
+          <li>Sudah punya kantor di 34 negara</li>
+          <li>Menyediakan Web Replika yang bisa dipakai untuk menjual produk atau merekrut distributor baru di 24 negara</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div id="article-title" class="col-sm-12">
+        Artikel
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        {{ HTML::image( 'img/artikel-1.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+        <p><strong>MLM Offline Bersama GNT</strong></p>
+        <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+      </div>
+      <div class="col-sm-4">
+        {{ HTML::image( 'img/artikel-2.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+        <p><strong>MLM Offline Bersama GNT</strong></p>
+        <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+      </div>
+      <div class="col-sm-4">
+        {{ HTML::image( 'img/artikel-3.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+        <p><strong>MLM Offline Bersama GNT</strong></p>
+        <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+      </div>
+    </div>
+  </div>
 @stop

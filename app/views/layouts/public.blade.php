@@ -117,8 +117,8 @@
   <div id="logo-bar">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          {{ HTML::image( 'img/logo.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}
+        <div class="col-md-4 col-md-offset-5">
+          {{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}
         </div>
       </div>
     </div>
