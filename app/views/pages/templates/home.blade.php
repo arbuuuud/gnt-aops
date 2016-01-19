@@ -35,7 +35,7 @@ Home
     <div class="row">
       <div class="col-sm-12 text-center">
         <h1 class="title">
-          Sistem GNT aops adalah Satu-satunya solusi yang paling siap membantu Anda atau siapapun, termasuk orang awam untuk menjadi pengusaha ecommerce sukses karena:        </h1>
+          Sistem GNT adalah Satu-satunya solusi yang paling siap membantu Anda atau siapapun, termasuk orang awam untuk menjadi pengusaha ecommerce sukses karena:        </h1>
       </div>        
     </div>
     <div id="small-items" class="row">
@@ -130,6 +130,26 @@ Home
               <li>Peduli pada KEAMANAN</li>
               <li>Peduli pada KESEHATAN</li>
             </ul>
+          <div class="row">
+            <div class="col-sm-2">
+              {{ HTML::image( 'images/logo1.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
+            </div>
+            <div class="col-sm-2">
+              {{ HTML::image( 'images/logo2.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
+            </div>
+            <div class="col-sm-2">
+              {{ HTML::image( 'images/logo3.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
+            </div>
+            <div class="col-sm-2">
+              {{ HTML::image( 'images/logo4.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
+            </div>
+            <div class="col-sm-2">
+              {{ HTML::image( 'images/logo5.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
+            </div>
+            <div class="col-sm-2">
+              {{ HTML::image( 'images/logo6.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
+            </div>
+          </div>
         </div>
       </div>
     </div>

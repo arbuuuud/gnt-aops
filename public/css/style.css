@@ -49,7 +49,8 @@ body {
 }
 
 #bottom-content {
-	background-color:#f6f6f6;
+/*	background-color:#f6f6f6;*/
+	background-color:#eeedf2;
 }
 
 #registration-box {
@@ -274,6 +275,10 @@ h1.testimonial-title {
 
 .testimonial-image {
 	border-radius: 50%;
+	width:100%;
+}
+
+.profile-image {
 	width:100%;
 }
 
