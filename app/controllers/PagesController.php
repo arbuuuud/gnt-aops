@@ -2,8 +2,16 @@
 
 class PagesController extends \BaseController {
 
-	public function showHome()
+	public function showHome($username)
 	{
+		// checkmemberexist
+		$member = MemberAPI::getMemberByUserName($username);
+		if(!$member){
+			return 'REDIRECT TO MASTER GNT WEBSITE';
+		}
+		// return dd($member->member_id);
+		$memberid = $member->member_id;
+
 		// Bottom sections
 		// $category_news = Postcategory::ofSlug('berita')->firstOrFail();
 		$latest_news = Post::published()->latest()->paginate(10);
@@ -12,7 +20,7 @@ class PagesController extends \BaseController {
 		// $popular_news = $category_news->posts()->published()->popular()->take(5)->get();
 		$popular_news = Post::published()->popular()->take(5)->get();
 
-		return View::make('pages.templates.home', compact('latest_news', 'popular_news'));
+		return View::make('pages.templates.home', compact('latest_news', 'popular_news', 'memberid'));
 	}
 
 	public function peluang()

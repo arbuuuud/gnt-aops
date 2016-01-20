@@ -29,8 +29,14 @@ Route::get('sendmail', function()
     $email = new EmailSchedullerPool;
     $email->sendmail();
 });
-Route::get('/', array('uses' => 'PagesController@showHome'));
-Route::any('/peluang', array('uses' => 'PagesController@peluang'));
+
+// Route::get('/', array('uses' => 'PagesController@showHome'));
+Route::get('/', function(){
+
+    return 'REDIRECT TO MASTER GNT WEBSITE';
+});
+Route::get('/ref/{username}', array('uses' => 'PagesController@showHome'));
+// Route::any('/peluang', array('uses' => 'PagesController@peluang'));
 Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
 Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
@@ -56,10 +62,12 @@ Route::get('kategori/{category}/{filter?}', array('uses' => 'PostCategoriesContr
 // Members specific routes
 Route::get('search', array('uses' => 'PagesController@search'));
 Route::get('sitemap', array('uses' => 'PagesController@showSitemap'));
+Route::post('registercontact', array('uses' => 'ContactsController@registercontact'));
 
 // Member routes
 Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 {
+    Route::get('/', array('uses' => 'MembersController@showDashboard'));
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
     Route::resource('contacts', 'ContactsController');
     Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));

@@ -9,13 +9,14 @@ Home
     <div class="container-fluid">
       <div class="row">
         <div id="registration-box" class="col-sm-4">
-          {{ Form::open(array('url' => 'peluang')) }}
+          {{ Form::open(array('url' => 'registercontact')) }}
             <h1 class="registration-box">
               Peluang Terbaik Untuk Meningkatkan Kesejahteraan Hidup Anda
             </h1> 
             <h2 class="registration-box">
               Dapatkan informasi mengenai peluang bisnis TERBAIK hanya dengan memberikan informasi nama, email dan no. tlp Anda sekarang juga!
             </h2> 
+            {{ Form::hidden('member_id',$memberid) }}
             {{ Form::text('full_name', Input::old('full_name'), array('class'=>'form-control','placeholder'=> 'Nama Lengkap')) }}
             {{ Form::text('email', Input::old('email'), array('class'=>'form-control','placeholder'=> 'Email')) }}
             {{ Form::text('phone_number', Input::old('phone_number'), array('class'=>'form-control','placeholder'=> 'No. Telepon')) }}

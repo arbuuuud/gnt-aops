@@ -88,6 +88,23 @@ class MemberAPI extends \Eloquent
 			return 'Trouble Connection';
 		}
 	}
+	public static function getMemberByUserName($username){
+		try{
+
+			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+
+			$member = $apicaller->sendRequest(array(
+				'controller' => 'member',
+				'action' => 'getmemberbyusername',
+				'username' => 'aops',
+				'userpass' => 'password',
+				'username' => $username
+			));
+			return $member;
+		}catch(Exception $e){
+			return null;
+		}
+	}
 	public static function getmemberchilds($member_id){
 		try{
 

@@ -57,6 +57,41 @@ class ContactsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function registercontact()
+	{
+		$customRule = [
+			'full_name' => 'required',
+			'email' => 'required|email',
+			'phone_number' => 'required|string'
+		];
+		$validator = Validator::make($data = Input::all(), $customRule);
+
+		if ($validator->fails())
+		{
+			return var_dump($validator);
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		// $member = Member::where('user_id',Auth::user()->id)->first();
+
+		// $data['member_id'] = Auth::user()->id;   
+		$data['active'] = 1;
+		$data['isAutomaticFollowUp'] = 1;
+		$data['email_sent'] = "";
+		
+		$contact = new Contact();
+		$contact->member_id = $data['member_id']; 
+		$contact->first_name = $data['full_name']; 
+		$contact->email = $data['email']; 
+		$contact->phone_home = $data['phone_number']; 
+		$contact->email_sent = $data['email_sent']; 
+		$contact->isAutomaticFollowUp = $data['isAutomaticFollowUp']; 
+		$contact->active = $data['active']; 
+		$contact->save();
+
+		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
+		return View::make('pages.templates.peluang', compact('latest_news', 'popular_news'));
+	}
 	public function store()
 	{
 		$validator = Validator::make($data = Input::all(), Contact::$rules);
