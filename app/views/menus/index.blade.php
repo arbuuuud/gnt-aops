@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.'.Auth::user()->roleString())
 
 @section('content')
 <?php $currentmenu = Request::segment(3) ? Request::segment(3) : '1'; ?>

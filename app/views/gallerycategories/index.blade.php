@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.'.Auth::user()->roleString())
 
 @section('content')
 <div class="row">

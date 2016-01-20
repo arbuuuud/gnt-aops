@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.'.Auth::user()->roleString())
 
 @section('content')
 <h3 class="page-title">Edit Galeri Video</h3>

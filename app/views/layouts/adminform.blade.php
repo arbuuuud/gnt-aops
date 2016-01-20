@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.'.Auth::user()->roleString())
 
 @section('customcss')
 {{ HTML::style('assets/global/plugins/clockface/css/clockface.css') }}
