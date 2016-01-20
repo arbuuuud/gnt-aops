@@ -12,7 +12,7 @@
     @section('head-meta')@show
     <link rel="icon" href="favicon.ico">
     <title>@yield('head-title', 'Home') | {{ Sysparam::getValue('web_title') }}</title>
-    
+    {{ HTML::style('https://fonts.googleapis.com/css?family=Lato') }}
     {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all') }}
     {{ HTML::style('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css') }}
     {{ HTML::style('css/jquery-ui.theme.min.css') }}

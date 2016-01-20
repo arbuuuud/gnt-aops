@@ -99,19 +99,25 @@ Home
     </div>
     <div class="row">
       <div class="col-sm-4">
-        {{ HTML::image( 'img/artikel-1.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
-        <p><strong>MLM Offline Bersama GNT</strong></p>
-        <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+          {{ HTML::image( 'img/artikel-1.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+          <div class="article-box">
+            <p><strong>MLM Offline Bersama GNT</strong></p>
+            <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+        </div>
       </div>
       <div class="col-sm-4">
-        {{ HTML::image( 'img/artikel-2.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
-        <p><strong>MLM Offline Bersama GNT</strong></p>
-        <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+          {{ HTML::image( 'img/artikel-2.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+         <div class="article-box">
+          <p><strong>MLM Offline Bersama GNT</strong></p>
+          <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+        </div>
       </div>
       <div class="col-sm-4">
-        {{ HTML::image( 'img/artikel-3.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
-        <p><strong>MLM Offline Bersama GNT</strong></p>
-        <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+          {{ HTML::image( 'img/artikel-3.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+          <div class="article-box">
+          <p><strong>MLM Offline Bersama GNT</strong></p>
+          <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+        </div>
       </div>
     </div>
   </div>
