@@ -1,0 +1,1 @@
+C:\xampp\htdocs\gnt-aops\app/views/email_templates/create.blade.php

@@ -14,7 +14,7 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#details" aria-controls="home" role="tab" data-toggle="tab">Details</a></li>
-            <li role="presentation"><a href="#history" aria-controls="profile" role="tab" data-toggle="tab">History</a></li>
+            <li role="presentation"><a href="#history" aria-controls="profile" role="tab" data-toggle="tab">Outbox</a></li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
@@ -42,17 +42,15 @@
                 <table class="table mpr_datatable">
                 <thead>
                     <tr>
-                        <th class="text-center">Template ID</th>
+                        <th class="text-center">Email Subject</th>
                         <th class="text-center">Date Sent</th>
-                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody>
           @foreach($email_histories as $email_history)
                     <tr>
-                        <td class="text-center">{{$email_history->template_id}}</td>
+                        <td class="text-center">{{$email_history->template->subject}}</td>
                         <td class="text-center">{{date('d F, Y', strtotime($email_history->date_sent))}}</td>
-                        <td class="text-center">{{$email_history->status}}</td>
                     </tr>
             @endforeach
                 </tbody>

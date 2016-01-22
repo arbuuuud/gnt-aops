@@ -8,6 +8,39 @@ class UsersController extends BaseController {
 		$htmltree = MemberAPI::getmemberchilds($user->id);
 		return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
 	}
+	public function showOutbox(){
+		$emailHistory = EmailHistory::where('member_id',Auth::user()->id)->get();
+		// return $emailHistory->toJson();
+		return View::make('users.outbox')->with('email_histories',$emailHistory);
+	}
+	public function sendEmailpost(){
+		$rules = [
+			'contact_id' => 'required',
+			'template_id' => 'required'
+		];
+		$validator = Validator::make(Input::all(), $rules);
+
+		// if the validator fails, redirect back to the form
+		if ($validator->fails()) {
+		    return Redirect::back()
+		        ->withErrors($validator);
+		} else {
+			$memberid = Auth::user()->id;
+			$contactid = Input::get('contact_id');
+			$templateid = Input::get('template_id');
+			$issent = EmailSchedullerPool::sendManualEmail($memberid,$contactid,$templateid);
+			if($issent){
+				return Redirect::to(Auth::user()->roleString().'/outbox');
+			}
+			return Redirect::back()->with('message','Email Not Send, Please try again latter');
+		}
+	}
+	public function sendEmail(){
+		$contacts = Contact::where('member_id',Auth::user()->id)->lists('first_name', 'id');;
+		$subjects = EmailTemplate::lists('subject', 'id');;
+		// return $emailHistory->toJson();
+		return View::make('users.send')->with('contacts',$contacts)->with('subjects',$subjects);
+	}
 	public function showLogin()
 	{
 	    // show the form

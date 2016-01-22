@@ -67,6 +67,9 @@ Route::post('registercontact', array('uses' => 'ContactsController@registerconta
 // Member routes
 Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 {
+    Route::post('send', array('as'=>'member.sendemailmanual','uses' => 'UsersController@sendEmailpost'));
+    Route::get('send', array('as'=>'member.send','uses' => 'UsersController@sendEmail'));
+    Route::get('outbox', array('as'=>'member.outbox','uses' => 'UsersController@showOutbox'));
     Route::get('/', array('uses' => 'MembersController@showDashboard'));
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
     Route::resource('contacts', 'ContactsController');
@@ -76,6 +79,8 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 // Admin routes
 Route::group(array('prefix' => 'admin','before' => 'auth'), function()
 {
+    Route::resource('templates', 'EmailTemplatesController');
+    Route::get('showtemplate/{html}', array('uses' => 'EmailTemplatesController@showtemplate'));
     Route::get('/', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     Route::get('dashboard', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     

@@ -15,7 +15,7 @@ class CreateEmailHistoriesTable extends Migration {
 		Schema::create('email_histories', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('template_id');
+			$table->integer('template_id')->unsigned();
 			$table->integer('member_id');
 			$table->string('status');
 			$table->integer('contact_id')->unsigned();

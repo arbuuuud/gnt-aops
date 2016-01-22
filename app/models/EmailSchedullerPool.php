@@ -19,18 +19,20 @@ class EmailSchedullerPool extends \Eloquent {
     // }
 
 /* ENGINE FOR SEND EMAIL*/
-   	private function sendmail($memberid,$contactid,$templateid)
+   	private static function sendmail($memberid,$contactid,$templateid)
     {
     	// Sample Data
-    	$data['member'] = Member::findOrFail($memberid);
+    	$data['member'] = User::findOrFail($memberid);
         $contact = Contact::findOrFail($contactid);
         $data['contact'] = $contact;
     	$data['idencrypted'] = $contact->encryptContact();
 /*ARBUD : Need correct if template has been finished*/ 
-        $template = 'emails.templates.sample'; 
-        Mail::send($template, $data, function($message) {
-    		$message->to($contact->email, $contact->first_name.' '.$contact->last_name)->subject('Welcome to the GNT AOPS!');
+        $temp = EmailTemplate::find($templateid);
+        $template = 'emails.templates.'.$temp->html_body; 
+        Mail::send($template, $data, function($message) use($data) {
+    		$message->to($data['contact']->email, $data['contact']->first_name)->subject('Welcome to the GNT AOPS!');
 		});
+
         if(count(Mail::failures()) > 0){
             return false;
         }else{
@@ -47,9 +49,9 @@ class EmailSchedullerPool extends \Eloquent {
 /*
 Send Email Manual
 */
-    public function sendManualEmail($memberid,$contactid,$templateid){
+    public static function sendManualEmail($memberid,$contactid,$templateid){
         $contact = Contact::findOrFail($contactid);
-        if($this->sendmail($memberid,$contactid,$templateid)){
+        if(EmailSchedullerPool::sendmail($memberid,$contactid,$templateid)){
             if($contact->email_sent == "" ||$contact->email_sent ==0){
                 $contact->email_sent=$templateid;
                 $contact->save();

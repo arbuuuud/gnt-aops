@@ -115,6 +115,8 @@
           <a href="{{ route('member.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
         </li>
        <li><a href="{{ route('member.contacts.index') }}"><i class="fa fa-comment"></i> Contacts</a></li>
+       <li><a href="{{ route('member.send') }}"><i class="fa fa-send"></i> Send Mail</a></li>
+       <li><a href="{{ route('member.outbox') }}"><i class="fa fa-envelope"></i> Outbox</a></li>
         <!-- <li>
           <a href="javascript:;">
             <i class="fa fa-cogs"></i> Settings
