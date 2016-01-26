@@ -71,6 +71,7 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
     Route::get('send', array('as'=>'member.send','uses' => 'UsersController@sendEmail'));
     Route::get('outbox', array('as'=>'member.outbox','uses' => 'UsersController@showOutbox'));
     Route::get('/', array('uses' => 'MembersController@showDashboard'));
+    Route::get('/tree/{id}', array('uses' => 'MembersController@showTree'));
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
     Route::resource('contacts', 'ContactsController');
     Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
@@ -118,6 +119,7 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
 Route::group(array('prefix' => 'ajax'), function()
 {
     Route::any('saveimage', array('uses' => 'AjaxController@saveimage'));
+    Route::any('gettree/{id}', array('uses' => 'AjaxController@gettree'));
 });
 
 Route::any('ViewerJS/{all?}', function(){

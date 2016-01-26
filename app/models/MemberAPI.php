@@ -71,6 +71,24 @@ class MemberAPI extends \Eloquent
 		// //return the todo item in array format
 		// return $memberItem;
 	}
+	public static function getAllDownline($member_id){
+		
+		try{
+
+			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+
+			$todo_items = $apicaller->sendRequest(array(
+				'controller' => 'member',
+				'action' => 'getalldownline',
+				'username' => 'aops',
+				'userpass' => 'password',
+				'member_id' => $member_id
+			));
+			return $todo_items;
+		}catch(Exception $e){
+			return 'Trouble Connection';
+		}
+	}
 	public static function getmemberapiselect($member_id){
 		try{
 

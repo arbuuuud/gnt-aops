@@ -8,6 +8,10 @@ class MembersController extends \BaseController {
 	 * @return Response
 	 */
 
+   
+    public function showTree($id){
+    		return View::make('members.tree');
+    }
     public function showDashboard()
 	{
 		$htmltree = MemberAPI::getmemberchilds(Auth::user()->id);

@@ -15,6 +15,22 @@ class ContactsController extends \BaseController {
 		}else{
 			$contacts = Contact::where('member_id',Auth::user()->id)->get();
 			$memberCollection = MemberAPI::getmemberapiselect(Auth::user()->id);
+			foreach ($memberCollection as $member) {
+				if(!User::find($member->member_id)){
+					$user = new User();
+					$user->id = $member->member_id; 
+					$user->first_name = $member->name; 
+					$user->last_name = ""; 
+					$user->email =$member->name; 
+
+					$user->password = Hash::make(rand());
+					$user->active = 1; 
+					$user->save();
+				}
+				$membercontacts = Contact::where('member_id',$member->member_id)->get();
+				$contacts =  $contacts->merge($membercontacts);
+			}
+			// return $contacts->toJson();
 		}
 		return View::make('contacts.index', compact('contacts', 'memberCollection'));
 	}

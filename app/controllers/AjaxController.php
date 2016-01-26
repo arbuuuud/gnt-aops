@@ -17,5 +17,15 @@ class AjaxController extends \BaseController {
 			return Redirect::to('/');
 		}
 	}
+	 public function getTree($id){
+	 	// if (!Request::ajax()) {
+	 		// return array();
+	 	// }
+	 	if($id==0){
+	 		$id= Auth::user()->id;
+	 	}
+		$htmltree = MemberAPI::getAllDownline($id);
+		return $htmltree;
+    }
 
 }
