@@ -8,6 +8,13 @@ class UsersController extends BaseController {
 		$htmltree = MemberAPI::getmemberchilds($user->id);
 		return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
 	}
+	public function showEmail($templateid,$contactid){
+		$contact = Contact::find($contactid);
+		$template = EmailTemplate::find($templateid);
+		$urlEmail = $template->html_body;
+		return View::make('users.showemail')->with('contact',$contact)->with('urlEmail',$urlEmail);
+		
+	}
 	public function showOutbox(){
 		$emailHistory = EmailHistory::where('member_id',Auth::user()->id)->get();
 		// return $emailHistory->toJson();
@@ -25,6 +32,12 @@ class UsersController extends BaseController {
 		    return Redirect::back()
 		        ->withErrors($validator);
 		} else {
+			$contact = Contact::find($contactid);
+
+			if(!$contact->active){
+				return Redirect::back()->with('message','Kontak tidak aktif');
+				
+			}
 			$memberid = Auth::user()->id;
 			$contactid = Input::get('contact_id');
 			$templateid = Input::get('template_id');
@@ -37,7 +50,7 @@ class UsersController extends BaseController {
 	}
 	public function sendEmail(){
 		$contacts = Contact::where('member_id',Auth::user()->id)->lists('first_name', 'id');;
-		$subjects = EmailTemplate::lists('subject', 'id');;
+		$subjects = EmailTemplate::lists('subject', 'id');
 		// return $emailHistory->toJson();
 		return View::make('users.send')->with('contacts',$contacts)->with('subjects',$subjects);
 	}

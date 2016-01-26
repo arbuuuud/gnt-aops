@@ -34,7 +34,7 @@
                     <tr>
                   
                         <td class="text-left col-sm-2">To: {{$email_history->contact->first_name}}</td>
-                        <td class="text-left col-sm-8"><a href="#">{{$email_history->template->subject}}</a></td>
+                        <td class="text-left col-sm-8"><a href="{{url('member/showemail/'.$email_history->template->id.'/'.$email_history->contact->id)}}">{{$email_history->template->subject}}</a></td>
                         <td class="text-left col-sm-2">{{date('M d', strtotime($email_history->date_sent))}}</td>
                   
                     </tr>

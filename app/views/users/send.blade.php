@@ -12,6 +12,16 @@ Tambah Data User
 @stop
 
 @section('form-left')
+@if(Session::get('message'))
+<div class="form-body form-horizontal">
+  <div class="form-group">{{$message}}</div>
+  <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+        <button type="submit" class="btn green"><i class="fa fa-check"></i> Back</button>
+        </div>
+    </div>
+</div>
+@else
 <div class="form-body form-horizontal">
   <div class="form-group">
     {{ Form::label('contact_id', 'To:', array('class'=>'col-md-4 control-label')) }}
@@ -31,4 +41,5 @@ Tambah Data User
         </div>
     </div>
 </div>
+@endIf
 @stop

@@ -70,6 +70,7 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
     Route::post('send', array('as'=>'member.sendemailmanual','uses' => 'UsersController@sendEmailpost'));
     Route::get('send', array('as'=>'member.send','uses' => 'UsersController@sendEmail'));
     Route::get('outbox', array('as'=>'member.outbox','uses' => 'UsersController@showOutbox'));
+    Route::get('showemail/{template}/{contact}', array('as'=>'member.showemail','uses' => 'UsersController@showEmail'));
     Route::get('/', array('uses' => 'MembersController@showDashboard'));
     Route::get('/tree/{id}', array('uses' => 'MembersController@showTree'));
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
