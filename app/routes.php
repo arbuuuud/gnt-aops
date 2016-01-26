@@ -86,13 +86,13 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::get('dashboard', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     
     // Resources
-    Route::resource('contacts', 'ContactsController');
+    // Route::resource('contacts', 'ContactsController');
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
     Route::resource('pages', 'PagesController');
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'PostCategoriesController');
-    Route::resource('members', 'MembersController');
+    // Route::resource('members', 'MembersController');
     Route::resource('member_posts', 'MemberPostsController');
 
     Route::resource('gallerycategories', 'GalleryCategoriesController');

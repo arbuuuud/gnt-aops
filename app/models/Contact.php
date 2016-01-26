@@ -91,9 +91,10 @@ class Contact extends \Eloquent {
 	public static $rules = [
 		'first_name' => 'required',
 		'email' => 'required|email',
-		'address' => 'required',
+		// 'address' => 'required',
 		'phone_home' => 'required|string',
         'last_follow_up' => 'required|date',
+        'active' => 'required',
 	];
 
 

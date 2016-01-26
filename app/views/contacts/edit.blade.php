@@ -4,11 +4,11 @@ Edit Contact Data
 @stop
 
 @section('form-open')
-{{ Form::model($contact, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array(.Auth::user()->roleString().'.contacts.update', $contact->id), 'files' => true)) }}
+{{ Form::model($contact, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array(Auth::user()->roleString().'.contacts.update', $contact->id), 'files' => true)) }}
 @stop
 
 @section('form-actions')
-{{ link_to_route(.Auth::user()->roleString().'.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
+{{ link_to_route(Auth::user()->roleString().'.contacts.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
 <a href="{{URL::to(Auth::user()->roleString().'/contacts/'.$contact->id)}}" class="btn red" data-method="delete" data-confirm="Are you sure you want to delete this entry?">Delete</a>
 @stop
@@ -16,17 +16,11 @@ Edit Contact Data
 @section('form-left')
 <div class="form-body form-horizontal">
 	<div class="form-group">
-		{{ Form::label('first_name', 'First Name:', array('class'=>'col-md-2 control-label')) }}
+		{{ Form::label('first_name', 'Name:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
           {{ Form::text('first_name', Input::old('first_name'), array('class'=>'form-control')) }}
         </div>
     </div>
-	<div class="form-group">
-		{{ Form::label('last_name', 'Last Name:', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('last_name', Input::old('last_name'), array('class'=>'form-control')) }}
-		    </div>
-	</div>
   <div class="form-group">
     {{ Form::label('email', 'Email', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
@@ -34,21 +28,9 @@ Edit Contact Data
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('active', 'Last Follow Up', array('class'=>'col-md-2 control-label')) }}
+    {{ Form::label('phone_home', 'Phone Number (Home)', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
-          {{ Form::text('last_follow_up', date('Y-m-d H:i:s'), array('class'=>'form-control form_datetime')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Email Sent', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('email_sent', Input::old('email_sent'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Active', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::select('active', $active, null, array('class'=>'form-control')) }}
+          {{ Form::text('phone_home', Input::old('phone_home'), array('class'=>'form-control')) }}
         </div>
   </div>
   <div class="form-group">
@@ -58,51 +40,9 @@ Edit Contact Data
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('active', 'Address', array('class'=>'col-md-2 control-label')) }}
+    {{ Form::label('active', 'Active', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
-          {{ Form::text('address', Input::old('address'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'State', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('state', Input::old('state'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'City', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('city', Input::old('city'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Phone Number (Home)', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('phone_home', Input::old('phone_home'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Phone Number (Mobile)', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('phone_mobile', Input::old('phone_mobile'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Province', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('province', Input::old('province'), array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Gender', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::select('gender', $gender, null, array('class'=>'form-control')) }}
-        </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('active', 'Description', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
-          {{ Form::text('description', Input::old('description'), array('class'=>'form-control')) }}
+          {{ Form::select('active', $active, null, array('class'=>'form-control')) }}
         </div>
   </div>
 @stop

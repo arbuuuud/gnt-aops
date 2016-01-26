@@ -16,6 +16,15 @@ Home
             <h2 class="registration-box">
               Dapatkan informasi mengenai peluang bisnis TERBAIK hanya dengan memberikan informasi nama, email dan no. tlp Anda sekarang juga!
             </h2> 
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+              </ul>
+            </div>
+            @endif
+            
             {{ Form::hidden('member_id',$memberid) }}
             {{ Form::text('full_name', Input::old('full_name'), array('class'=>'form-control','placeholder'=> 'Nama Lengkap')) }}
             {{ Form::text('email', Input::old('email'), array('class'=>'form-control','placeholder'=> 'Email')) }}

@@ -32,6 +32,7 @@ class ContactsController extends \BaseController {
 			}
 			// return $contacts->toJson();
 		}
+
 		return View::make('contacts.index', compact('contacts', 'memberCollection'));
 	}
 
@@ -77,14 +78,14 @@ class ContactsController extends \BaseController {
 	{
 		$customRule = [
 			'full_name' => 'required',
-			'email' => 'required|email',
-			'phone_number' => 'required|string'
+			'email'	=> 'required|email|unique:contacts',
+			'phone_number' => 'required'
 		];
 		$validator = Validator::make($data = Input::all(), $customRule);
 
 		if ($validator->fails())
 		{
-			return var_dump($validator);
+			// return var_dump($validator);
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
@@ -104,6 +105,12 @@ class ContactsController extends \BaseController {
 		$contact->isAutomaticFollowUp = $data['isAutomaticFollowUp']; 
 		$contact->active = $data['active']; 
 		$contact->save();
+
+		$template = 'emails.registercontact';
+		$data['contact'] = $contact;	
+        Mail::send($template, $data, function($message) use($data) {
+    		$message->to($data['contact']->email, $data['contact']->first_name)->subject('Welcome to the GNT AOPS!');
+		});
 
 		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
 		return View::make('pages.templates.peluang', compact('latest_news', 'popular_news'));
