@@ -76,6 +76,11 @@ class ContactsController extends \BaseController {
 	 */
 	public function registercontact()
 	{
+
+		$contact = Contact::find(60);
+		$bool = $contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
+		return $bool;
+
 		$customRule = [
 			'full_name' => 'required',
 			'email'	=> 'required|email|unique:contacts',
@@ -105,6 +110,7 @@ class ContactsController extends \BaseController {
 		$contact->isAutomaticFollowUp = $data['isAutomaticFollowUp']; 
 		$contact->active = $data['active']; 
 		$contact->save();
+		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
 
 		$template = 'emails.registercontact';
 		$data['contact'] = $contact;	
@@ -112,7 +118,6 @@ class ContactsController extends \BaseController {
     		$message->to($data['contact']->email, $data['contact']->first_name)->subject('Welcome to the GNT AOPS!');
 		});
 
-		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
 		return View::make('pages.templates.peluang', compact('latest_news', 'popular_news'));
 	}
 	public function store()

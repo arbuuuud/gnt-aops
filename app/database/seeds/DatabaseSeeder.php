@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('MenusTableSeeder');
 		$this->call('MenuItemsTableSeeder');
+		$this->call('ContactsTableSeeder');
+		$this->call('EmailTemplatesTableSeeder');
 
 		// Dummy database yang optional
 		// $this->call('GalleriesTableSeeder');
@@ -37,7 +39,6 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('VideosTableSeeder');
 		// $this->call('DocumentsTableSeeder');
 
-		$this->call('ContactsTableSeeder');
 	}
 
 }
