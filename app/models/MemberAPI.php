@@ -2,6 +2,11 @@
 class MemberAPI extends \Eloquent
 {
 	private $_params;
+	const API_KEY = 'APP001';
+	const API_SECRET = '28e336ac6c9423d946ba02d19c6a2632';
+	const API_TARGET = 'http://localhost/aops-server/';
+	const API_USERNAME = 'aops';
+	const API_PASSWORD = 'password';
 	
 	public function __construct($params)
 	{
@@ -75,13 +80,13 @@ class MemberAPI extends \Eloquent
 		
 		try{
 
-			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
 
 			$todo_items = $apicaller->sendRequest(array(
 				'controller' => 'member',
 				'action' => 'getalldownline',
-				'username' => 'aops',
-				'userpass' => 'password',
+				'username' => MemberAPI::API_USERNAME,
+				'userpass' => MemberAPI::API_PASSWORD,
 				'member_id' => $member_id
 			));
 			return $todo_items;
@@ -91,14 +96,15 @@ class MemberAPI extends \Eloquent
 	}
 	public static function getmemberapiselect($member_id){
 		try{
-
-			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+			// return null;
+			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,'http://arctabyte.com/dev/aops-server/');
+			// $apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
 
 			$todo_items = $apicaller->sendRequest(array(
 				'controller' => 'member',
 				'action' => 'getmemberselect',
-				'username' => 'aops',
-				'userpass' => 'password',
+				'username' => MemberAPI::API_USERNAME,
+				'userpass' => MemberAPI::API_PASSWORD,
 				'member_id' => $member_id
 			));
 			return $todo_items;
@@ -109,13 +115,13 @@ class MemberAPI extends \Eloquent
 	public static function getMemberByUserName($username){
 		try{
 
-			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
 
 			$member = $apicaller->sendRequest(array(
 				'controller' => 'member',
 				'action' => 'getmemberbyusername',
-				'username' => 'aops',
-				'userpass' => 'password',
+				'username' => MemberAPI::API_USERNAME,
+				'userpass' => MemberAPI::API_PASSWORD,
 				'username' => $username
 			));
 			return $member;
@@ -126,13 +132,13 @@ class MemberAPI extends \Eloquent
 	public static function getmemberchilds($member_id){
 		try{
 
-			$apicaller = new ApiCaller('APP001', '28e336ac6c9423d946ba02d19c6a2632','http://localhost/aops-server/');
+			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
 
 			$todo_items = $apicaller->sendRequest(array(
 				'controller' => 'member',
 				'action' => 'getmemberchilds',
-				'username' => 'aops',
-				'userpass' => 'password',
+				'username' => MemberAPI::API_USERNAME,
+				'userpass' => MemberAPI::API_PASSWORD,
 				'member_id' => $member_id
 			));
 			return $todo_items;

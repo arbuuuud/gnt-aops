@@ -77,9 +77,9 @@ class ContactsController extends \BaseController {
 	public function registercontact()
 	{
 
-		$contact = Contact::find(60);
-		$bool = $contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
-		return $bool;
+		// $contact = Contact::find(60);
+		// $bool = $contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
+		// return $bool;
 
 		$customRule = [
 			'full_name' => 'required',

@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-	//
+	// return 'test';
+
 });
 
 
@@ -21,7 +22,16 @@ App::after(function($request, $response)
 {
 	//
 });
+App::missing(function($exception)
+{
+	// Route::any('{?params}', function($params){
 
+	//     return $params;
+	// });
+    // return Response::view('errors.missing', array(), 404);
+    // $a = Input::all();
+    // return "$_SERVER[REQUEST_URI]";;
+});
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
