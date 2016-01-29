@@ -35,7 +35,7 @@ Home
             </button>
           {{ Form::close() }}
             <h2 class="registration-box">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet cursus dui vitae gravida.
+              Di halaman selanjutnya Anda akan mendapatkan informasi peluang terbaik yang dapat merubah seluruh hidup Anda, ayo tunggu apa lagi! 
             </h2> 
         </div>
       </div>
@@ -88,8 +88,8 @@ Home
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
                   <div class="col-sm-8 testimonial-text">
-                    <p class="text-white">“Phasellus laoreet cursus dui vitae gravida. Nam non eleifend ligula, vitae ultrices nisl.Lorem ipsum dolor sit amet.”</p>
-                    <p class="text-green">Jessica Don / CO - FOUNDER, EXAMPLES.COM</p>
+                    <p class="text-white">“Semenjak minum GNT Fiber serat, BAB jadi lancar. Berasa kenyang lebih lama dan merasa lebih enteng dibagian perutku. Berat badan 72 turun ke 69 hanya dalam 1 bulan.”</p>
+                    <p class="text-green">Victor Tjahja, 35, wiraswasta, Jakarta</p>
                   </div>
               </div>
               <div class="col-sm-6 testimonial-right">
@@ -97,8 +97,8 @@ Home
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
                   <div class="col-sm-8 testimonial-text">
-                    <p class="text-white">“Phasellus laoreet cursus dui vitae gravida. Nam non eleifend ligula, vitae ultrices nisl.Lorem ipsum dolor sit amet.”</p>
-                    <p class="text-green">Jessica Don / CO - FOUNDER, EXAMPLES.COM</p>
+                    <p class="text-white">“Lantaran penasaran cerita teman jadi ikutan nyoba. BBku turun 3kg hanya dalam sebulan. Enggak bikin lemes, badan terasa ringan dan semakin sehat.”</p>
+                    <p class="text-green">Willy R Khosuma, 25, Tobelo</p>
                   </div>
               </div>  
               <div class="col-sm-6">
@@ -106,8 +106,8 @@ Home
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
                   <div class="col-sm-8 testimonial-text">
-                    <p class="text-white">“Phasellus laoreet cursus dui vitae gravida. Nam non eleifend ligula, vitae ultrices nisl.Lorem ipsum dolor sit amet.”</p>
-                    <p class="text-green">Jessica Don / CO - FOUNDER, EXAMPLES.COM</p>
+                    <p class="text-white">“Terima Kasih GNT FIBER saya senang sekali bisa menurunkan berat badan saya dengan cara yang mudah dan tidak menyiksa tubuh saya”</p>
+                    <p class="text-green">Sonny Tulung, 45 tahun - Artis</p>
                   </div>
               </div>  
               <div class="col-sm-6 testimonial-right">
@@ -115,8 +115,8 @@ Home
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
                   <div class="col-sm-8 testimonial-text">
-                    <p class="text-white">“Phasellus laoreet cursus dui vitae gravida. Nam non eleifend ligula, vitae ultrices nisl.Lorem ipsum dolor sit amet.”</p>
-                    <p class="text-green">Jessica Don / CO - FOUNDER, EXAMPLES.COM</p>
+                    <p class="text-white">“GNT Fiber ini sangat membantu. Baru minum teratur 2x sehari selama seminggu, celana langsung longgar”</p>
+                    <p class="text-green">Sandi Wonodjojo, 30, wiraswasta, Jakarta</p>
                   </div>
               </div>    
             </div>
@@ -126,8 +126,8 @@ Home
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div id="profile-banner" class="col-sm-12">
-          <h1 class="testimonial-title text-white text-center">Apa itu GNT?</h1>
+      <div class="col-sm-12">
+          <h1 class="testimonial-title text-center">Apa itu GNT?</h1>
       </div>
     </div>
     <div class="container">
@@ -168,4 +168,21 @@ Home
 
  </div>
 </div>
+
+<div id="subscribe-bottom" class="container-fluid">
+    <div class="container">
+      <div class="row">
+            <h1 class="testimonial-title text-white text-center">Tunggu apalagi?<br>
+              Ayo tingkatkan kualitas<br>
+              hidup anda sekarang!
+            </h1>
+      </div>
+      <div class="row">
+        <div class="subscribe-button-huge text-center">
+          Saya tertarik!
+        </div> 
+      </div>
+    </div>
+  </div>
+  
 @stop

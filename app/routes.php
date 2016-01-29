@@ -33,10 +33,10 @@ Route::get('sendmail', function()
 // Route::get('/', array('uses' => 'PagesController@showHome'));
 Route::get('/', function(){
 
-    return 'REDIRECT TO MASTER GNT WEBSITE';
+    return Redirect::to('https://www.gntclub.com/');
 });
 Route::get('/ref/{username}', array('uses' => 'PagesController@showHome'));
-// Route::any('/peluang', array('uses' => 'PagesController@peluang'));
+Route::any('/peluang', array('uses' => 'PagesController@peluang'));
 Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
 Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
 
@@ -126,4 +126,8 @@ Route::group(array('prefix' => 'ajax'), function()
 Route::any('ViewerJS/{all?}', function(){
 
     return View::make('ViewerJS.index');
+});
+Route::any('sample', function(){
+
+    return View::make('emails.templates.sample')->with('member',Member::find(1))->with('contact',Contact::find(1));
 });

@@ -7,7 +7,7 @@ class PagesController extends \BaseController {
 		// checkmemberexist
 		$member = MemberAPI::getMemberByUserName($username);
 		if(!$member){
-			return 'REDIRECT TO MASTER GNT WEBSITE';
+			return Redirect::to('https://www.gntclub.com/');
 		}
 		// return dd($member->member_id);
 		$memberid = $member->member_id;

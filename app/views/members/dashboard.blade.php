@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-4">
 		<h2 class="page-header text-center">
-			Member Structure
+			Jaringan Anggota
 		</h2>
 		@if(isset($htmltree))
 			{{$htmltree}}
@@ -12,7 +12,7 @@
 	</div>
 	<div class="col-md-8 text-center">
 		<h2 class="page-header">
-			Recent Subscriber
+			Daftar Kontak Terbaru
 		</h2>
 		<table class="table display" id="tableone">
 				<thead>

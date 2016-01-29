@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('ContactsTableSeeder');
 		$this->call('EmailTemplatesTableSeeder');
 
+		$this->call('EmailTemplatesTableSeeder');
+
 		// Dummy database yang optional
 		// $this->call('GalleriesTableSeeder');
 		// $this->call('PhotosTableSeeder');

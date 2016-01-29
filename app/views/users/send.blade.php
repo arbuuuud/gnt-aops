@@ -1,7 +1,7 @@
 @extends('layouts.adminform')
 
 @section('form-title')
-Tambah Data User
+Send Mail
 @stop
 
 @section('form-open')
