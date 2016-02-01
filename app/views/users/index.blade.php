@@ -5,7 +5,6 @@
 	<div class="col-md-12">
 		<h3 class="page-title">
 			Daftar Semua User
-			<a href="{{route('admin.users.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
 		</h3>
 		@if (Session::get('message'))
 		<div class="alert alert-success">
@@ -29,6 +28,7 @@
 				</thead>
 				<tbody>
 				@foreach($users as $user)
+					@if($user->id != 1)
 					<tr>
 						<td>{{$user->id}}</td>
 						<td><a href="{{ route('admin.users.edit', $user->id) }}">{{ $user->first_name }}</a></td>
@@ -44,6 +44,7 @@
 							</div>
 						</td>
 					</tr>
+					@endif
 				@endforeach
 				</tbody>
 			</table>

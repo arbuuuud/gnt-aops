@@ -6,7 +6,7 @@ class PostCategoriesTableSeeder extends Seeder {
 	{
 		$array = array(
 			[
-				'title' => 'Uncategorized',
+				'title' => 'Artikel',
 				'slug'	=> 'uncategorized'
 			]
 		);

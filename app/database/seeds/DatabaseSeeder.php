@@ -21,25 +21,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('PostsTableSeeder');
 		$this->call('PagesTableSeeder');
 
-		$this->call('GalleryCategoriesTableSeeder');
-		$this->call('VideocategoriesTableSeeder');
-
 		$this->call('MenusTableSeeder');
 		$this->call('MenuItemsTableSeeder');
 		$this->call('ContactsTableSeeder');
 		$this->call('EmailTemplatesTableSeeder');
-
-		$this->call('EmailTemplatesTableSeeder');
-
-		// Dummy database yang optional
-		// $this->call('GalleriesTableSeeder');
-		// $this->call('PhotosTableSeeder');
-		// $this->call('MemberPostsTableSeeder');
-		// $this->call('MemberGalleriesTableSeeder');
-		// $this->call('QuotesTableSeeder');
-		// $this->call('MagazinesTableSeeder');
-		// $this->call('VideosTableSeeder');
-		// $this->call('DocumentsTableSeeder');
 
 	}
 

@@ -49,7 +49,7 @@ class UsersController extends BaseController {
 		}
 	}
 	public function sendEmail(){
-		$contacts = Contact::where('member_id',Auth::user()->id)->lists('first_name', 'id');;
+		$contacts = Contact::where('member_id',Auth::user()->id)->lists('full_name', 'id');;
 		$subjects = EmailTemplate::lists('subject', 'id');
 		// return $emailHistory->toJson();
 		return View::make('users.send')->with('contacts',$contacts)->with('subjects',$subjects);
@@ -156,7 +156,6 @@ class UsersController extends BaseController {
 	public function index()
 	{
 		$users = User::all();
-
 		return View::make('users.index', compact('users'));
 	}
 

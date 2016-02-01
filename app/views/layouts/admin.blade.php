@@ -114,6 +114,9 @@
           <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> Users</a>
         </li>
         <li>
+          <a href="{{ route('admin.contacts.index') }}"><i class="fa fa-users"></i> Contacts</a>
+        </li>
+        <li>
           <a href="{{ route('admin.pages.index') }}"><i class="fa fa-file-text-o"></i> Pages</a>
         </li>
         <li>
@@ -128,36 +131,6 @@
               <li>
                 <a href="{{ route('admin.posts.index') }}">
                 <i class="fa fa-newspaper-o"></i> Posts Index</a>
-              </li>
-            </ul>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <i class="fa fa-image"></i> Photo
-            <span class="arrow "></span>
-            <ul class="sub-menu">
-              <li>
-                <a href="{{ route('admin.gallerycategories.index') }}">
-                <i class="fa fa-image"></i> Gallery Categories</a>
-              </li>
-              <li>
-                <a href="{{ route('admin.galleries.index') }}">
-                <i class="fa fa-image"></i> Galleries Index</a>
-              </li>
-            </ul>
-        </li>
-        <li>
-          <a href="javascript:;">
-            <i class="fa fa-film"></i> Video
-            <span class="arrow "></span>
-            <ul class="sub-menu">
-              <li>
-                <a href="{{ route('admin.videocategories.index') }}">
-                <i class="fa fa-film"></i> Video Categories</a>
-              </li>
-              <li>
-                <a href="{{ route('admin.videos.index') }}">
-                <i class="fa fa-film"></i> Video Index</a>
               </li>
             </ul>
         </li>

@@ -1,1 +1,0 @@
-/Applications/XAMPP/xamppfiles/htdocs/mpr-cms/app/views/member_galleries/index.blade.php

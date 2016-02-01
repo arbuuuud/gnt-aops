@@ -1,4 +1,4 @@
-<p>Kepada {{$contact->first_name}},</p>
+<p>Kepada {{$contact->full_name}},</p>
 
 <p>Terima kasih,</p>
 <p>Anda telah mengikuti newsletter mengenai informasi informasi GNT</p>
@@ -6,5 +6,5 @@
 <p>Terima kasih</p>
 <br/>
 <p>Hormat kami,</p>
-<p>{{$contact->user->first_name}},</p>
+<p>{{$contact->full_name}},</p>
 

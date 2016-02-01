@@ -1,6 +1,7 @@
 @extends('layouts.'.Auth::user()->roleString())
 
 @section('content')
+
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
@@ -11,6 +12,22 @@
 		    <strong><i class="fa fa-check"></i> {{Session::get('message')}}</strong>
 		</div>
 		@endif
+
+<div id="styled-select">
+</div>
+
+  <div class="form-group">
+    {{ Form::label('active', 'Nama Member', array('class'=>'col-md-2 control-label')) }}
+        <div class="col-sm-10">
+        	  <select id="member" class="form-control" name="membername">
+        	  	@foreach($memberCollection as $memberObject)
+        	  	<option value="{{$memberObject->name}}">
+        	  		{{$memberObject->name}}
+        	  	</option>
+        	  	@endforeach
+        	 </select>
+  </div>
+
 		<div class="table-responsive">
 			<table class="table mpr_datatable display" id="tableone">
 				<thead>

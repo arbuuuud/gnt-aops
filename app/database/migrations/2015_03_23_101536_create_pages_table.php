@@ -23,8 +23,6 @@ class CreatePagesTable extends Migration {
 			$table->integer('author_id')->unsigned();
             $table->integer('editor_id')->unsigned();
             $table->integer('status')->default(1);
-            $table->integer('comment_status')->default(1);
-            $table->integer('social_status')->default(1);
 			$table->timestamps();
 		});
 	}

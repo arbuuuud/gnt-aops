@@ -120,27 +120,27 @@ class SysparamTableSeeder extends Seeder {
 			],
 			[
 				'sysparam_key_id'	=> '3',
-				'content'	=> 'http://facebook.com/asclarindonesia'
+				'content'	=> 'http://facebook.com'
 			],
 			[
 				'sysparam_key_id'	=> '4',
-				'content'	=> 'http://twitter.com/asclarindonesia'
+				'content'	=> 'http://twitter.com'
 			],
 			[
 				'sysparam_key_id'	=> '5',
-				'content'	=> 'admin@asclar.com'
+				'content'	=> 'admin@localhost.com'
 			],
 			[
 				'sysparam_key_id'	=> '6',
-				'content'	=> '<h4>Asclar Indonesia</h4><p>Jl. Terogong Raya No. 2, Lantai 2<br>Jakarta Selatan 12430<br> <abbr title="Phone">Telp:</abbr> (+62) 21 5789 5063<br><abbr title="Phone">Fax:</abbr> (+62) 21 5789 5178</p>'
+				'content'	=> '<h4>Company Name</h4><p>Street Address<br>City Zip Code<br> <abbr title="Phone">Telp:</abbr> (+62) 21 5789 5063<br><abbr title="Phone">Fax:</abbr> (+62) 21 5789 5178</p>'
 			],
 			[
 				'sysparam_key_id'	=> '7',
-				'content'	=> 'Hak Cipta &copy; Asclar Indonesia 2015'
+				'content'	=> 'Hak Cipta &copy; Company Name 2016'
 			],
 			[
 				'sysparam_key_id'	=> '8',
-				'content'	=> 'admin@asclar.com'
+				'content'	=> 'admin@localhost.com'
 			],
 			[
 				'sysparam_key_id'	=> '9',
@@ -164,19 +164,19 @@ class SysparamTableSeeder extends Seeder {
 			],
 			[
 				'sysparam_key_id'	=> '14',
-				'content'	=> 'Asclar Indonesia'
+				'content'	=> 'Company Name'
 			],
 			[
 				'sysparam_key_id'	=> '15',
-				'content'	=> 'Asclar Indonesia Laravel CMS'
+				'content'	=> 'Laravel CMS'
 			],
 			[
 				'sysparam_key_id'	=> '16',
-				'content'	=> 'cms, asclar, indonesia'
+				'content'	=> 'cms'
 			],
 			[
 				'sysparam_key_id'	=> '17',
-				'content'	=> 'Asclar Indonesia'
+				'content'	=> 'Company Name'
 			],
 			[
 				'sysparam_key_id'	=> '18',

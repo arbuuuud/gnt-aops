@@ -9,6 +9,12 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
+		$contacts = Contact::all();
+		return View::make('contacts.index', compact('contacts'));
+	}
+
+	public function showMemberContacts()
+	{
 		$memberCollection = array();
 		if(Auth::user()->isAdmin()){
 			$contacts = Contact::all();
@@ -33,7 +39,7 @@ class ContactsController extends \BaseController {
 			// return $contacts->toJson();
 		}
 
-		return View::make('contacts.index', compact('contacts', 'memberCollection'));
+		return View::make('contacts.member', compact('contacts', 'memberCollection'));
 	}
 
 	// public function index()
@@ -103,9 +109,9 @@ class ContactsController extends \BaseController {
 		
 		$contact = new Contact();
 		$contact->member_id = $data['member_id']; 
-		$contact->first_name = $data['full_name']; 
-		$contact->email = $data['email']; 
-		$contact->phone_home = $data['phone_number']; 
+		$contact->full_name = ucwords(Input::get('full_name')); 
+		$contact->email = Input::get('email'); 
+		$contact->phone_number = Input::get('phone_number'); 
 		$contact->email_sent = $data['email_sent']; 
 		$contact->isAutomaticFollowUp = $data['isAutomaticFollowUp']; 
 		$contact->active = $data['active']; 
@@ -115,10 +121,10 @@ class ContactsController extends \BaseController {
 		$template = 'emails.registercontact';
 		$data['contact'] = $contact;	
         Mail::send($template, $data, function($message) use($data) {
-    		$message->to($data['contact']->email, $data['contact']->first_name)->subject('Welcome to the GNT AOPS!');
+    		$message->to($data['contact']->email, $data['contact']->full_name)->subject('Terimakasih atas ketertarikan Anda terhadap GNT Club!');
 		});
 
-		return View::make('pages.templates.peluang', compact('latest_news', 'popular_news'));
+		return Redirect::to('peluang');
 	}
 	public function store()
 	{
@@ -223,9 +229,9 @@ class ContactsController extends \BaseController {
 		if($contact){
 			$contact->active = 0;
 			$contact->save();
-			$message = 'Contact berhasil di unsubscribe';
+			$message = 'Anda telah berhasil di unsubscribe dari newsletter kami.';
 		}else{
-			$message = 'gagal';
+			$message = 'Request tidak berhasil, mohon refresh halaman dan mencoba kembali.';
 		}
 		return View::make('pages.templates.unsubscribe')->with('message', $message);
 

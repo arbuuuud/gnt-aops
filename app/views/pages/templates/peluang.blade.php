@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('head-title')
-Home
+{{$page->title}}
 @stop
 
 @section('content')
@@ -76,10 +76,10 @@ Home
     </div>
   </div>
 
-  <!-- <div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
       <div id="profile-banner" class="col-sm-12">
-          <h1 class="testimonial-title text-white text-center">Untuk memesan silakan klik gambar produk dibawah</h1>
+          <h1 class="testimonial-title text-white text-center">Beberapa Pilihan Produk GNT Club</h1>
       </div>
     </div>
   </div>
@@ -102,7 +102,7 @@ Home
         <p>Harga: Rp. 500.000</p>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div id="gnt-advantages" class="container-fluid">
     <div class="row">
@@ -196,27 +196,26 @@ Home
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-4">
-          {{ HTML::image( 'img/artikel-1.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
+      @foreach(Post::latest()->take(3)->get() as $post)
+        <div class="col-sm-4">
+          @if($post->image)
+          <a href="{{asset($post->image)}}" data-lightbox="image-{{$post->slug}}" data-title="{{$post->title}}">
+            {{ HTML::image( $post->image, $post->title, array( 'class' => 'artikel-image' ) ) }}
+          </a>
+          @else
+            {{ HTML::image( 'img/default-pic.jpg', $post->title, array( 'class' => 'artikel-image' ) ) }}
+          @endif
           <div class="article-box">
-            <p><strong>MLM Offline Bersama GNT</strong></p>
-            <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
+            <span class="post-date">{{ $post->translateDate($post->created_at) }}</span>
+            <div class="addthis_toolbox addthis_default_style" addthis:title="{{$post->title}}" addthis:description="{{ ( $post->excerpt != NULL) ? $post->excerpt : str_limit(strip_tags($post->content), 300) }}" addthis:url="{{URL::to('posts/'.$post->slug)}}" style="display:inline-block;margin-left:10px;">
+              <a class="addthis_button_compact"></a>
+              <a class="addthis_counter addthis_bubble_style"></a>
+            </div>
+            <p><a href="{{URL::to('posts/'.$post->slug)}}"><strong>{{$post->title}}</strong></a></p>
+            {{ ( $post->excerpt != NULL) ? $post->excerpt : str_limit(strip_tags($post->content), 300) }}
+          </div>
         </div>
-      </div>
-      <div class="col-sm-4">
-          {{ HTML::image( 'img/artikel-2.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
-         <div class="article-box">
-          <p><strong>MLM Offline Bersama GNT</strong></p>
-          <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
-        </div>
-      </div>
-      <div class="col-sm-4">
-          {{ HTML::image( 'img/artikel-3.jpg', 'logo-small', array( 'class' => 'artikel-image' ) ) }} 
-          <div class="article-box">
-          <p><strong>MLM Offline Bersama GNT</strong></p>
-          <p>Bergabung menjadi distributor JM Ocean Avenue bersama kami, secara otomatis akan membawa Anda menjadi anggota sebuah komunitas yang luar biasa.</p>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 @stop

@@ -6,7 +6,6 @@
     <div class="col-md-12">
         <h3 class="page-title">
             Outbox
-            <!-- <a href="{{route(Auth::user()->roleString().'.contacts.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Registrasi Contact</a> -->
         </h3>
         @if (Session::get('message'))
         <div class="alert alert-success">

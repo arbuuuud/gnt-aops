@@ -11,7 +11,6 @@ Edit Data User
 @section('form-actions')
 {{ link_to_route('admin.users.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
-<a href="{{URL::to('admin/users/'.$user->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
 @stop
 
 @section('form-left')
