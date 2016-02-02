@@ -9,7 +9,7 @@
     <div class="row">
     	<div class="col-md-10 col-md-offset-1">
     		<div class="page-header">
-    			<h3 class="page-title text-uppercase text-brown"><strong>{{ $category->title }}</strong>
+    			<h3 class="page-title text-uppercase"><strong>{{ $category->title }}</strong>
 				<div class="datepicker-container">
 					{{ Form::open(array('class' => 'form-bordered form-inline', 'route' => array('admin.pages.update'))) }}
 					<div class="form-body">

@@ -75,10 +75,6 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="{{url('admin/profile')}}">
-              <i class="icon-user"></i> Profil </a>
-            </li>
-            <li>
               <a href="{{url('/logout')}}">
               <i class="icon-key"></i> Log Out </a>
             </li>

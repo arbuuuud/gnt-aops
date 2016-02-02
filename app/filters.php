@@ -32,6 +32,10 @@ App::missing(function($exception)
     // $a = Input::all();
     // return "$_SERVER[REQUEST_URI]";;
 });
+App::missing(function($exception)
+{
+    return Response::view('errors.404', array(), 404);
+});
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters

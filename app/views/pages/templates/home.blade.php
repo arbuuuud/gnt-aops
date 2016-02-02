@@ -1,10 +1,19 @@
-@extends('layouts.public')
+@include('includes.html-head')
 
-@section('head-title')
-Home
-@stop
+<div id="top-content">
+  <div id= "top-bar"></div>
+  <div id="logo-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-5">
+          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-@section('content')
+<div id="bottom-content">
   <div id="main-banner" class="container-fluid">
     <div class="container-fluid">
       <div class="row">
@@ -164,25 +173,22 @@ Home
       </div>
     </div>
   </div>
-
-
- </div>
 </div>
 
 <div id="subscribe-bottom" class="container-fluid">
-    <div class="container">
-      <div class="row">
-            <h1 class="testimonial-title text-white text-center">Tunggu apalagi?<br>
-              Ayo tingkatkan kualitas<br>
-              hidup anda sekarang!
-            </h1>
-      </div>
-      <div class="row">
-        <div class="subscribe-button-huge text-center">
-          Saya tertarik!
-        </div> 
-      </div>
+  <div class="container">
+    <div class="row">
+          <h1 class="testimonial-title text-white text-center">Tunggu apalagi?<br>
+            Ayo tingkatkan kualitas<br>
+            hidup anda sekarang!
+          </h1>
+    </div>
+    <div class="row">
+      <div class="subscribe-button-huge text-center">
+        Saya tertarik!
+      </div> 
     </div>
   </div>
-  
-@stop
+</div>
+ 
+@include('includes.footer')

@@ -16,9 +16,9 @@ Edit Contact Data
 @section('form-left')
 <div class="form-body form-horizontal">
 	<div class="form-group">
-		{{ Form::label('first_name', 'Name:', array('class'=>'col-md-2 control-label')) }}
+		{{ Form::label('full_name', 'Full Name:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
-          {{ Form::text('first_name', Input::old('first_name'), array('class'=>'form-control')) }}
+          {{ Form::text('full_name', Input::old('full_name'), array('class'=>'form-control')) }}
         </div>
     </div>
   <div class="form-group">
@@ -28,9 +28,9 @@ Edit Contact Data
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('phone_home', 'Phone Number (Home)', array('class'=>'col-md-2 control-label')) }}
+    {{ Form::label('phone_number', 'Phone Number', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
-          {{ Form::text('phone_home', Input::old('phone_home'), array('class'=>'form-control')) }}
+          {{ Form::text('phone_number', Input::old('phone_number'), array('class'=>'form-control')) }}
         </div>
   </div>
   <div class="form-group">

@@ -13,19 +13,13 @@ class ContactsTableSeeder extends Seeder {
 		{
 		  Contact::create(array(
 		  	'member_id'					=> 1,
-		    'first_name'				=> $faker->firstName,
-			'last_name'					=> $faker->lastName,
+		    'full_name'					=> $faker->firstName,
 			'email'						=> $faker->email,
 			'last_follow_up'			=> date('Y-m-d H:i:s'),
 			'email_sent'				=> $faker->imageUrl($width = 125, $height = 150),
 			'active'					=> 1,
 			'isAutomaticFollowUp'		=> 1,
-			'address'					=> $faker->address,
-			'city'						=> $faker->city,
-			'phone_home'				=> $faker->phoneNumber,
-			'phone_mobile'				=> $faker->phoneNumber,
-			'province'					=> $faker->state,
-			'gender'					=> $faker->numberBetween(1,2),
+			'phone_number'				=> $faker->phoneNumber
 		  ));
 		}
 	}

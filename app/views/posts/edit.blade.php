@@ -57,43 +57,6 @@ Edit Data Artikel
       </span>
     </div>
   </div>
-  @if (Session::get('documentmessage'))
-  <div class="alert alert-success">
-      <strong><i class="fa fa-check"></i> {{Session::get('documentmessage')}}</strong>
-  </div>
-  @endif
-  <div class="form-group">
-    {{ Form::label('document', 'Dokumen:', array('class'=>'col-md-2 control-label')) }}
-      <div class="col-sm-10">
-        {{ Form::file('documents[]', ['multiple' => true]) }}
-        {{ Form::file('documents[]', ['multiple' => true]) }}
-        {{ Form::file('documents[]', ['multiple' => true]) }}
-        {{ Form::file('documents[]', ['multiple' => true]) }}
-        {{ Form::file('documents[]', ['multiple' => true]) }}
-        <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Judul</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          @foreach($post->documents as $document)
-            <tr>
-              <td>{{$document->id}}</td>
-              <td>{{$document->name}}</td>
-              <td>
-                <a href="{{URL::to('admin/documents/'.$document->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
-                  </td>
-            </tr>
-          @endforeach
-          </tbody>
-        </table>
-      </div>
-      </div>
-  </div>
 </div>
 @stop
 

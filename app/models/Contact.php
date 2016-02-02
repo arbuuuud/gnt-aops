@@ -90,10 +90,10 @@ class Contact extends \Eloquent {
     }
 	// Add your validation rules here
 	public static $rules = [
-		'first_name' => 'required',
+		'full_name' => 'required',
 		'email' => 'required|email',
 		// 'address' => 'required',
-		'phone_home' => 'required|string',
+		'phone_number' => 'required|string',
         'last_follow_up' => 'required|date',
         'active' => 'required',
 	];

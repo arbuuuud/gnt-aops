@@ -11,7 +11,6 @@ Edit Halaman
 @section('form-actions')
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
 {{ link_to_route('admin.pages.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
-<a href="{{URL::to('admin/pages/'.$page->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
 @stop
 
 @section('form-left')
@@ -20,10 +19,6 @@ Edit Halaman
 		{{ Form::label('title', 'Judul:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
           {{ Form::text('title', Input::old('title'), array('class'=>'form-control', 'placeholder'=> $page->title)) }}
-          <span class="help-block">
-          	Link ke halaman ini: {{ url('pages') }}/{{ Form::text('slug', Input::old('slug')) }}
-          	<a href="{{ url('pages/'.$page->slug) }}" target="_blank">Lihat <i class="fa fa-chevron-circle-right"></i></a>
-          </span>
         </div>
     </div>
 	<div class="form-group">
@@ -32,43 +27,6 @@ Edit Halaman
         	<textarea name="content" id="summernote_1">{{ $page->content }}</textarea>
 			<span class="help-block">Anda bisa menggunakan standar HTML syntax jika diperlukan</span>
 		</div>
-	</div>
-	@if (Session::get('documentmessage'))
-	<div class="alert alert-success">
-	    <strong><i class="fa fa-check"></i> {{Session::get('documentmessage')}}</strong>
-	</div>
-	@endif
-	<div class="form-group">
-		{{ Form::label('document', 'Dokumen:', array('class'=>'col-md-2 control-label')) }}
-    	<div class="col-sm-10">
-    		{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Judul</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-					@foreach($page->documents as $document)
-						<tr>
-							<td>{{$document->id}}</td>
-							<td>{{$document->name}}</td>
-							<td>
-								<a href="{{URL::to('admin/documents/'.$document->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
-					       	</td>
-						</tr>
-					@endforeach
-					</tbody>
-				</table>
-			</div>
-	    </div>
 	</div>
 </div>
 @stop
@@ -82,7 +40,18 @@ Edit Halaman
   </div>
   <div class="portlet-body form">
   	<div class="form-body">
-  		@include('includes.postmeta')
+  		<div class="form-group">
+			{{ Form::label('created_at', 'Tanggal Pembuatan:', array('class'=>'control-label')) }}
+			@if (isset($post))
+			{{ Form::text('created_at', null, array('class'=>'form-control form_datetime' )) }}
+			@else
+			{{ Form::text('created_at', date('Y-m-d H:i:s'), array('class'=>'form-control form_datetime' )) }}
+			@endif
+		</div>
+		<div class="form-group">
+		  {{ Form::label('status', 'Status Data:', array('class'=>'control-label')) }}
+		  {{ Form::select('status', array('0' => 'Tidak Ditampilkan', '1' => 'Tampilkan'), Input::old('status'), array('class'=>'form-control')) }}
+		</div>
 	</div>
   </div>
 </div>

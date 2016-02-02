@@ -66,14 +66,20 @@ class PostCategoriesController extends \BaseController {
 	public function showArchive($slug, $date = NULL)
 	{
 		$category = Postcategory::where('slug', '=', $slug)->firstOrFail();
-		$posts = $category->posts();
 
-		if ($date != NULL) {
-			$posts = $posts->like('created_at', $date);
+		if($category) {
+			$posts = $category->posts();
+
+			if ($date != NULL) {
+				$posts = $posts->like('created_at', $date);
+			}
+
+			$posts = $posts->paginate(10);
+			return View::make('postcategories.archive', compact('category', 'posts'));	
 		}
-
-		$posts = $posts->paginate(10);
-		return View::make('postcategories.archive', compact('category', 'posts'));
+		else {
+			return 'Not Found';
+		}
 	}
 
 	/**

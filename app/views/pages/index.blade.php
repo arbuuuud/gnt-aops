@@ -5,7 +5,6 @@
 	<div class="col-md-12">
 		<h3 class="page-title">
 			Daftar Halaman
-			<a href="{{route('admin.pages.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
 		</h3>
 		@if (Session::get('message'))
 		<div class="alert alert-success">

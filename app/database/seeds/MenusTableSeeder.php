@@ -11,23 +11,8 @@ class MenusTableSeeder extends Seeder {
 				'visible'	=> '1'
 			],
 			[
-				'name' 		=> 'menu_kanan',
-				'desc'		=> 'Menu khusus yang ditampilkan di bagian paling kanan atas dari website.',
-				'visible'	=> '1'
-			],
-			[
-				'name' 		=> 'footer_left',
-				'desc'		=> 'Menu yang ditampilkan pada bagian footer sebelah kiri.',
-				'visible'	=> '1'
-			],
-			[
 				'name' 		=> 'footer_center',
 				'desc'		=> 'Menu yang ditampilkan pada bagian footer sebelah tengah.',
-				'visible'	=> '1'
-			],
-			[
-				'name' 		=> 'footer_right',
-				'desc'		=> 'Menu yang ditampilkan pada bagian footer sebelah kanan',
 				'visible'	=> '1'
 			]
 		);

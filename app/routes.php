@@ -46,14 +46,6 @@ Route::post('login', array('uses' => 'UsersController@doLogin'));
 Route::get('logout', array('uses' => 'UsersController@doLogout'));
 Route::get('runscheduller', array('uses' => 'EmailSchedullerPoolsController@runscheduller'));
 
-// Media routes
-Route::get('foto', array('uses' => 'GalleryCategoriesController@showPublicIndex'));
-Route::get('kategori-galeri/{category}', array('uses' => 'GalleryCategoriesController@showArchive'));
-Route::get('galeri/{slug}', array('uses' => 'GalleriesController@show'));
-Route::get('video', array('uses' => 'VideocategoriesController@showPublicIndex'));
-Route::get('kategori-video/{category}', array('uses' => 'VideocategoriesController@showArchive'));
-Route::get('video/{slug}', array('uses' => 'VideosController@show'));
-
 // Route::get('/', array('uses' => 'PagesController@showHome'));
 Route::get('pages/{page}', array('uses' => 'PagesController@show'));
 Route::get('posts/{post}', array('uses' => 'PostsController@show'));
@@ -74,7 +66,7 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
     Route::get('/', array('uses' => 'MembersController@showDashboard'));
     Route::get('/tree/{id}', array('uses' => 'MembersController@showTree'));
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
-    Route::resource('contacts', 'ContactsController');
+    Route::get('contacts', array('uses' => 'ContactsController@showMemberContacts', 'as' => 'member.contacts.index'));
     Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
     Route::post('configuration', array('uses'=>'MemberConfigurationsController@storeconfig', 'as' => 'member.storeconfig'));
 });
@@ -87,23 +79,15 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::get('dashboard', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     
     // Resources
-    // Route::resource('contacts', 'ContactsController');
-    Route::resource('users', 'UsersController');
+    Route::resource('contacts', 'ContactsController');
+    Route::resource('users', 'UsersController', array('except' => array('create', 'store', 'destroy')));
     Route::resource('roles', 'RolesController');
-    Route::resource('pages', 'PagesController');
+    Route::resource('pages', 'PagesController', array('except' => array('create', 'store', 'destroy')));
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'PostCategoriesController');
     // Route::resource('members', 'MembersController');
     Route::resource('member_posts', 'MemberPostsController');
 
-    Route::resource('gallerycategories', 'GalleryCategoriesController');
-    Route::resource('galleries', 'GalleriesController');
-    Route::resource('photos', 'PhotosController');
-    Route::any('galleries/uploadfoto/{gallery}', array('uses' => 'GalleriesController@uploadfoto', 'as' => 'admin.galleries.uploadfoto'));
-    Route::any('photos/upload/{gallery}', array('uses' => 'PhotosController@upload', 'as' => 'admin.photos.upload'));
-    Route::any('photos/bulkprocess/{gallery}', array('uses' => 'PhotosController@bulkprocess', 'as' => 'admin.photos.bulkprocess'));
-    Route::resource('videocategories', 'VideocategoriesController');
-    Route::resource('videos', 'VideosController');
     Route::get('search', array('uses' => 'PagesController@searchAdmin'));
     Route::resource('sysparams', 'SysparamsController');
     Route::resource('documents', 'DocumentsController');
@@ -112,7 +96,7 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
 
     Route::get('profile', array('uses' => 'UsersController@showProfile', 'as' => 'user.profile'));
     Route::any('updateProfile', array('uses' => 'UsersController@updateProfile', 'as' => 'user.updateProfile'));
-    Route::get('phpinfo', array('uses' => 'PagesController@showPHPInfo'));
+    // Route::get('phpinfo', array('uses' => 'PagesController@showPHPInfo'));
     Route::resource('member_configurations', 'MemberConfigurationsController');
 });
 
