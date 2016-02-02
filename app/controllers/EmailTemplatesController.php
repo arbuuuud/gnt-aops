@@ -59,7 +59,7 @@ class EmailTemplatesController extends \BaseController {
 	public function show($id)
 	{
 		$emailtemplate = Emailtemplate::findOrFail($id);
-		return View::make('templates.default', compact('emailtemplate'));
+		return View::make('emails.templates.default', compact('emailtemplate'));
 	}
 
 	/**
