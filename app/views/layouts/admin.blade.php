@@ -117,6 +117,9 @@
           <a href="{{ route('admin.contacts.index') }}"><i class="fa fa-users"></i> Contacts</a>
         </li>
         <li>
+          <a href="{{ route('admin.templates.index') }}"><i class="fa fa-send"></i> Emails</a>
+        </li>
+        <li>
           <a href="{{ route('admin.pages.index') }}"><i class="fa fa-file-text-o"></i> Pages</a>
         </li>
         <li>

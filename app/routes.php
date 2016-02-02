@@ -56,6 +56,8 @@ Route::get('search', array('uses' => 'PagesController@search'));
 Route::get('sitemap', array('uses' => 'PagesController@showSitemap'));
 Route::post('registercontact', array('uses' => 'ContactsController@registercontact'));
 
+Route::get('showemail/{id}', array('uses' => 'EmailTemplatesController@show'));
+
 // Member routes
 Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
 {
@@ -66,6 +68,8 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
     Route::get('/', array('uses' => 'MembersController@showDashboard'));
     Route::get('/tree/{id}', array('uses' => 'MembersController@showTree'));
     Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
+    Route::resource('contacts', 'ContactsController');
+    // Route::get('contacts/{id}', array('uses' => 'ContactsController@show', 'as' => 'member.contacts.show'));
     Route::get('contacts', array('uses' => 'ContactsController@showMemberContacts', 'as' => 'member.contacts.index'));
     Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
     Route::post('configuration', array('uses'=>'MemberConfigurationsController@storeconfig', 'as' => 'member.storeconfig'));

@@ -6,7 +6,7 @@ class MenuItemsTableSeeder extends Seeder {
 	{
 		$array = array(
 			[
-				'name' 		=> 'Peluang',
+				'name' 		=> 'Peluang Bisnis',
 				'link'		=> 'peluang',
 				'order'		=> '0',
 				'menu_id'	=> '1',

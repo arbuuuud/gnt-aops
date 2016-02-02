@@ -47,7 +47,7 @@ class EmailTemplatesController extends \BaseController {
 
 		Emailtemplate::create($data);
 
-		return Redirect::route('email_templates.index');
+		return Redirect::route('admin.templates.index')->with("message","Data berhasil disimpan");
 	}
 
 	/**
@@ -59,8 +59,7 @@ class EmailTemplatesController extends \BaseController {
 	public function show($id)
 	{
 		$emailtemplate = Emailtemplate::findOrFail($id);
-
-		return View::make('email_templates.show', compact('emailtemplate'));
+		return View::make('templates.default', compact('emailtemplate'));
 	}
 
 	/**
@@ -86,7 +85,7 @@ class EmailTemplatesController extends \BaseController {
 	{
 		$emailtemplate = Emailtemplate::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Emailtemplate::$rules);
+		$validator = Validator::make($data = Input::all(), Emailtemplate::rules($id));
 
 		if ($validator->fails())
 		{
@@ -95,7 +94,7 @@ class EmailTemplatesController extends \BaseController {
 
 		$emailtemplate->update($data);
 
-		return Redirect::route('email_templates.index');
+		return Redirect::route('admin.templates.index')->with("message","Data berhasil disimpan");
 	}
 
 	/**
@@ -108,7 +107,7 @@ class EmailTemplatesController extends \BaseController {
 	{
 		Emailtemplate::destroy($id);
 
-		return Redirect::route('email_templates.index');
+		return Redirect::route('admin.templates.index')->with('message', 'Data berhasil dihapus');
 	}
 
 }
