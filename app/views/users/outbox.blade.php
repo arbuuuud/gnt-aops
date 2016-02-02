@@ -1,7 +1,6 @@
 @extends('layouts.'.Auth::user()->roleString())
 
 @section('content')
-
 <div class="row">
     <div class="col-md-12">
         <h3 class="page-title">
@@ -12,30 +11,22 @@
             <strong><i class="fa fa-check"></i> {{Session::get('message')}}</strong>
         </div>
         @endif
-
-<div id="styled-select">
-</div>
-
         <div class="table-responsive">
             <table class="table mpr_datatable display" id="tableone">
-                <thead hidden>
+                <thead>
                     <tr>
                         <th>Receiver</th>
                         <th>Subject</th>
-                        <th>Sent</th>
+                        <th>Date Sent</th>
                     </tr>
                 </thead>
                 <tbody>
                @if($email_histories)
-                
                   @foreach($email_histories as $email_history)
-                      
                     <tr>
-                  
-                        <td class="text-left col-sm-2">To: {{$email_history->contact->first_name}}</td>
-                        <td class="text-left col-sm-8"><a href="{{url('member/showemail/'.$email_history->template->id.'/'.$email_history->contact->id)}}">{{$email_history->template->subject}}</a></td>
-                        <td class="text-left col-sm-2">{{date('M d', strtotime($email_history->date_sent))}}</td>
-                  
+                        <td>To: {{$email_history->contact->full_name}}</td>
+                        <td><a href="{{url('showemail/'.$email_history->template->id)}}" target="_blank">{{$email_history->template->subject}}</a></td>
+                        <td>{{date('M d', strtotime($email_history->date_sent))}}</td>
                     </tr>
                     @endforeach
                 @endIf

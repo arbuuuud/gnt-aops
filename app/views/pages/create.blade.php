@@ -28,21 +28,6 @@ Tambah Halaman
 			<span class="help-block">Anda bisa menggunakan standar HTML syntax jika diperlukan</span>
 		</div>
 	</div>
-	@if (Session::get('documentmessage'))
-	<div class="alert alert-success">
-	    <strong><i class="fa fa-check"></i> {{Session::get('documentmessage')}}</strong>
-	</div>
-	@endif
-	<div class="form-group">
-		{{ Form::label('document', 'Dokumen:', array('class'=>'col-md-2 control-label')) }}
-    	<div class="col-sm-10">
-    		{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    	{{ Form::file('documents[]', ['multiple' => true]) }}
-	    </div>
-	</div>
 </div>
 @stop
 

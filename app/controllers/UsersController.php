@@ -12,6 +12,10 @@ class UsersController extends BaseController {
 		$contact = Contact::find($contactid);
 		$template = EmailTemplate::find($templateid);
 		$urlEmail = $template->html_body;
+
+		$emailtemplate = Emailtemplate::findOrFail($id);
+		return View::make('emails.templates.default', compact('emailtemplate'));
+		
 		return View::make('users.showemail')->with('contact',$contact)->with('urlEmail',$urlEmail);
 		
 	}
@@ -32,11 +36,10 @@ class UsersController extends BaseController {
 		    return Redirect::back()
 		        ->withErrors($validator);
 		} else {
-			$contact = Contact::find($contactid);
+			$contact = Contact::find(Input::get('contact_id'));
 
 			if(!$contact->active){
 				return Redirect::back()->with('message','Kontak tidak aktif');
-				
 			}
 			$memberid = Auth::user()->id;
 			$contactid = Input::get('contact_id');

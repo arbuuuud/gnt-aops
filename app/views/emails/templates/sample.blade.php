@@ -324,14 +324,7 @@
 																						Data Member
 																					</h3>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
-																						<ul>
-																							<li>First Name: {{$member->first_name}}</li>
-																							<li>Last Name: {{$member->last_name}}</li>
-																							<li>Email: {{$member->email}}</li>
-																							<li>Address: {{$member->address}}</li>
-																							<li>City: {{$member->city}}</li>
-																							<li>etc..</li>
-																						</ul>
+																						apalah ini
 																					</div>
 																				</td>
 																			</tr>
@@ -345,14 +338,7 @@
 																						Data Contact
 																					</h3>
 																					<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
-																						<ul>
-																							<li>First Name: {{$contact->first_name}}</li>
-																							<li>Last Name: {{$contact->last_name}}</li>
-																							<li>Email: {{$contact->email}}</li>
-																							<li>Address: {{$contact->address}}</li>
-																							<li>City: {{$contact->city}}</li>
-																							<li>etc..</li>
-																						</ul>
+																						apalah ini
 																					</div>
 																				</td>
 																			</tr>
@@ -1289,11 +1275,12 @@
 																<tr>
 																	<td valign="top" bgcolor="#E1E1E1">
 
+																		@if(isset($idencrypted))
 																		<div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-																			<div>Copyright &#169; 2014 <a href="http://www.charlesmudy.com/respmail/" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">Respmail</span></a>. All&nbsp;rights&nbsp;reserved.</div>
+																			<div>Copyright &#169; 2016 <a href="http://www.charlesmudy.com/respmail/" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">Respmail</span></a>. All&nbsp;rights&nbsp;reserved.</div>
 																			<div>If you do not want to recieve emails from us, you can <a href="{{URL::to('unsubscribe/'.$idencrypted)}}" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">unsubscribe</span></a>.</div>
 																		</div>
-
+																		@endif
 																	</td>
 																</tr>
 															</table>

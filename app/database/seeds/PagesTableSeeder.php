@@ -13,7 +13,7 @@ class PagesTableSeeder extends Seeder {
 			));
 
 		Page::create(array(
-		    'title'		=> 'Peluang Menarik Dari GNT Club',
+		    'title'		=> 'Peluang Bisnis GNT Club',
 			'slug'		=> 'peluang',
 			'template'	=> 'peluang',
 			'content'	=> '<div class="container-fluid">
