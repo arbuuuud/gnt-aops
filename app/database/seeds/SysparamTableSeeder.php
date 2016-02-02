@@ -14,63 +14,8 @@ class SysparamTableSeeder extends Seeder {
 				'type'	=> 'file'
 			],
 			[
-				'key'	=> 'homepage_slider',
-				'desc'	=> 'Slider utama yang ditampilkan pada halaman home website',
-				'type'	=> 'file'
-			],
-			[
-				'key'	=> 'facebook_link',
-				'desc'	=> 'Alamat Facebook yang digunakan pada icon Facebook di bagian footer website',
-				'type'	=> 'string'
-			],
-			[
-				'key'	=> 'twitter_link',
-				'desc'	=> 'Alamat Twitter yang digunakan pada icon Twitter di bagian footer website',
-				'type'	=> 'string'
-			],
-			[
-				'key'	=> 'contact_email',
-				'desc'	=> 'Alamat email yang digunakan pada icon email di bagian footer website',
-				'type'	=> 'string'
-			],
-			[
-				'key'	=> 'footer_address',
-				'desc'	=> 'Alamat yang ditampilkan pada bagian footer website',
-				'type'	=> 'text'
-			],
-			[
-				'key'	=> 'footer_copyright',
-				'desc'	=> 'Tulisan copyright yang ditampilkan pada bagian footer website',
-				'type'	=> 'string'
-			],
-			[
 				'key'	=> 'admin_email',
 				'desc'	=> 'Alamat email yang digunakan sebagai penerima berbagai notifikasi email dari website',
-				'type'	=> 'string'
-			],
-			[
-				'key'	=> 'gallery_min_width',
-				'desc'	=> 'Ukuran lebar minimal untuk gambar pada galeri foto',
-				'type'	=> 'string'
-			],
-			[
-				'key'	=> 'gallery_min_height',
-				'desc'	=> 'Ukuran tinggi minimal untuk gambar pada galeri foto',
-				'type'	=> 'string'
-			],
-			[
-				'key'	=> 'homepage_popup_status',
-				'desc'	=> 'Aktif / nonaktifkan fitur popup di homepage',
-				'type'	=> 'integer'
-			],
-			[
-				'key'	=> 'homepage_popup_img',
-				'desc'	=> 'Konten dari popup yang ditampilkan di homepage',
-				'type'	=> 'file'
-			],
-			[
-				'key'	=> 'homepage_popup_link',
-				'desc'	=> 'Link ketika diklik pada konten popup',
 				'type'	=> 'string'
 			],
 			[
@@ -97,12 +42,7 @@ class SysparamTableSeeder extends Seeder {
 				'key'	=> 'post_default_pic',
 				'desc'	=> 'Default gambar yang ditampilkan untuk post yang tidak memiliki gambar',
 				'type'	=> 'file'
-			],
-			// ,[
-			// 	'key'	=> 'twitter_autopost',
-			// 	'desc'	=> 'Aktif / nonaktifkan fitur autopost ke akun Twitter @MPRgoid untuk setiap berita baru yang di ditampilkan',
-			// 	'type'	=> 'integer'
-			// ],
+			]
 		);
 
 		foreach ($array as $item) {
@@ -116,70 +56,26 @@ class SysparamTableSeeder extends Seeder {
 			],
 			[
 				'sysparam_key_id'	=> '2',
-				'content'	=> 'img/default-banner.jpg'
+				'content'	=> 'admin@localhost.com'
 			],
 			[
 				'sysparam_key_id'	=> '3',
-				'content'	=> 'http://facebook.com'
+				'content'	=> 'Company Name'
 			],
 			[
 				'sysparam_key_id'	=> '4',
-				'content'	=> 'http://twitter.com'
-			],
-			[
-				'sysparam_key_id'	=> '5',
-				'content'	=> 'admin@localhost.com'
-			],
-			[
-				'sysparam_key_id'	=> '6',
-				'content'	=> '<h4>Company Name</h4><p>Street Address<br>City Zip Code<br> <abbr title="Phone">Telp:</abbr> (+62) 21 5789 5063<br><abbr title="Phone">Fax:</abbr> (+62) 21 5789 5178</p>'
-			],
-			[
-				'sysparam_key_id'	=> '7',
-				'content'	=> 'Hak Cipta &copy; Company Name 2016'
-			],
-			[
-				'sysparam_key_id'	=> '8',
-				'content'	=> 'admin@localhost.com'
-			],
-			[
-				'sysparam_key_id'	=> '9',
-				'content'	=> '600'
-			],
-			[
-				'sysparam_key_id'	=> '10',
-				'content'	=> '400'
-			],
-			[
-				'sysparam_key_id'	=> '11',
-				'content'	=> '0'
-			],
-			[
-				'sysparam_key_id'	=> '12',
-				'content'	=> '0'
-			],
-			[
-				'sysparam_key_id'	=> '13',
-				'content'	=> ''
-			],
-			[
-				'sysparam_key_id'	=> '14',
-				'content'	=> 'Company Name'
-			],
-			[
-				'sysparam_key_id'	=> '15',
 				'content'	=> 'Laravel CMS'
 			],
 			[
-				'sysparam_key_id'	=> '16',
+				'sysparam_key_id'	=> '5',
 				'content'	=> 'cms'
 			],
 			[
-				'sysparam_key_id'	=> '17',
+				'sysparam_key_id'	=> '6',
 				'content'	=> 'Company Name'
 			],
 			[
-				'sysparam_key_id'	=> '18',
+				'sysparam_key_id'	=> '7',
 				'content'	=> 'img/default-pic.jpg'
 			]
 		);

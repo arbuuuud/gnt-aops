@@ -18,19 +18,18 @@ class EmailSchedullerPool extends \Eloquent {
     //     return $this->belongsTo('EmailTemplate');
     // }
 
-/* ENGINE FOR SEND EMAIL*/
+    /* ENGINE FOR SEND EMAIL*/
    	private static function sendmail($memberid,$contactid,$templateid)
     {
-    	// Sample Data
     	$data['member'] = User::findOrFail($memberid);
         $contact = Contact::findOrFail($contactid);
         $data['contact'] = $contact;
     	$data['idencrypted'] = $contact->encryptContact();
-/*ARBUD : Need correct if template has been finished*/ 
-        $temp = EmailTemplate::find($templateid);
-        $template = 'emails.templates.'.$temp->html_body; 
+        /*ARBUD : Need correct if template has been finished*/ 
+        $data['emailtemplate'] = EmailTemplate::find($templateid);
+        $template = 'emails.templates.default'; 
         Mail::send($template, $data, function($message) use($data) {
-    		$message->to($data['contact']->email, $data['contact']->first_name)->subject('Welcome to the GNT AOPS!');
+    		$message->to($data['contact']->email, $data['contact']->full_name)->subject($data['emailtemplate']->subject);
 		});
 
         if(count(Mail::failures()) > 0){
@@ -40,15 +39,16 @@ class EmailSchedullerPool extends \Eloquent {
         }
 
     }
-/* get email to be executed in date now */
+    
+    /* get email to be executed in date now */
     public function getTargetEmails(){
-        
         $polls = EmailSchedullerPool::where( DB::raw('DAY(execution_date)'), '=', date('d') )->get();
         return $polls;
     }
-/*
-Send Email Manual
-*/
+    
+    /*
+    Send Email Manual
+    */
     public static function sendManualEmail($memberid,$contactid,$templateid){
         $contact = Contact::findOrFail($contactid);
         if(EmailSchedullerPool::sendmail($memberid,$contactid,$templateid)){
@@ -68,9 +68,9 @@ Send Email Manual
         }
     }
     
-/*
-AUTOMATIC EMAIL TRIGER
-*/
+    /*
+    AUTOMATIC EMAIL TRIGER
+    */
     public function executeEmails(){
         $pools = $this->getTargetEmails();
         if(!$pools){

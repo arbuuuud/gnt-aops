@@ -21,38 +21,30 @@
             <div role="tabpanel" class="tab-pane active container-fluid portlet box grey-cascade" id="details">
                 <div class="portlet-title">
                     <div class="caption">
-                     Contact Details for {{$contact->first_name}} {{$contact->last_name}}
+                     Contact Details for {{$contact->full_name}}
                     </div>
                 </div>
                 <div class="portlet-body">
-                    <p>First Name : {{$contact->first_name}}</p>
-                    <p>Last Name : {{$contact->last_name}}</p>
+                    <p>Full Name : {{$contact->full_name}}</p>
                     <p>Email : {{$contact->email}}</p>
-                    <p>Address : {{$contact->address}}</p>
-                    <p>State : {{$contact->state}}</p>
-                    <p>City : {{$contact->city}}</p>
-                    <p>Phone (Home) : {{$contact->phone_home}}</p>
-                    <p>Phone (Mobile) : {{$contact->phone_mobile}}</p>
-                    <p>Province : {{$contact->province}}</p>
-                    <p>Gender : {{ $contact->gender == '1' ? 'Male' : 'Female' }}</p>
-                    <p>Description : {{$contact->description}}</p>
+                    <p>Phone Number : {{$contact->phone_number}}</p>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="history">
                 <table class="table mpr_datatable">
                 <thead>
                     <tr>
-                        <th class="text-center">Email Subject</th>
-                        <th class="text-center">Date Sent</th>
+                        <th>Email Subject</th>
+                        <th>Date Sent</th>
                     </tr>
                 </thead>
                 <tbody>
-          @foreach($email_histories as $email_history)
+                    @foreach($email_histories as $email_history)
                     <tr>
-                        <td class="text-center">{{$email_history->template->subject}}</td>
-                        <td class="text-center">{{date('d F, Y', strtotime($email_history->date_sent))}}</td>
+                        <td><a href="{{url('showemail/'.$email_history->template->id)}}" target="_blank">{{$email_history->template->subject}}</a></td>
+                        <td>{{date('d F, Y', strtotime($email_history->date_sent))}}</td>
                     </tr>
-            @endforeach
+                    @endforeach
                 </tbody>
             </table>
             </div>
