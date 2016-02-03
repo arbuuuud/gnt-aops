@@ -198,7 +198,7 @@ class ContactsController extends \BaseController {
 
 		$contact->update($data);
 
-		return Redirect::route('admin.contacts.edit', $member->id)->with("message","Data berhasil disimpan");
+		return Redirect::route(Auth::user()->roleString().'.contacts.index')->with("message","Data berhasil disimpan");
 	}
 
 	/**

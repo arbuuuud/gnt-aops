@@ -12,7 +12,7 @@ Send Mail
 @stop
 
 @section('form-left')
-@if(Session::get('message'))
+@if(isset($message))
 <div class="form-body form-horizontal">
   <div class="form-group">{{$message}}</div>
   <div class="form-group">

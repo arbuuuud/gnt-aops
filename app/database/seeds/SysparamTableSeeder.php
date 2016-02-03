@@ -42,6 +42,11 @@ class SysparamTableSeeder extends Seeder {
 				'key'	=> 'post_default_pic',
 				'desc'	=> 'Default gambar yang ditampilkan untuk post yang tidak memiliki gambar',
 				'type'	=> 'file'
+			],
+			[
+				'key'	=> 'master_web_dashboard',
+				'desc'	=> 'Default Link Master GNT Dashboard (GNT CLUB)',
+				'type'	=> 'string'
 			]
 		);
 
@@ -77,6 +82,10 @@ class SysparamTableSeeder extends Seeder {
 			[
 				'sysparam_key_id'	=> '7',
 				'content'	=> 'img/default-pic.jpg'
+			],
+			[
+				'sysparam_key_id'	=> '8',
+				'content'	=> 'http://localhost/aops-client/login.php'
 			]
 		);
 

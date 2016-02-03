@@ -21,6 +21,7 @@ class EmailSchedullerPool extends \Eloquent {
     /* ENGINE FOR SEND EMAIL*/
    	private static function sendmail($memberid,$contactid,$templateid)
     {
+
     	$data['member'] = User::findOrFail($memberid);
         $contact = Contact::findOrFail($contactid);
         $data['contact'] = $contact;
@@ -51,9 +52,17 @@ class EmailSchedullerPool extends \Eloquent {
     */
     public static function sendManualEmail($memberid,$contactid,$templateid){
         $contact = Contact::findOrFail($contactid);
+        $user = Member::findOrFail($memberid);
+        if(!$user || !$contact){
+            return false;
+        }
+        if(!$user->active || !$contact->active){
+            return false;
+        }
         if(EmailSchedullerPool::sendmail($memberid,$contactid,$templateid)){
             if($contact->email_sent == "" ||$contact->email_sent ==0){
                 $contact->email_sent=$templateid;
+                $contact->last_follow_up=date('Y-m-d H:i:s');
                 $contact->save();
             }else if($contact->templateExist($templateid)){
                 //do nothing
@@ -93,7 +102,7 @@ class EmailSchedullerPool extends \Eloquent {
                 }
             } 
             if($trysending){
-                if($pool->sendmail($pool->member_id,$pool->contact_id,$pool->template_id)){
+                if(EmailSchedullerPool::sendmail($pool->member_id,$pool->contact_id,$pool->template_id)){
                     if($contact->email_sent == "" ||$contact->email_sent ==0){
                         $contact->email_sent=$pool->template_id;
                     }else{

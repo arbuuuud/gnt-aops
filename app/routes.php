@@ -26,8 +26,20 @@ Route::group(array('prefix' => 'memberapi','before' => 'memberauthapi'), functio
 });
 Route::get('sendmail', function()
 {
-    $email = new EmailSchedullerPool;
-    $email->sendmail();
+    // $a = EmailSchedullerPool::sendmail(2,56,1);
+    // return $a;
+    // $data['member'] = User::findOrFail(2);
+    //     $contact = Contact::findOrFail(56);
+    //     $data['contact'] = $contact;
+    //     $data['idencrypted'] = $contact->encryptContact();
+    //     /*ARBUD : Need correct if template has been finished*/ 
+    //     $data['emailtemplate'] = EmailTemplate::find(2);
+    //     $template = 'emails.templates.default'; 
+    //     Mail::send($template, $data, function($message) use($data) {
+    //         $message->to($data['contact']->email, $data['contact']->full_name)->subject($data['emailtemplate']->subject);
+    //     });
+    //     return 'true';
+    // return 'asd';
 });
 
 // Route::get('/', array('uses' => 'PagesController@showHome'));

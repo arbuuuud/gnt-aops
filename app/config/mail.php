@@ -15,7 +15,8 @@ return array(
 	|
 	*/
 
-	'driver' => 'sendmail',
+	// 'driver' => 'sendmail',
+	'driver' => 'smtp',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -53,8 +54,8 @@ return array(
 	| used globally for all e-mails that are sent by your application.
 	|
 	*/
-
-	'from' => array('address' => 'noreply@localhost.com', 'name' => 'Company Name'),
+	'from' => array('address' => 'client@asclar.com', 'name' => 'Asclar Client'),
+	// 'from' => array('address' => 'noreply@localhost.com', 'name' => 'Company Name'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +81,8 @@ return array(
 	|
 	*/
 
-	'username' => '',
+	'username' => 'client@asclar.com',
+	// 'username' => '',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +95,8 @@ return array(
 	|
 	*/
 
-	'password' => '',
+	'password' => 'qazplm123',
+	// 'password' => '',
 
 	/*
 	|--------------------------------------------------------------------------

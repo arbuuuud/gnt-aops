@@ -82,7 +82,7 @@
         </li>
          <li class="back" style="padding: 14px 6px 12px 8px;">
           <span class="username username-hide-on-mobile">
-          <a href="http://localhost/aops-client/login.php" style="color:#c5c5c5;">Back to GNT Club ></a></span>
+          <a href="{{Sysparam::getValue('master_web_dashboard')}}" style="color:#c5c5c5;">Back to GNT Club ></a></span>
         </li>
         <!-- END USER LOGIN DROPDOWN -->
       </ul>

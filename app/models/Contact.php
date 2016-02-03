@@ -87,6 +87,8 @@ class Contact extends \Eloquent {
             $emailHistory->status = $status;
             $emailHistory->date_sent = date('Y-m-d H:i:s');
             $emailHistory->save();
+            $this->last_follow_up = date('Y-m-d H:i:s');
+            $this->save();
     }
 	// Add your validation rules here
 	public static $rules = [
@@ -94,7 +96,7 @@ class Contact extends \Eloquent {
 		'email' => 'required|email',
 		// 'address' => 'required',
 		'phone_number' => 'required|string',
-        'last_follow_up' => 'required|date',
+        // 'last_follow_up' => 'required|date',
         'active' => 'required',
 	];
 
