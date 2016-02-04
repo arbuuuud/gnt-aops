@@ -49,7 +49,8 @@ class Contact extends \Eloquent {
   //       	return null ;
 		// }        
         // $followUpSequence = $configurationMember->param_value;
-		$followUpSequence = 3;
+        
+		$followUpSequence = Sysparam::getValue('conf_follow_up_date');
         $stag->execution_date = date('Y-m-d H:i:s',strtotime("+".$followUpSequence." day"));
         $emailSchedullerPool = EmailSchedullerPool::where('member_id',$member_id)->where('contact_id',$contact_id)->where('template_id',$template_id)->first();
 

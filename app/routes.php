@@ -47,7 +47,7 @@ Route::get('/', function(){
 
     return Redirect::to('https://www.gntclub.com/');
 });
-Route::get('/ref/{username}', array('uses' => 'PagesController@showHome'));
+Route::get('/@{username}', array('uses' => 'PagesController@showHome'));
 Route::any('/peluang', array('uses' => 'PagesController@peluang'));
 Route::get('/unsubscribe/{id}', array('uses' => 'ContactsController@unsubscribe'));
 Route::get('/unsubscribeconfirm/{id}', array('uses' => 'ContactsController@unsubscribeconfirm'));
@@ -65,7 +65,7 @@ Route::get('kategori/{category}/{filter?}', array('uses' => 'PostCategoriesContr
 
 // Members specific routes
 Route::get('search', array('uses' => 'PagesController@search'));
-Route::get('sitemap', array('uses' => 'PagesController@showSitemap'));
+// Route::get('sitemap', array('uses' => 'PagesController@showSitemap'));
 Route::post('registercontact', array('uses' => 'ContactsController@registercontact'));
 
 Route::get('showemail/{id}', array('uses' => 'EmailTemplatesController@show'));

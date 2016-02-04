@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-12">
-		Alamat Website Replika: <a href="{{url('/ref/'.Auth::user()->first_name)}}" title="Website Replika" target="_blank">{{url('/ref/'.Auth::user()->first_name)}}</a>
+		Alamat Website Replika: <a href="{{Sysparam::getValue('web_replika')}}/{{Auth::user()->first_name}}" title="Website Replika" target="_blank">{{url('/ref/'.Auth::user()->first_name)}}</a>
 	</div>
 </div>
 <div class="row">

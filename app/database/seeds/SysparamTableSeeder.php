@@ -47,6 +47,16 @@ class SysparamTableSeeder extends Seeder {
 				'key'	=> 'master_web_dashboard',
 				'desc'	=> 'Default Link Master GNT Dashboard (GNT CLUB)',
 				'type'	=> 'string'
+			],
+			[
+				'key'	=> 'conf_follow_up_date',
+				'desc'	=> 'Follow Up email scheduller for contact(after register & next follow up)',
+				'type'	=> 'int'
+			],
+			[
+				'key'	=> 'web_replika',
+				'desc'	=> 'microsite for user access in website format: (<url aops>/<username>)',
+				'type'	=> 'string'
 			]
 		);
 
@@ -86,6 +96,14 @@ class SysparamTableSeeder extends Seeder {
 			[
 				'sysparam_key_id'	=> '8',
 				'content'	=> 'http://localhost/aops-client/login.php'
+			],
+			[
+				'sysparam_key_id'	=> '9',
+				'content'	=> '3'
+			],
+			[
+				'sysparam_key_id'	=> '10',
+				'content'	=> 'http://localhost/gnt-aops/public/@'
 			]
 		);
 
