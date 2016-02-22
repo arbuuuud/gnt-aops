@@ -82,7 +82,7 @@
           </ul>
         </div>
 
-        <div id="peluang-image-right" class="col-md-4">
+        <div id="peluang-image-right" class="col-md-4 hidden-xs">
           {{ HTML::image( 'images/thoughtful-student-woman.png', 'confuse-man', array( 'class' => 'img-responsive' ) ) }} 
         </div>
 
