@@ -13,9 +13,35 @@
 @stop
 
 @section('content')
+
+<div id="menu-popup">
+    <ul id="menu-popup-items">
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li><a href="{{url('/kategori/uncategorized')}}">Article</a></li>
+    </ul>
+    <div id="menu-popup-close">
+        X
+    </div>
+</div>
+
+<div id="article-top-bar" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-11 col-xs-8">
+          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
+        </div>
+        <div id="nav-menu" class="col-sm-1 col-xs-4">
+            <div class="menu-text">
+                Menu
+            </div>
+            <div class="menu-icon">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
-    	<div class="col-md-12">
+    	<div class="col-sm-7 col-xs-12">
     		<div class="post">
     			<small>{{ $post->translateDate($post->created_at) }} | <a href="{{URL::to('kategori/'.$post->category->slug)}}" class="post-category"><strong>{{ $post->category->title }}</strong></a></small>
 				<h2 class="post-title"><strong>{{ $post->title }}</strong></h2>
@@ -26,26 +52,31 @@
                 @if($post->social_status == 1)
                 <div class="addthis_sharing_toolbox"></div>
                 @endif
+
+                @if($post->comment_status == 1)
+                @include('includes.postcomment')
+                @endif
     		</div>
         </div>
-	</div>
-    <div class="row">
-        <div class="col-md-12">
+
+        <div class="col-sm-5 col-xs-12">
             @if($related_posts)
             <div class="related-posts">
-                <h3 class="text-green">{{$post->category->title}} Lainnya</h3>
+                <h3 class="related-posts-title">{{$post->category->title}} Lainnya</h3>
                 <ul>
                     @foreach ($related_posts as $related_post)
-                    <li><h5 class="post-heading"><a href="{{URL::to('posts/'.$related_post->slug)}}">{{$related_post->title}}</a></h5></li>
+                    <li class="row">
+                        <div class="col-sm-4">
+                            <img src="{{$related_post->image}}" class="img-responsive">
+                        </div>
+                        <h5 class="post-heading"><a href="{{URL::to('posts/'.$related_post->slug)}}">{{$related_post->title}}</a></h5>
+                        <h5><a href="{{URL::to('posts/'.$related_post->slug)}}">{{ date('d F Y, G:h:s', strtotime($related_post->created_at))}}</a></h5>
+                    </li>
                     @endforeach
                 </ul>
             </div>
             @endif
-
-            @if($post->comment_status == 1)
-            @include('includes.postcomment')
-            @endif
         </div>
-    </div>
+	</div>
 </div>
 @stop
