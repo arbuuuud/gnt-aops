@@ -1,23 +1,14 @@
 @include('includes.html-head')
 
-<div id="top-content">
-  <div id= "top-bar"></div>
-  <div id="logo-bar">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-5">
-          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="bottom-content">
   <div id="main-banner" class="container-fluid">
     <div class="container-fluid">
       <div class="row">
-        <div id="registration-box" class="col-sm-4">
+
+        <div class="visible-xs col-xs-12">
+          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
+        </div>
+
+        <div id="registration-box" class="col-sm-4 col-xs-12">
           {{ Form::open(array('url' => 'registercontact')) }}
             <h1 class="registration-box">
               Peluang Terbaik Untuk Meningkatkan Kesejahteraan Hidup Anda
@@ -47,9 +38,18 @@
               Di halaman selanjutnya Anda akan mendapatkan informasi peluang terbaik yang dapat merubah seluruh hidup Anda, ayo tunggu apa lagi! 
             </h2> 
         </div>
+
+        <div class="col-sm-2 col-sm-offset-6 col-xs-12 hidden-xs">
+          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
+        </div>
+
       </div>
     </div>
   </div>
+
+
+</div><!--end .row-->
+
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
@@ -98,7 +98,7 @@
                   </div>
                   <div class="col-sm-8 testimonial-text">
                     <p class="text-white">“Semenjak minum GNT Fiber serat, BAB jadi lancar. Berasa kenyang lebih lama dan merasa lebih enteng dibagian perutku. Berat badan 72 turun ke 69 hanya dalam 1 bulan.”</p>
-                    <p class="text-green">Victor Tjahja, 35, wiraswasta, Jakarta</p>
+                    <p class="text-yellow">Victor Tjahja, 35, wiraswasta, Jakarta</p>
                   </div>
               </div>
               <div class="col-sm-6 testimonial-right">
@@ -107,7 +107,7 @@
                   </div>
                   <div class="col-sm-8 testimonial-text">
                     <p class="text-white">“Lantaran penasaran cerita teman jadi ikutan nyoba. BBku turun 3kg hanya dalam sebulan. Enggak bikin lemes, badan terasa ringan dan semakin sehat.”</p>
-                    <p class="text-green">Willy R Khosuma, 25, Tobelo</p>
+                    <p class="text-yellow">Willy R Khosuma, 25, Tobelo</p>
                   </div>
               </div>  
               <div class="col-sm-6">
@@ -116,7 +116,7 @@
                   </div>
                   <div class="col-sm-8 testimonial-text">
                     <p class="text-white">“Terima Kasih GNT FIBER saya senang sekali bisa menurunkan berat badan saya dengan cara yang mudah dan tidak menyiksa tubuh saya”</p>
-                    <p class="text-green">Sonny Tulung, 45 tahun - Artis</p>
+                    <p class="text-yellow">Sonny Tulung, 45 tahun - Artis</p>
                   </div>
               </div>  
               <div class="col-sm-6 testimonial-right">
@@ -125,7 +125,7 @@
                   </div>
                   <div class="col-sm-8 testimonial-text">
                     <p class="text-white">“GNT Fiber ini sangat membantu. Baru minum teratur 2x sehari selama seminggu, celana langsung longgar”</p>
-                    <p class="text-green">Sandi Wonodjojo, 30, wiraswasta, Jakarta</p>
+                    <p class="text-yellow">Sandi Wonodjojo, 30, wiraswasta, Jakarta</p>
                   </div>
               </div>    
             </div>
@@ -137,6 +137,7 @@
     <div class="row">
       <div class="col-sm-12">
           <h1 class="testimonial-title text-center">Apa itu GNT?</h1>
+          <hr style="width:200px;border: 2px solid #000;">
       </div>
     </div>
     <div class="container">
@@ -178,15 +179,23 @@
 <div id="subscribe-bottom" class="container-fluid">
   <div class="container">
     <div class="row">
-          <h1 class="testimonial-title text-white text-center">Tunggu apalagi?<br>
-            Ayo tingkatkan kualitas<br>
-            hidup anda sekarang!
-          </h1>
-    </div>
-    <div class="row">
-      <div class="subscribe-button-huge text-center">
-        Saya tertarik!
-      </div> 
+      <div class="col-sm-6">
+        <div class="row">
+              <h1 class="testimonial-title text-white">Tunggu apalagi?<br>
+                Ayo tingkatkan kualitas<br>
+                hidup anda sekarang!
+              </h1>
+        </div>
+        <div class="row">
+          <div class="subscribe-button-huge text-center">
+            Saya tertarik!
+          </div> 
+        </div>
+      </div>
+      <div class="col-sm-6 hidden-xs" id="bottom-people-image-container">
+          <div id="bottom-people-image">
+          </div>
+      </div>
     </div>
   </div>
 </div>
