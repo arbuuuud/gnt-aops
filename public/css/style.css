@@ -34,6 +34,11 @@ body {
 	margin: 10px;
 }
 
+.logo-image-peluang {
+	width:200px;
+	margin:10px;
+}
+
 #main-banner {
 	position: relative;
 	margin:0px;
@@ -80,7 +85,7 @@ body {
 }
 
 h1.registration-box {
-	color:#00A550;
+	color:#118E96;
 	font-size: 25px;
 	font-weight:900;
 	text-decoration: underline;
@@ -92,7 +97,7 @@ h2.registration-box {
 }
 
 button#registration-box-submit {
-	background-color: #00A550;
+	background-color: #118E96;
 	color: #FFF;
 	padding: 5px;
 	margin-top: 20px;
@@ -110,7 +115,7 @@ button#registration-box-submit {
 
 button#registration-box-submit:hover {
 	background: #FFF;
-	color: #00A550;
+	color: #118E96;
 	-webkit-transition: width 5s; /* Safari */
     transition: width 5s;
 }
@@ -155,7 +160,7 @@ h1.title {
 }
 
 #article-top-bar {
-	background-color:rgba(68,182,77,0.75);
+	background-color:#118E96;
 }
 
 #article-top-bar #nav-menu {
@@ -165,7 +170,7 @@ h1.title {
 }
 
 #article-top-bar #nav-menu:hover {
-	background-color:rgba(68,182,77,0.75);
+	background-color:#118E96;
 	color:#fff;
 }
 
@@ -200,14 +205,14 @@ h1.title {
 	font-size: 24px;
 	font-weight:900;
 	text-transform:uppercase;
-	border-bottom:5px solid #07612D;
+	border-bottom:5px solid #118E96;
 	padding-bottom:5px;
 	margin-top:30px;
 	margin-bottom:20px;
 }
 
 .artikel-image {
-	border-bottom:5px solid #00A14B;
+	border-bottom:5px solid #118E96;
 	padding-bottom: 10px;
 	margin-bottom:10px;
 	width: 100%;
@@ -596,6 +601,9 @@ h2.peluang-textbanner {
 .text-lightgreen {
 	color:#C0D741;
 }
+.text-tosca {
+	color:#118E96;
+}
 .text-green {
 	color:#41a739;
 }
@@ -615,6 +623,10 @@ h2.peluang-textbanner {
 }
 .text-black {
 	color: #000;
+}
+
+.text-capital {
+	text-transform: uppercase;
 }
 
 .background-grey {
@@ -660,6 +672,13 @@ a.hoverwhite:hover {
 .margin-bottom {
 	margin-bottom: 10px;
 }
+
+#homepage-gray-background {
+	background-color:#EBEBEA;
+	padding: 20px 0;
+	margin-top:30px;
+}
+
 .box-shadow {
 	-moz-box-shadow: 0 0 10px 3px #ccc;
 	-webkit-box-shadow: 0 0 10px 3px #ccc;
@@ -770,11 +789,11 @@ a.hoverwhite:hover {
 	margin-right: 15px;
 }
 .post .post-object {
-	border-bottom: 5px solid #016333;
+	border-bottom: 5px solid #118E96;
 	width:100%;
 }
 .post .post-category {
-	color: #41a739;
+	color: #118E96;
 }
 .post .post-category:hover {
 	text-decoration: none;
@@ -786,10 +805,10 @@ a.hoverwhite:hover {
 }
 .post-heading a:hover {
 	text-decoration: none;
-	color: #41a739;
+	color: #118E96;
 }
 .post-date {
-	color: #41a739;
+	color: #118E96;
 	font-size: 10px;
 	font-weight: bold;
 }
@@ -832,9 +851,11 @@ a.hoverwhite:hover {
 }
 
 .related-posts h3.related-posts-title {
-	background-color:rgba(68,182,77,0.75);
+	background-color:#118E96;
 	padding: 10px;
 	color:#fff;
+	font-size:16px;
+	text-transform: uppercase;
 }
 
 .addthis_sharing_toolbox {
@@ -943,7 +964,7 @@ a.hoverwhite:hover {
 	color: #333;
 }
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
-	background-color: #41a739;
+	background-color: #118E96;
 	border-color: transparent;
 }
 .carousel-caption {

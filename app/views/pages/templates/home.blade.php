@@ -52,6 +52,43 @@
 
   <div class="container">
     <div class="row">
+      <h1 class="testimonial-title text-center text-capital">About Me</h1>
+      <hr style="width:200px;border: 2px solid #000;">
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+        {{ HTML::image( 'images/aboutme-banner.jpg', 'banner', array( 'class' => 'space-buffer' )) }}  
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <p>Saya bersama komunitas GNT Club membuka kesempatan ini hanya dengan 1 alasan utama, yaitu kami ingin membantu Anda yang sungguh-sungguh ingin meraih impian.</p>
+
+<p>Kami sudah bertemu dengan kendaraan yang TEPAT, dan kami sangat yakin bahwa Anda juga akan mencapai impian Anda jika memiliki kendaraan ini.</p>
+
+<p>Saya sangat bersemangat dengan program GNT Club ini, karena Anda akan bisa menikmati dollar pertama Anda dalam bulan ini juga.</p>
+
+<p>Setulusnya, saya bersama-sama dengan coach Komunitas GNT Club berharap Anda segera take action sekarang, sebagai hadiah terindah yang bisa Anda berikan untuk masa depan orang-orang yang Anda cintai</p>
+
+<p>Salam Sukses, </p>
+
+<br><br>
+
+<p>Sarasvati
+  <br>
+Partner Franchise Online Store
+<br>
+0812-8888-999</p>
+    </div>
+  </div>
+
+
+<div id="homepage-gray-background" class="container-fluid">
+  <div class="container">
+    <div class="row">
       <div class="col-sm-12 text-center">
         <h1 class="title">
           Sistem GNT adalah Satu-satunya solusi yang paling siap membantu Anda atau siapapun, termasuk orang awam untuk menjadi pengusaha ecommerce sukses karena:        </h1>
@@ -84,13 +121,14 @@
       <p>Tanpa perlu kantor, dan tanpa perlu karyawan, bahkan Anda tidak perlu stok dan mengatur pengirimannya, karena semua menggunakan sistem Dropshipping.Tanpa perlu kantor, dan tanpa perlu karyawan, bahkan Anda tidak perlu stok dan mengatur pengirimannya, karena semua menggunakan sistem Dropshipping.Tanpa perlu kantor, dan tanpa perlu karyawan, bahkan Anda tidak perlu stok dan mengatur pengirimannya, karena semua menggunakan sistem Dropshipping.</p>
     </div>
   </div>
+</div>
   <div class="container-fluid">
       <div class="row">
         <div id="testimonial-banner">
           <div class="container">
             <div id="testimonial-content" class="row">
               <div class="col-sm-12">
-                <h1 class="testimonial-title text-white">Apa kata mereka?</h1>
+                <h1 class="testimonial-title text-white text-center text-capital">Apa kata mereka?</h1>
               </div>
               <div class="col-sm-6">
                   <div class="col-sm-4 testimonial-photo">
@@ -137,7 +175,6 @@
     <div class="row">
       <div class="col-sm-12">
           <h1 class="testimonial-title text-center">Apa itu GNT?</h1>
-          <hr style="width:200px;border: 2px solid #000;">
       </div>
     </div>
     <div class="container">

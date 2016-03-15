@@ -24,9 +24,9 @@
             <div class="row">
               <div class="col-sm-12">
                 <div id="peluang-banner-text">
-                  <h2 class="peluang text-lightgreen">Perhatian : Semua Pebisnis, Karyawan & Apapun profesi Anda!</h2>
+                  <h2 class="peluang text-tosca">Perhatian : Semua Pebisnis, Karyawan & Apapun profesi Anda!</h2>
                   <h2 class="peluang text-white">"Bagaimana Jika Hari Ini, Anda Bisa Meraih Impian Terbesar Anda Dengan Memiliki Bisnis Sendiri?"</h2>
-                  <h2 class="peluang text-green">Selamat, Anda telah masuk ke sini. Kami siap memberikan solusi atas berbagai masalah Anda. Solusi yang kami tawarkan di sini adalah, sebuah bisnis, yang bisa Anda jalankan selagi Anda masih bekerja. </h2>
+                  <h2 class="peluang text-tosca">Selamat, Anda telah masuk ke sini. Kami siap memberikan solusi atas berbagai masalah Anda. Solusi yang kami tawarkan di sini adalah, sebuah bisnis, yang bisa Anda jalankan selagi Anda masih bekerja. </h2>
 
                   <div class="peluang-subscribe-button-huge text-center">
                     Mulai Sekarang!
@@ -51,7 +51,7 @@
       <div id="peluang-inner" class="col-sm-12">
         <div class="container">
           <div class="row">
-          {{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image col-sm-5' ) ) }}
+          {{ HTML::image( 'images/logo-2.png', 'logo-image-peluang', array( 'class' => 'logo-image-peluang col-sm-5' ) ) }}
           <p class="text-yellow col-sm-9" style="font-size:28px;">Melalui website ini, Anda dapat berbelanja produk-produk GNT dan menjadi distributor perusahaan ini.</p>
           </div>
           <p class="text-white">Tidak hanya itu, setelah menjadi distributor Anda juga bisa menggunakan Gntclub.com untuk menjual produk-produk GNT dan merekrut distributor baru, keduanya secara online. Silakan mendaftar di sini jika Anda ingin menjadi distributor GNT dan memanfaatkan fasilitas-fasilitas website ini.</p>
