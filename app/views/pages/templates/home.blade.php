@@ -52,39 +52,32 @@
 
   <div class="container">
     <div class="row">
-      <h1 class="testimonial-title text-center text-capital">About Me</h1>
-      <hr style="width:200px;border: 2px solid #000;">
+      <div class="col-md-12">
+         <h1 class="testimonial-title text-center text-capital">Welcome</h1>
+         <p>Saya bersama komunitas GNT Club membuka kesempatan ini hanya dengan 1 alasan utama, yaitu kami ingin membantu Anda yang sungguh-sungguh ingin meraih impian.</p>
+
+          <p>Kami sudah bertemu dengan kendaraan yang TEPAT, dan kami sangat yakin bahwa Anda juga akan mencapai impian Anda jika memiliki kendaraan ini.</p>
+
+          <p>Saya sangat bersemangat dengan program GNT Club ini, karena Anda akan bisa menikmati dollar pertama Anda dalam bulan ini juga.</p>
+
+          <p>Setulusnya, saya bersama-sama dengan coach Komunitas GNT Club berharap Anda segera take action sekarang, sebagai hadiah terindah yang bisa Anda berikan untuk masa depan orang-orang yang Anda cintai</p>
+
+          <p>Salam Sukses, </p>
+          <div class="media">
+            <div class="media-left">
+               {{ HTML::image( 'img/userphoto.jpg', 'Sarasvati', array( 'class' => 'media-object img-circle' ) ) }} 
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><strong>Sarasvati</strong></h4>
+              <p>
+            GNT Club Member
+            <br>
+            0812-8888-999</p>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-
-  <div class="container-fluid">
-    <div class="row">
-        {{ HTML::image( 'images/aboutme-banner.jpg', 'banner', array( 'class' => 'space-buffer' )) }}  
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <p>Saya bersama komunitas GNT Club membuka kesempatan ini hanya dengan 1 alasan utama, yaitu kami ingin membantu Anda yang sungguh-sungguh ingin meraih impian.</p>
-
-<p>Kami sudah bertemu dengan kendaraan yang TEPAT, dan kami sangat yakin bahwa Anda juga akan mencapai impian Anda jika memiliki kendaraan ini.</p>
-
-<p>Saya sangat bersemangat dengan program GNT Club ini, karena Anda akan bisa menikmati dollar pertama Anda dalam bulan ini juga.</p>
-
-<p>Setulusnya, saya bersama-sama dengan coach Komunitas GNT Club berharap Anda segera take action sekarang, sebagai hadiah terindah yang bisa Anda berikan untuk masa depan orang-orang yang Anda cintai</p>
-
-<p>Salam Sukses, </p>
-
-<br><br>
-
-<p>Sarasvati
-  <br>
-Partner Franchise Online Store
-<br>
-0812-8888-999</p>
-    </div>
-  </div>
-
 
 <div id="homepage-gray-background" class="container-fluid">
   <div class="container">
@@ -131,37 +124,37 @@ Partner Franchise Online Store
                 <h1 class="testimonial-title text-white text-center text-capital">Apa kata mereka?</h1>
               </div>
               <div class="col-sm-6">
-                  <div class="col-sm-4 testimonial-photo">
+                  <div class="col-sm-4 col-xs-4 testimonial-photo">
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
-                  <div class="col-sm-8 testimonial-text">
+                  <div class="col-sm-8 col-xs-8 testimonial-text">
                     <p class="text-white">“Semenjak minum GNT Fiber serat, BAB jadi lancar. Berasa kenyang lebih lama dan merasa lebih enteng dibagian perutku. Berat badan 72 turun ke 69 hanya dalam 1 bulan.”</p>
                     <p class="text-yellow">Victor Tjahja, 35, wiraswasta, Jakarta</p>
                   </div>
               </div>
               <div class="col-sm-6 testimonial-right">
-                  <div class="col-sm-4 testimonial-photo">
+                  <div class="col-sm-4 col-xs-4 testimonial-photo">
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
-                  <div class="col-sm-8 testimonial-text">
+                  <div class="col-sm-8 col-xs-8 testimonial-text">
                     <p class="text-white">“Lantaran penasaran cerita teman jadi ikutan nyoba. BBku turun 3kg hanya dalam sebulan. Enggak bikin lemes, badan terasa ringan dan semakin sehat.”</p>
                     <p class="text-yellow">Willy R Khosuma, 25, Tobelo</p>
                   </div>
               </div>  
               <div class="col-sm-6">
-                  <div class="col-sm-4 testimonial-photo">
+                  <div class="col-sm-4 col-xs-4 testimonial-photo">
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
-                  <div class="col-sm-8 testimonial-text">
+                  <div class="col-sm-8 col-xs-8 testimonial-text">
                     <p class="text-white">“Terima Kasih GNT FIBER saya senang sekali bisa menurunkan berat badan saya dengan cara yang mudah dan tidak menyiksa tubuh saya”</p>
                     <p class="text-yellow">Sonny Tulung, 45 tahun - Artis</p>
                   </div>
               </div>  
               <div class="col-sm-6 testimonial-right">
-                  <div class="col-sm-4 testimonial-photo">
+                  <div class="col-sm-4 col-xs-4 testimonial-photo">
                     {{ HTML::image( 'images/testimonial-photo.png', 'logo-small', array( 'class' => 'testimonial-image' ) ) }}  
                   </div>
-                  <div class="col-sm-8 testimonial-text">
+                  <div class="col-sm-8 col-xs-8 testimonial-text">
                     <p class="text-white">“GNT Fiber ini sangat membantu. Baru minum teratur 2x sehari selama seminggu, celana langsung longgar”</p>
                     <p class="text-yellow">Sandi Wonodjojo, 30, wiraswasta, Jakarta</p>
                   </div>
@@ -188,22 +181,22 @@ Partner Franchise Online Store
               <li>Peduli pada KESEHATAN</li>
             </ul>
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
               {{ HTML::image( 'images/logo1.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
               {{ HTML::image( 'images/logo2.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
               {{ HTML::image( 'images/logo3.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
               {{ HTML::image( 'images/logo4.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
               {{ HTML::image( 'images/logo5.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-2 col-xs-2">
               {{ HTML::image( 'images/logo6.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
             </div>
           </div>
@@ -218,15 +211,13 @@ Partner Franchise Online Store
     <div class="row">
       <div class="col-sm-6">
         <div class="row">
-              <h1 class="testimonial-title text-white">Tunggu apalagi?<br>
-                Ayo tingkatkan kualitas<br>
-                hidup anda sekarang!
-              </h1>
+          <h1 class="testimonial-title text-white">Tunggu apalagi?<br>
+            Ayo tingkatkan kualitas<br>
+            hidup anda sekarang!
+          </h1>
         </div>
         <div class="row">
-          <div class="subscribe-button-huge text-center">
-            Saya tertarik!
-          </div> 
+          <a href="" class="btn subscribe-button-huge btn-lg">Saya tertarik!</a>
         </div>
       </div>
       <div class="col-sm-6 hidden-xs" id="bottom-people-image-container">

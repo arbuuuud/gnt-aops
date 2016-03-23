@@ -97,8 +97,8 @@ class MemberAPI extends \Eloquent
 	public static function getmemberapiselect($member_id){
 		try{
 			// return null;
-			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,'http://arctabyte.com/dev/aops-server/');
-			// $apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
+			// $apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,'http://arctabyte.com/dev/aops-server/');
+			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
 
 			$todo_items = $apicaller->sendRequest(array(
 				'controller' => 'member',

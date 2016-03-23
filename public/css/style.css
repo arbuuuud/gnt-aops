@@ -280,31 +280,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1c24', end
 }
 
 .subscribe-button-huge {
-	position: relative;
-	width:auto;
-	max-width: 50%;
-	border-radius:10px;
-	/*
-	background: rgb(7, 97, 45);
-	background: -moz-linear-gradient(left, rgba(7, 97, 45, 1) 0%, rgba(68, 171, 58, 1) 100%);
-	background: -webkit-linear-gradient(left, rgba(7, 97, 45, 1) 0%, rgba(68, 171, 58, 1) 100%);
-	background: linear-gradient(to right, rgba(7, 97, 45, 1) 0%, rgba(68, 171, 58, 1) 100%);
-	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#07612d', endColorstr='#44ab3a', GradientType=1 );
-	IE6-9 */
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ed1c24+0,9b090d+100 */
-background: rgb(237,28,36); /* Old browsers */
-background: -moz-linear-gradient(left,  rgba(237,28,36,1) 0%, rgba(155,9,13,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  rgba(237,28,36,1) 0%,rgba(155,9,13,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  rgba(237,28,36,1) 0%,rgba(155,9,13,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1c24', endColorstr='#9b090d',GradientType=1 ); /* IE6-9 */
 	color: #fff;
+    background-color: #FF7800;
+    border-color: #e06902;
 	font-weight: 900;
-	text-align: center;
 	font-size: 20px;
-	padding: 15px 20px;
 	text-transform: uppercase;
-	margin: 20px 0px;
-	cursor: pointer;
 }
 
 .peluang-subscribe-button-huge {
@@ -444,9 +425,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#07612d', end
 	background-image: url('images/people.png');
 	background-size: contain;
 	background-repeat: no-repeat;
-	height: 750px;
-	width:900px;
-	z-index: 13213;
+	height: 450px;
+	width:600px;
+	z-index: 99;
 }
 
 #peluang-inner {

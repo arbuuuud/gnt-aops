@@ -10,7 +10,7 @@
     <meta name="author" content="{{ Sysparam::getValue('web_meta_author') }}">
     @section('head-meta')@show
     <link rel="icon" href="{{url('favicon.ico')}}">
-    <title>@yield('head-title', 'Home') | {{ Sysparam::getValue('web_title') }}</title>
+    <title>@yield('head-title', 'Peluang Terbaik Untuk Meningkatkan Kesejahteraan Hidup Anda') | {{ Sysparam::getValue('web_title') }}</title>
     {{ HTML::style('https://fonts.googleapis.com/css?family=Lato') }}
     {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all') }}
     {{ HTML::style('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css') }}
