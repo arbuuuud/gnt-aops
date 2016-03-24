@@ -241,6 +241,7 @@ class UsersController extends BaseController {
 		return Redirect::route('admin.users.index')->with("message","Data berhasil disimpan");
 	}
 
+
 	public function destroy($id)
 	{
 		// Check apakah user yang di hapus sama dengan user yang sedang login

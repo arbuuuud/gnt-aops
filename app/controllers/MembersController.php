@@ -103,6 +103,47 @@ class MembersController extends \BaseController {
 		return Redirect::route('admin.members.edit', $member->id)->with("message","Data berhasil disimpan");
 	}
 
+		public function memberUploadWelcomeMessage() 
+		{
+		$user = User::findOrFail(Auth::user()->id);
+		$file = Input::file('image');
+		$data = array(
+			'welcome_message' 	=> Input::get('welcome_message'),
+		);
+
+		if (Input::hasFile('image')) {
+			// checking file is valid.
+			if (Input::file('image')->isValid()) {
+				$destinationPath = '/uploads/anggota'; // upload path
+				$extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
+				$fileName = $user->id.'.'.$extension; // renameing image
+				Input::file('image')->move(public_path().$destinationPath, $fileName); // uploading file to given path
+				$data['image'] = $destinationPath."/".$fileName;
+				$user->update($data);
+			}
+			else {
+				// sending back with error message.
+				return Redirect::back()->with('errors', 'Uploaded file is not valid')->withInput();
+			}
+		}
+			$rules = array(
+		       'image' => 'required'
+		    );
+
+		    $validator = Validator::make(array('image'=> $file), $rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		$user->update($data);
+
+		return Redirect::route('member.dashboard',$user->id)->with("message","Data berhasil disimpan");
+
+		}
+
+
 	/**
 	 * Display the specified member.
 	 *

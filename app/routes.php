@@ -85,6 +85,7 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
     Route::get('contacts', array('uses' => 'ContactsController@showMemberContacts', 'as' => 'member.contacts.index'));
     Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
     Route::post('configuration', array('uses'=>'MemberConfigurationsController@storeconfig', 'as' => 'member.storeconfig'));
+    Route::post('dashboard', array('uses'=>'MembersController@memberUploadWelcomeMessage', 'as' => 'member.post'));
 });
 // Admin routes
 Route::group(array('prefix' => 'admin','before' => 'auth'), function()

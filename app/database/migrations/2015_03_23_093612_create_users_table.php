@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration {
 			$table->string('active')->default(1);
 			$table->integer('role_id')->default(2)->unsigned();
 			$table->string('remember_token', 100)->nullable();
+			$table->string('image');
+			$table->string('welcome_message');
 			$table->timestamps();
 		});
 	}
