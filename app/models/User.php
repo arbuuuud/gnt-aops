@@ -27,9 +27,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	// Add your validation rules here
 	public static $rules = [
-		'first_name'				=> 'required',
-		'last_name'					=> 'required',
-		'email'						=> 'required|email|unique:users',
+		'username'					=> 'required',
+		'name'						=> 'required',
 		'password'					=> 'required|min:6|confirmed',
 		'password_confirmation'		=> 'required|min:6',
 		
@@ -51,7 +50,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public function role()
     {
-        return $this->belongsTo('role');
+        return $this->belongsTo('Role');
     }
 
     public static function translateDate($date)

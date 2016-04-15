@@ -2,13 +2,61 @@
 
 class UsersController extends BaseController {
 
-	public function loginByToken($token){
+	public function showDashboard()
+	{
+		return View::make('users.dashboard')->with('member',Auth::user());
+	}
+	public function updateWelcomeMessage()
+	{
+		$user = User::find(Auth::user()->id);
+
+		$data = array(
+			'welcome_message'	=> Input::get('welcome_message'),
+			'welcome_phone_number'	=> Input::get('welcome_phone_number')
+		);
+		$customRule['welcome_message'] = 'required';
+		$customRule['welcome_phone_number'] = 'required';
+
+		$messages = array(
+			'required' => 'Harap mengisi informasi :attribute.',
+			'image' => 'Tipe file gambar yang Anda berikan salah, mohon mencoba kembali.'
+		);
+
+		$validator = Validator::make($data, $customRule, $messages);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		if (Input::hasFile('welcome_photo')) {
+			// checking file is valid.
+			if (Input::file('welcome_photo')->isValid()) {
+				$destinationPath = '/uploads/anggota'; // upload path
+				$extension = Input::file('welcome_photo')->getClientOriginalExtension(); // getting image extension
+				$fileName = $user->id.'.'.$extension; // rename image
+				Input::file('welcome_photo')->move(public_path().$destinationPath, $fileName); // uploading file to given path
+				$data['welcome_photo'] = $destinationPath."/".$fileName;
+			}
+			else {
+				// sending back with error message.
+				return Redirect::back()->with('errors', 'Uploaded file is not valid')->withInput();
+			}
+		}
+
+		$user->update($data);
+
+		return Redirect::route('member.dashboard')->with("message","Data berhasil disimpan");
+	}
+	public function loginByToken($token)
+	{
 		$user = User::Where('remember_token',$token)->first();
 		Auth::loginUsingId($user->id,true);
 		$htmltree = MemberAPI::getmemberchilds($user->id);
 		return Redirect::to(Auth::user()->roleString().'/dashboard')->with('htmltree',$htmltree);
 	}
-	public function showEmail($templateid,$contactid){
+	public function showEmail($templateid,$contactid)
+	{
 		$contact = Contact::find($contactid);
 		$template = EmailTemplate::find($templateid);
 		$urlEmail = $template->html_body;
@@ -19,12 +67,14 @@ class UsersController extends BaseController {
 		return View::make('users.showemail')->with('contact',$contact)->with('urlEmail',$urlEmail);
 		
 	}
-	public function showOutbox(){
+	public function showOutbox()
+	{
 		$emailHistory = EmailHistory::where('member_id',Auth::user()->id)->get();
 		// return $emailHistory->toJson();
 		return View::make('users.outbox')->with('email_histories',$emailHistory);
 	}
-	public function sendEmailpost(){
+	public function sendEmailpost()
+	{
 		$rules = [
 			'contact_id' => 'required',
 			'template_id' => 'required'
@@ -46,28 +96,30 @@ class UsersController extends BaseController {
 			$templateid = Input::get('template_id');
 			$issent = EmailSchedullerPool::sendManualEmail($memberid,$contactid,$templateid);
 			if($issent){
-				return Redirect::to(Auth::user()->roleString().'/outbox');
+				return Redirect::to(Auth::user()->roleString().'/outbox')->with('message','Email berhasil dikirim.');
 			}
-			return Redirect::back()->with('message','Email Not Send, Please try again latter');
+			return Redirect::back()->with('message','Email tidak dapat dikirim, mohon mencoba kembali.');
 		}
 	}
-	public function sendEmail(){
-		$contacts = Contact::where('member_id',Auth::user()->id)->lists('full_name', 'id');;
-		$subjects = EmailTemplate::lists('subject', 'id');
-		// return $emailHistory->toJson();
-		return View::make('users.send')->with('contacts',$contacts)->with('subjects',$subjects);
+	public function sendEmail()
+	{
+		$contacts = Contact::where('user_id',Auth::user()->id)->lists('full_name', 'id');;
+		$templates = EmailTemplate::lists('subject', 'id');
+		$list_templates = EmailTemplate::all();
+		return View::make('users.send', compact('contacts','templates','list_templates'));
 	}
 	public function showLogin()
 	{
 	    // show the form
 	    return View::make('login');
+	    // $host_url = Sysparam::getValue('master_web_dashboard');
+	    // return Redirect::to($host_url);
 	}
-
 	public function doLogin()
 	{
 		// validate the info, create rules for the inputs
 		$rules = array(
-		    'email'    => 'required|email', // make sure the email is an actual email
+		    'username'    => 'required', // make sure the email is an actual email
 		    'password' => 'required|alphaNum|min:6' // password can only be alphanumeric and has to be greater than 3 characters
 		);
 
@@ -83,7 +135,7 @@ class UsersController extends BaseController {
 
 		    // create our user data for the authentication
 		    $userdata = array(
-		        'email'     => Input::get('email'),
+		        'username'     => Input::get('username'),
 		        'password'  => Input::get('password'),
 		        'active'	=> 1
 		    );
@@ -113,7 +165,6 @@ class UsersController extends BaseController {
 	public function showProfile()
 	{
 		$user = User::find(Auth::user()->id);
-
 		return View::make('users.profile', compact('user'));
 	}
 
@@ -122,14 +173,12 @@ class UsersController extends BaseController {
 		$user = User::findOrFail(Auth::user()->id);
 		
 		// define rules
-		$rules['first_name'] = 'required';
-		$rules['last_name'] = 'required';
-		$rules['email'] = 'required|email';
+		$rules['username'] = 'required';
+		$rules['name'] = 'required';
 
 		// define input
-		$inputs['first_name'] = Input::get('first_name');
-		$inputs['last_name'] = Input::get('last_name');
-		$inputs['email'] = Input::get('email');
+		$inputs['username'] = Input::get('username');
+		$inputs['name'] = Input::get('name');
 
 		if(Input::has('password'))
 		{
@@ -195,7 +244,7 @@ class UsersController extends BaseController {
 	public function edit($id)
 	{
 		$user = User::find($id);
-		$status = ['1' => 'Active','0' => 'Not Active'];
+		$status = ['1' => 'Aktif','0' => 'Tidak Aktif'];
 		$roles = Role::lists('name', 'id');
 		return View::make('users.edit', compact('user', 'roles', 'status'));
 	}
@@ -211,34 +260,39 @@ class UsersController extends BaseController {
 		$user = User::findOrFail($id);
 		
 		// define rules
-		$rules['first_name'] = 'required';
-		$rules['last_name'] = 'required';
-		$rules['email'] = 'required|email';
+		$rules['name'] = 'required';
+		$rules['username'] = 'required';
 
 		// define input
-		$inputs['first_name'] = Input::get('first_name');
-		$inputs['last_name'] = Input::get('last_name');
-		$inputs['email'] = Input::get('email');
+		$inputs['name'] = Input::get('name');
+		$inputs['username'] = Input::get('username');
 		$inputs['active'] = Input::get('active');
 		$inputs['role_id'] = Input::get('role_id');
 
-		if(Input::has('password'))
-		{
-			$inputs['password']					= Hash::make(Input::get('password'));
-			$rules['password'] 					= 'required|min:6|confirmed';
-			$rules['password_confirmation'] 	= 'required|min:6';
+		if($inputs['role_id'] == 2) {
+			$message = 'Anda tidak bisa mengedit data member melalui sistem AOPS. Harap merubah data member melalui sistem utama.';
+		}
+		else {
+
+			if(Input::has('password'))
+			{
+				$inputs['password']					= Hash::make(Input::get('password'));
+				$rules['password'] 					= 'required|min:6|confirmed';
+				$rules['password_confirmation'] 	= 'required|min:6';
+			}
+
+			$validator = Validator::make(Input::all(), $rules);
+
+			if ($validator->fails())
+			{
+				return Redirect::back()->withErrors($validator)->withInput();
+			}
+
+			$user->update($inputs);
+			$message = 'Data berhasil disimpan';
 		}
 
-		$validator = Validator::make(Input::all(), $rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$user->update($inputs);
-
-		return Redirect::route('admin.users.index')->with("message","Data berhasil disimpan");
+		return Redirect::route('admin.users.index')->with("message",$message);
 	}
 
 	public function destroy($id)
@@ -283,21 +337,4 @@ class UsersController extends BaseController {
 		    return 'false';
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -84,10 +84,6 @@ class EmailSchedullerPoolsController extends \BaseController {
 	}
 	public function runscheduller()
 	{
-		$person = [];
-		$person["firstName"] = "John";
-		$person["lastName"] = "Doe";
-		$person["age"] = 46;
 		$email = new EmailSchedullerPool();
 		$email->executeEmails();
 		return "check";

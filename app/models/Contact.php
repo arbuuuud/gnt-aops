@@ -69,7 +69,7 @@ class Contact extends \Eloquent {
         }
     }
     public function getAvalaibleTemplate(){
-        $maxtemplate = 8;
+        $maxtemplate = EmailTemplate::all()->count();
         $templateTarget=1;
         while($templateTarget<=$maxtemplate){
             if($this->templateExist($templateTarget)){
@@ -81,7 +81,7 @@ class Contact extends \Eloquent {
         return 0;
     }
     public function saveHistory($status,$member_id,$template_id){
-            $emailHistory = new emailHistory();
+            $emailHistory = new EmailHistory();
             $emailHistory->template_id= $template_id;
             $emailHistory->member_id = $member_id;
             $emailHistory->contact_id = $this->id;
@@ -108,15 +108,10 @@ class Contact extends \Eloquent {
     {
         return $this->hasMany('EmailHistory','contact_id');
     }
-
-    public function member() 
-    {
-        return $this->belongsTo('User','member_id');
-    }
     
     public function user() 
     {
-        return $this->belongsTo('User','member_id');
+        return $this->belongsTo('User','user_id');
     }
 
     public function encryptContact(){

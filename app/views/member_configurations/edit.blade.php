@@ -1,1 +1,0 @@
-C:\xampp\htdocs\gnt-aops\app/views/member_configurations/edit.blade.php

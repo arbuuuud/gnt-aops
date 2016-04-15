@@ -1,7 +1,7 @@
 @extends('layouts.adminform')
 
 @section('form-title')
-Tambah Data Artikel <strong>{{ $selected_cat->title }}</strong>
+Tambah Data Artikel
 @stop
 
 @section('form-open')
@@ -18,7 +18,7 @@ Tambah Data Artikel <strong>{{ $selected_cat->title }}</strong>
 	<div class="form-group">
 		{{ Form::label('category', 'Kategori:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">
-        	{{ Form::select('post_category_id', $postcategories, $selected_cat->id, array('class'=>'form-control')) }}
+        	{{ Form::select('post_category_id', $postcategories, Input::old('post_category_id'), array('class'=>'form-control')) }}
         </div>
     </div>
 	<div class="form-group">
@@ -62,13 +62,6 @@ Tambah Data Artikel <strong>{{ $selected_cat->title }}</strong>
   <div class="portlet-body form">
     <div class="form-body">
       @include('includes.postmeta')
-      <div class="form-group">
-        {{ Form::label('related_members', 'Anggota Terkait:', array('class'=>'control-label')) }}
-        {{ Form::select('related_members[]', $members, NULL, array('class'=>'form-control select2-multiple', 'multiple'=>'multiple')) }}
-        <span class="help-block">
-          Berita yang terkait dengan anggota tertentu akan ditampilkan di halaman profil anggota tersebut
-        </span>
-      </div>
     </div>
   </div>
 </div>

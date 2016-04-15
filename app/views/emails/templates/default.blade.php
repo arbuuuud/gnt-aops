@@ -22,7 +22,7 @@
 										tables centered in the emailBody table,
 										in case its width is set to 100%.
 									-->
-									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#41a739">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#008E96">
 										<tr>
 											<td align="center" valign="top">
 												<!-- FLEXIBLE CONTAINER // -->
@@ -257,7 +257,7 @@
 														<td style="padding-top:0;" align="center" valign="top" width="500" class="flexibleContainerCell">
 
 															<!-- CONTENT TABLE // -->
-															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #41a739;">
+															<table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #008E96;">
 																<tr>
 																	<td align="center" valign="middle" class="buttonContent" style="padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
 																		<a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="{{url('register/')}}" target="_blank">

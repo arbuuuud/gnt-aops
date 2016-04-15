@@ -1,6 +1,6 @@
 @extends('layouts.'.Auth::user()->roleString().'form')
 @section('form-title')
-Edit Contact Data
+Edit Data Kontak
 @stop
 
 @section('form-open')
@@ -16,32 +16,32 @@ Edit Contact Data
 @section('form-left')
 <div class="form-body form-horizontal">
 	<div class="form-group">
-		{{ Form::label('full_name', 'Full Name:', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
+		{{ Form::label('full_name', 'Nama:', array('class'=>'col-md-4 control-label')) }}
+        <div class="col-sm-8">
           {{ Form::text('full_name', Input::old('full_name'), array('class'=>'form-control')) }}
         </div>
     </div>
   <div class="form-group">
-    {{ Form::label('email', 'Email', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
+    {{ Form::label('email', 'Email:', array('class'=>'col-md-4 control-label')) }}
+        <div class="col-sm-8">
           {{ Form::text('email', Input::old('email'), array('class'=>'form-control')) }}
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('phone_number', 'Phone Number', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
+    {{ Form::label('phone_number', 'No. Tlp:', array('class'=>'col-md-4 control-label')) }}
+        <div class="col-sm-8">
           {{ Form::text('phone_number', Input::old('phone_number'), array('class'=>'form-control')) }}
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('isAutomaticFollowUp', 'Follow Up Automatically', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
+    {{ Form::label('isAutomaticFollowUp', 'Metode Follow-up', array('class'=>'col-md-4 control-label')) }}
+        <div class="col-sm-8">
           {{ Form::select('isAutomaticFollowUp', $automaticFollowUp, null, array('class'=>'form-control')) }}
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('active', 'Active', array('class'=>'col-md-2 control-label')) }}
-        <div class="col-sm-10">
+    {{ Form::label('active', 'Status:', array('class'=>'col-md-4 control-label')) }}
+        <div class="col-sm-8">
           {{ Form::select('active', $active, null, array('class'=>'form-control')) }}
         </div>
   </div>

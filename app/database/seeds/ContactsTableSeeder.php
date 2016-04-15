@@ -9,14 +9,28 @@ class ContactsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		for ($i = 0; $i < 50; $i++)
+		for ($i = 0; $i < 10; $i++)
 		{
 		  Contact::create(array(
-		  	'member_id'					=> 1,
+		  	'user_id'					=> 2,
 		    'full_name'					=> $faker->firstName,
 			'email'						=> $faker->email,
 			'last_follow_up'			=> date('Y-m-d H:i:s'),
-			'email_sent'				=> $faker->imageUrl($width = 125, $height = 150),
+			'email_sent'				=> "",
+			'active'					=> 1,
+			'isAutomaticFollowUp'		=> 1,
+			'phone_number'				=> $faker->phoneNumber
+		  ));
+		}
+
+		for ($i = 0; $i < 10; $i++)
+		{
+		  Contact::create(array(
+		  	'user_id'					=> 3,
+		    'full_name'					=> $faker->firstName,
+			'email'						=> $faker->email,
+			'last_follow_up'			=> date('Y-m-d H:i:s'),
+			'email_sent'				=> "",
 			'active'					=> 1,
 			'isAutomaticFollowUp'		=> 1,
 			'phone_number'				=> $faker->phoneNumber

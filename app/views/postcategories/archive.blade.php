@@ -37,7 +37,7 @@
     <div class="row">
     	<div class="col-md-12">
     		<div class="page-header">
-    			<h2 class="page-title text-uppercase text-tosca"><strong>{{ $category->title }}</strong>
+    			<h2 class="page-title text-uppercase text-green"><strong>{{ $category->title }}</strong>
 				<div class="datepicker-container">
 					{{ Form::open(array('class' => 'form-bordered form-inline', 'route' => array('admin.pages.update'))) }}
 					<div class="form-body">

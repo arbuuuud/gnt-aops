@@ -42,9 +42,7 @@ Route::get('sendmail', function()
     // return 'asd';
 });
 
-// Route::get('/', array('uses' => 'PagesController@showHome'));
 Route::get('/', function(){
-
     return Redirect::to('https://www.gntclub.com/');
 });
 Route::get('/@{username}', array('uses' => 'PagesController@showHome'));
@@ -58,16 +56,13 @@ Route::post('login', array('uses' => 'UsersController@doLogin'));
 Route::get('logout', array('uses' => 'UsersController@doLogout'));
 Route::get('runscheduller', array('uses' => 'EmailSchedullerPoolsController@runscheduller'));
 
-// Route::get('/', array('uses' => 'PagesController@showHome'));
 Route::get('pages/{page}', array('uses' => 'PagesController@show'));
 Route::get('posts/{post}', array('uses' => 'PostsController@show'));
 Route::get('kategori/{category}/{filter?}', array('uses' => 'PostCategoriesController@showArchive', 'as' => 'kategori.archive'));
 
 // Members specific routes
 Route::get('search', array('uses' => 'PagesController@search'));
-// Route::get('sitemap', array('uses' => 'PagesController@showSitemap'));
 Route::post('registercontact', array('uses' => 'ContactsController@registercontact'));
-
 Route::get('showemail/{id}', array('uses' => 'EmailTemplatesController@show'));
 
 // Member routes
@@ -77,14 +72,11 @@ Route::group(array('prefix' => 'member','before' => 'memberauth'), function()
     Route::get('send', array('as'=>'member.send','uses' => 'UsersController@sendEmail'));
     Route::get('outbox', array('as'=>'member.outbox','uses' => 'UsersController@showOutbox'));
     Route::get('showemail/{template}/{contact}', array('as'=>'member.showemail','uses' => 'UsersController@showEmail'));
-    Route::get('/', array('uses' => 'MembersController@showDashboard'));
-    Route::get('/tree/{id}', array('uses' => 'MembersController@showTree'));
-    Route::get('dashboard', array('uses' => 'MembersController@showDashboard', 'as' => 'member.dashboard'));
+    Route::get('/', array('uses' => 'UsersController@showDashboard'));
+    Route::get('dashboard', array('uses' => 'UsersController@showDashboard', 'as' => 'member.dashboard'));
+    Route::post('dashboard', array('uses'=>'UsersController@updateWelcomeMessage', 'as' => 'member.updateWelcomeMessage'));
     Route::resource('contacts', 'ContactsController');
-    // Route::get('contacts/{id}', array('uses' => 'ContactsController@show', 'as' => 'member.contacts.show'));
     Route::get('contacts', array('uses' => 'ContactsController@showMemberContacts', 'as' => 'member.contacts.index'));
-    Route::get('configuration', array('uses' => 'MemberConfigurationsController@config', 'as' => 'member.configuration'));
-    Route::post('configuration', array('uses'=>'MemberConfigurationsController@storeconfig', 'as' => 'member.storeconfig'));
 });
 // Admin routes
 Route::group(array('prefix' => 'admin','before' => 'auth'), function()
@@ -101,7 +93,6 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::resource('pages', 'PagesController', array('except' => array('create', 'store', 'destroy')));
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'PostCategoriesController');
-    // Route::resource('members', 'MembersController');
     Route::resource('member_posts', 'MemberPostsController');
 
     Route::get('search', array('uses' => 'PagesController@searchAdmin'));
@@ -112,22 +103,15 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
 
     Route::get('profile', array('uses' => 'UsersController@showProfile', 'as' => 'user.profile'));
     Route::any('updateProfile', array('uses' => 'UsersController@updateProfile', 'as' => 'user.updateProfile'));
-    // Route::get('phpinfo', array('uses' => 'PagesController@showPHPInfo'));
-    Route::resource('member_configurations', 'MemberConfigurationsController');
 });
 
 // Ajax routes
 Route::group(array('prefix' => 'ajax'), function()
 {
     Route::any('saveimage', array('uses' => 'AjaxController@saveimage'));
-    Route::any('gettree/{id}', array('uses' => 'AjaxController@gettree'));
 });
 
 Route::any('ViewerJS/{all?}', function(){
 
     return View::make('ViewerJS.index');
-});
-Route::any('sample', function(){
-
-    return View::make('emails.templates.sample')->with('member',Member::find(1))->with('contact',Contact::find(1));
 });

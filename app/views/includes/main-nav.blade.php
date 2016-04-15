@@ -1,5 +1,4 @@
-<nav class="navbar navbar-default" id="topfixedmenu">
-   <!-- Brand and toggle get grouped for better mobile display -->
+<!--nav class="navbar navbar-default" id="topfixedmenu">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-top-menu">
       <span class="sr-only">Toggle navigation</span>
@@ -8,7 +7,6 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-  <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="main-top-menu">
     <ul class="nav navbar-nav">
       @foreach (Menu::find('1')->items()->parent()->visible()->get() as $item)
@@ -39,5 +37,21 @@
         @endif
       @endforeach
     </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
+  </div>
+</nav-->
+<div id="nav-menu-white" class="col-sm-1 col-xs-1 col-xs-offset-4">
+            <div class="menu-text">
+                Menu
+            </div>
+            <div class="menu-icon-white">
+            </div>
+</div>
+<div id="menu-popup">
+    <ul id="menu-popup-items">
+        <li><a href="{{url('/')}}">Home</a></li>
+        <li><a href="{{url('/kategori/uncategorized')}}">Article</a></li>
+    </ul>
+    <div id="menu-popup-close">
+        X
+    </div>
+</div>

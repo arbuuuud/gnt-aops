@@ -17,7 +17,6 @@
 					<tr>
 						<th>ID</th>
 						<th>Judul</th>
-						<th>Konten</th>
 						<th>Status</th>
 						<th>Tanggal Dibuat</th>
 						<th width="25%"></th>
@@ -28,7 +27,6 @@
 					<tr>
 						<td>{{$page->id}}</td>
 						<td><a href="{{ route('admin.pages.edit', $page->id) }}">{{ $page->title }}</a></td>
-						<td>{{ str_limit(strip_tags($page->content), 50) }}</td>
 						<td>{{ $page->status == '1' ? '<span class="label label-success">Tampilkan</span>' : '<span class="label label-default">Tidak Ditampilkan</span>' }}</td>
 						<td>{{ $page->translateDate($page->created_at) }}</td>
 						<td>

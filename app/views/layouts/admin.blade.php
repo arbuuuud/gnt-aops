@@ -56,7 +56,6 @@
     <!-- BEGIN LOGO -->
     <div class="page-logo">
         {{ HTML::image( Sysparam::getValue('main_logo'), 'Logo', array( 'height' => '40px') ) }}
-        {{Sysparam::getValue('web_title')}}
     </div>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -70,7 +69,7 @@
         <li class="dropdown dropdown-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
           <span class="username username-hide-on-mobile">
-          {{ Auth::user()->email }} </span>
+          {{ Auth::user()->name }} </span>
           <i class="fa fa-angle-down"></i>
           </a>
           <ul class="dropdown-menu">
@@ -111,44 +110,44 @@
           <a href="{{ route('admin.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
-          <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> Users</a>
+          <a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> Daftar User</a>
         </li>
         <li>
-          <a href="{{ route('admin.contacts.index') }}"><i class="fa fa-users"></i> Contacts</a>
+          <a href="{{ route('admin.contacts.index') }}"><i class="fa fa-users"></i> Daftar Kontak</a>
         </li>
         <li>
-          <a href="{{ route('admin.templates.index') }}"><i class="fa fa-send"></i> Emails</a>
+          <a href="{{ route('admin.templates.index') }}"><i class="fa fa-send"></i> Daftar Email Template</a>
         </li>
         <li>
-          <a href="{{ route('admin.pages.index') }}"><i class="fa fa-file-text-o"></i> Pages</a>
+          <a href="{{ route('admin.pages.index') }}"><i class="fa fa-file-text-o"></i> Daftar Halaman</a>
         </li>
         <li>
           <a href="javascript:;">
-            <i class="fa fa-newspaper-o"></i> Posts
+            <i class="fa fa-newspaper-o"></i> Artikel
             <span class="arrow "></span>
             <ul class="sub-menu">
               <li>
                 <a href="{{ route('admin.categories.index') }}">
-                <i class="fa fa-newspaper-o"></i> Categories Index</a>
+                <i class="fa fa-newspaper-o"></i> Daftar Kategori</a>
               </li>
               <li>
                 <a href="{{ route('admin.posts.index') }}">
-                <i class="fa fa-newspaper-o"></i> Posts Index</a>
+                <i class="fa fa-newspaper-o"></i> Daftar Artikel</a>
               </li>
             </ul>
         </li>
         <li>
           <a href="javascript:;">
-            <i class="fa fa-cogs"></i> Settings
+            <i class="fa fa-cogs"></i> Setting
             <span class="arrow "></span>
             <ul class="sub-menu">
               <li>
                 <a href="{{ route('admin.sysparams.index') }}">
-                <i class="fa fa-cogs"></i> Interfaces</a>
+                <i class="fa fa-cogs"></i> Konfigurasi Sistem</a>
               </li>
               <li>
                 <a href="{{ route('admin.menus.index') }}">
-                <i class="fa fa-cogs"></i> Menus</a>
+                <i class="fa fa-cogs"></i> Menu Web</a>
               </li>
             </ul>
           </a>
@@ -172,7 +171,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
   <div class="page-footer-inner">
-    Hak Cipta &copy; {{Sysparam::getValue('web_title')}}
+    Hak Cipta &copy; <a href="http://gnt-indonesia.com" title="Visit Website PT. GNT" target="_blank">PT Guna Natur Tulen</a>
   </div>
   <div class="scroll-to-top">
     <i class="icon-arrow-up"></i>
@@ -235,7 +234,6 @@ jQuery(document).ready(function() {
       // set the initial value
       "pageLength": 10,
       "dom": "<'row'<'col-md-4 col-sm-12'l><'col-md-4 col-sm-12'f><'col-md-4 col-sm-12'T>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
-      "order": [[ 0, 'desc']],
       "tableTools": {
           "sSwfPath": "{{ URL::asset('assets/global/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}",
           "aButtons": [{

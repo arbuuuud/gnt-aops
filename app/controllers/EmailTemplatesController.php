@@ -12,12 +12,11 @@ class EmailTemplatesController extends \BaseController {
 		if (View::exists('emails.templates.'.$template)){
 		    return View::make('emails.templates.'.$template);
 		}
-		return "Template not exist";
+		return "Template does not exist";
 	}
 	public function index()
 	{
-		$emailtemplates = Emailtemplate::all();
-		// return 'asd';
+		$emailtemplates = EmailTemplate::all();
 		return View::make('email_templates.index', compact('emailtemplates'));
 	}
 
@@ -38,14 +37,14 @@ class EmailTemplatesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Emailtemplate::$rules);
+		$validator = Validator::make($data = Input::all(), EmailTemplate::$rules);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Emailtemplate::create($data);
+		EmailTemplate::create($data);
 
 		return Redirect::route('admin.templates.index')->with("message","Data berhasil disimpan");
 	}
@@ -58,7 +57,7 @@ class EmailTemplatesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$emailtemplate = Emailtemplate::findOrFail($id);
+		$emailtemplate = EmailTemplate::findOrFail($id);
 		return View::make('emails.templates.default', compact('emailtemplate'));
 	}
 
@@ -70,7 +69,7 @@ class EmailTemplatesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$emailtemplate = Emailtemplate::find($id);
+		$emailtemplate = EmailTemplate::find($id);
 
 		return View::make('email_templates.edit', compact('emailtemplate'));
 	}
@@ -83,9 +82,9 @@ class EmailTemplatesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$emailtemplate = Emailtemplate::findOrFail($id);
+		$emailtemplate = EmailTemplate::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Emailtemplate::rules($id));
+		$validator = Validator::make($data = Input::all(), EmailTemplate::rules($id));
 
 		if ($validator->fails())
 		{

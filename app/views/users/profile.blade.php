@@ -15,21 +15,15 @@ Edit Profil
 @section('form-left')
 <div class="form-body form-horizontal">
   <div class="form-group">
-    {{ Form::label('first_name', 'First Name:', array('class'=>'col-md-4 control-label')) }}
+    {{ Form::label('username', 'Username:', array('class'=>'col-md-4 control-label')) }}
     <div class="col-sm-8">
-      {{ Form::text('first_name', $user->first_name, array('class'=>'form-control')) }}
+      {{ Form::text('username', $user->username, array('class'=>'form-control')) }}
     </div>
   </div>
   <div class="form-group">
-    {{ Form::label('last_name', 'Last Name:', array('class'=>'col-md-4 control-label')) }}
+    {{ Form::label('name', 'Nama:', array('class'=>'col-md-4 control-label')) }}
     <div class="col-sm-8">
-      {{ Form::text('last_name', $user->last_name, array('class'=>'form-control')) }}
-    </div>
-  </div>
-  <div class="form-group">
-    {{ Form::label('email', 'Email:', array('class'=>'col-md-4 control-label')) }}
-    <div class="col-sm-8">
-      {{ Form::text('email', $user->email, array('class'=>'form-control')) }}
+      {{ Form::text('name', $user->name, array('class'=>'form-control')) }}
     </div>
   </div>
 	<div class="form-group">

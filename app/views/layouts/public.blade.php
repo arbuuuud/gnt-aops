@@ -9,6 +9,10 @@
     $('#menu-popup').css({'height':'100%','-webkit-transition':'1s'})
   });
 
+  $('#nav-menu-white').click(function() {
+    $('#menu-popup').css({'height':'100%','-webkit-transition':'1s'})
+  });
+
   $('#menu-popup-close').click(function(){
     $('#menu-popup').css({'height':'0%','-webkit-transition':'1s'})
   });

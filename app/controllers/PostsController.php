@@ -20,11 +20,8 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		$selected_cat_id = Input::get('cat', 4); // Check from which category page user is coming from, default to Berita category
-		$selected_cat = Postcategory::find($selected_cat_id);
 		$postcategories = Postcategory::lists('title', 'id');
-		$members = Member::lists('name', 'id');
-		return View::make('posts.create', compact('postcategories','members', 'selected_cat'));
+		return View::make('posts.create', compact('postcategories'));
 	}
 
 	/**

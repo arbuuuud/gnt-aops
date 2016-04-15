@@ -52,7 +52,7 @@ class EmailSchedullerPool extends \Eloquent {
     */
     public static function sendManualEmail($memberid,$contactid,$templateid){
         $contact = Contact::findOrFail($contactid);
-        $user = Member::findOrFail($memberid);
+        $user = User::findOrFail($memberid);
         if(!$user || !$contact){
             return false;
         }
@@ -112,7 +112,7 @@ class EmailSchedullerPool extends \Eloquent {
                     $contact->saveHistory("success",$pool->member_id,$pool->template_id);
                     $newtemplate = $contact->getAvalaibleTemplate();
                     if($newtemplate){
-                        $contact->insertPoolingSchedule($contact->id,$contact->member_id,$newtemplate);
+                        $contact->insertPoolingSchedule($contact->id,$contact->user_id,$newtemplate);
                     }else{
                         $contact->saveHistory("all have been sent",$pool->member_id,$pool->template_id);
                         $contact->active = 0;
@@ -120,7 +120,7 @@ class EmailSchedullerPool extends \Eloquent {
                     }
                     $pool->delete();
                 }else{
-//ARBUD : doing something retry 3x
+                    //ARBUD : retry sending email 3 times
                 }
             }
         }

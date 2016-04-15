@@ -28,7 +28,7 @@
                   <h2 class="peluang text-white">"Bagaimana Jika Hari Ini, Anda Bisa Meraih Impian Terbesar Anda Dengan Memiliki Bisnis Sendiri?"</h2>
                   <h2 class="peluang text-tosca">Selamat, Anda telah masuk ke sini. Kami siap memberikan solusi atas berbagai masalah Anda. Solusi yang kami tawarkan di sini adalah, sebuah bisnis, yang bisa Anda jalankan selagi Anda masih bekerja. </h2>
 
-                  <div class="peluang-subscribe-button-huge text-center">
+                  <div class="peluang-subscribe-button-huge text-center btn">
                     Mulai Sekarang!
                   </div> 
 
@@ -48,6 +48,7 @@
     </div>
 </div>
 <div class="container-fluid">
+	<div class="row">
       <div id="peluang-inner" class="col-sm-12">
         <div class="container">
           <div class="row">
@@ -60,11 +61,12 @@
         </div>
       </div>
     </div>
+   </div>
 </div>
 
 <div class="container-fluid">
 
-  <div class="background-grey">
+  <div class="background-grey row">
     <div class="container-fluid">
             <h1 class="testimonial-title text-center">Mungkin Anda sedang mengalami ini?</h1>
             <hr style="width:200px;border: 2px solid #000;">
@@ -90,7 +92,7 @@
     </div>
   </div>
 
-  <div class="background-white">
+  <div class="background-white row">
     <div class="container-fluid">
             <h1 class="testimonial-title text-center">Untuk memesan silakan KLIK gambar produk DIBAWAH</h1>
             <hr style="width:200px;border: 2px solid #000;">
@@ -117,8 +119,8 @@
     </div>
   </div>
   
-  <div class="background-grey">
-    <div id="gnt-advantages" class="container-fluid">
+  <div class="background-grey row">
+    <div id="gnt-advantages" class="container">
             <h1 class="testimonial-title text-center">SIAP DENGAN CARA REVOLUSIONER 
   MEMBANGUN BISNIS SENDIRI?</h1>
             <hr style="width:200px;border: 2px solid #000;">
@@ -140,7 +142,7 @@
     </div>
   </div>
 
-  <div class="background-white">
+  <div class="background-white row">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -195,7 +197,7 @@
     </div>
   </div>
 
-<div id="subscribe-bottom" class="container-fluid">
+<div id="subscribe-bottom" class="container-fluid row">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
@@ -204,8 +206,8 @@
                 Bergabunglah dengan 10.000 anggota kami yang terus berkembang setiap saat..
               </h1>
         </div>
-        <div class="row">
-          <div class="subscribe-button-superhuge text-center">
+        <div id="peluang-huge-button" class="row">
+          <div class="subscribe-button-superhuge text-center btn">
             Klik disini untuk bergabung
           </div> 
         </div>

@@ -20,8 +20,8 @@ class MenuItemsTableSeeder extends Seeder {
 				'visible'	=> '1'
 			],
 			[
-				'name' 		=> 'Terms & Conditions',
-				'link'		=> 'pages/terms-conditions',
+				'name' 		=> 'Syarat & Ketentuan',
+				'link'		=> 'pages/syarat-ketentuan',
 				'order'		=> '0',
 				'menu_id'	=> '2',
 				'visible'	=> '1'

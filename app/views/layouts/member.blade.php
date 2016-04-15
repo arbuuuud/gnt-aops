@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>{{Sysparam::getValue('web_title')}} - Admin</title>
+<title>{{Sysparam::getValue('web_title')}} - Member</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -39,15 +39,6 @@
 <!-- END HEAD -->
 
 <!-- BEGIN BODY -->
-<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
-<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
-<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
-<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
-<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
-<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
-<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="page-header-fixed page-quick-sidebar-over-content page-boxed page-sidebar-closed-hide-logo">
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -56,7 +47,6 @@
     <!-- BEGIN LOGO -->
     <div class="page-logo">
         {{ HTML::image( Sysparam::getValue('main_logo'), 'Logo', array( 'height' => '40px') ) }}
-        {{Sysparam::getValue('web_title')}}
     </div>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -70,7 +60,7 @@
         <li class="dropdown dropdown-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
           <span class="username username-hide-on-mobile">
-          {{ Auth::user()->email }} </span>
+          {{ Auth::user()->name }} </span>
           <i class="fa fa-angle-down"></i>
           </a>
           <ul class="dropdown-menu">
@@ -82,7 +72,7 @@
         </li>
          <li class="back" style="padding: 14px 6px 12px 8px;">
           <span class="username username-hide-on-mobile">
-          <a href="{{Sysparam::getValue('master_web_dashboard')}}" style="color:#c5c5c5;">Back to GNT Club ></a></span>
+          <a href="{{Sysparam::getValue('master_web_dashboard')}}" style="color:#c5c5c5;">Back to GNT Club &raquo;</a></span>
         </li>
         <!-- END USER LOGIN DROPDOWN -->
       </ul>
@@ -99,32 +89,13 @@
   <!-- BEGIN SIDEBAR -->
   <div class="page-sidebar-wrapper">
     <div class="page-sidebar navbar-collapse collapse">
-      <!-- BEGIN SIDEBAR MENU -->
-      <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-      <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-      <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-      <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-      <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-      <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
       <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <li>
           <a href="{{ route('member.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
         </li>
-       <li><a href="{{ route('member.contacts.index') }}"><i class="fa fa-comment"></i> Contacts</a></li>
-       <li><a href="{{ route('member.send') }}"><i class="fa fa-send"></i> Send Mail</a></li>
-       <li><a href="{{ route('member.outbox') }}"><i class="fa fa-envelope"></i> Outbox</a></li>
-        <!-- <li>
-          <a href="javascript:;">
-            <i class="fa fa-cogs"></i> Settings
-            <span class="arrow "></span>
-            <ul class="sub-menu">
-              <li>
-                <a href="{{ route('member.configuration') }}">
-                <i class="fa fa-cogs"></i> Member Configuration</a>
-              </li>
-            </ul>
-          </a>
-        </li> -->
+       <li><a href="{{ route('member.contacts.index') }}"><i class="fa fa-users"></i> Daftar Kontak</a></li>
+       <li><a href="{{ route('member.send') }}"><i class="fa fa-send"></i> Kirim Email</a></li>
+       <li><a href="{{ route('member.outbox') }}"><i class="fa fa-envelope"></i> Email Keluar</a></li>
       </ul>
       <!-- END SIDEBAR MENU -->
     </div>
@@ -145,7 +116,7 @@
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
   <div class="page-footer-inner">
-    Hak Cipta &copy; {{Sysparam::getValue('web_title')}}
+    Hak Cipta &copy; <a href="http://gnt-indonesia.com" title="Visit Website PT. GNT" target="_blank">PT Guna Natur Tulen</a>
   </div>
   <div class="scroll-to-top">
     <i class="icon-arrow-up"></i>
@@ -208,7 +179,6 @@ jQuery(document).ready(function() {
       // set the initial value
       "pageLength": 10,
       "dom": "<'row'<'col-md-4 col-sm-12'l><'col-md-4 col-sm-12'f><'col-md-4 col-sm-12'T>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
-      "order": [[ 0, 'desc']],
       "tableTools": {
           "sSwfPath": "{{ URL::asset('assets/global/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf') }}",
           "aButtons": [{
@@ -229,12 +199,6 @@ jQuery(document).ready(function() {
 
       }
   });
-
-  var table = $("#tableone").DataTable();
-  
-  $("select#member").on('change', function() {
-    table.search(this.value).draw();
-  }); 
   
   $('#summernote_1').summernote({
     height: 300,
@@ -270,7 +234,6 @@ jQuery(document).ready(function() {
   @section('customjs') 
   @show
 });
-$('span.filter_select').css('width','100px').detach().appendTo( "#styled-select" );
 </script>
 
 <!-- END JAVASCRIPTS -->

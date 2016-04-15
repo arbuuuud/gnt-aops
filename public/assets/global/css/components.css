@@ -3248,12 +3248,12 @@ Customized Bootstrap Panels
 }
 
 .panel-primary {
-  border-color: #3595bd;
+  border-color: #008E96;
 }
 .panel-primary > .panel-heading {
-  color: #d8e3f2;
-  background-color: #428bca;
-  border-color: #3595bd;
+  color: #FFF;
+  background-color: #008E96;
+  border-color: #008E96;
 }
 .panel-primary > .panel-heading + .panel-collapse .panel-body {
   border-top-color: #3595bd;
@@ -5390,11 +5390,11 @@ Blue Default
 }
 
 .portlet.box.blue {
-  border: 1px solid #7cacfa;
+  border: 1px solid #008E96;
   border-top: 0;
 }
 .portlet.box.blue > .portlet-title {
-  background-color: #4b8df8;
+  background-color: #008E96;
 }
 .portlet.box.blue > .portlet-title > .caption {
   color: white;

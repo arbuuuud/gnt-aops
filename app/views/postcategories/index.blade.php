@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
-			Daftar Kategori Post
+			Daftar Kategori
 			<a href="{{route('admin.categories.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
 		</h3>
 		@if (Session::get('message'))
@@ -17,7 +17,7 @@
 				<thead>
 					<tr>
 						<th>Nama</th>
-						<th>Jumlah Post</th>
+						<th>Jumlah Artikel</th>
 						<th></th>
 					</tr>
 				</thead>

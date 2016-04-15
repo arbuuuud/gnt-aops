@@ -59,7 +59,7 @@ FormDropzone.init();
     <div class="portlet light bordered">
       <div class="portlet-title">
         <div class="caption">
-          <i class="fa fa-info-circle"></i> Informasi
+          <i class="fa fa-pencil"></i> @yield('portlet-title', 'Pengisian Data')
         </div>
       </div>
       <div class="portlet-body form">

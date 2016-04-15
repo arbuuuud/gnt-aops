@@ -4,8 +4,12 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
-			Tampilan Web
+			Konfigurasi Sistem
 		</h3>
+		 <div class="note note-success">
+            <h4 class="block"><i class="fa fa-info-circle"></i> Informasi</h4>
+            <p>Harap berhati-hati dalam merubah konfigurasi pada sistem. Jika Anda kurang yakin harap menghubungi admin dari sistem.</p>
+        </div>
 		@if (Session::get('message'))
 		<div class="alert alert-success">
 		    <strong><i class="fa fa-check"></i> {{Session::get('message')}}</strong>

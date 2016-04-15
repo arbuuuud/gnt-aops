@@ -50,8 +50,8 @@ class SysparamTableSeeder extends Seeder {
 			],
 			[
 				'key'	=> 'conf_follow_up_date',
-				'desc'	=> 'Follow Up email scheduller for contact(after register & next follow up)',
-				'type'	=> 'int'
+				'desc'	=> 'Durasi Follow-up email untuk kontak',
+				'type'	=> 'string'
 			],
 			[
 				'key'	=> 'web_replika',
@@ -67,7 +67,7 @@ class SysparamTableSeeder extends Seeder {
 	   	$array = array(
 			[
 				'sysparam_key_id'	=> '1',
-				'content'	=> 'img/default-logo.png'
+				'content'	=> 'img/logo_white.png'
 			],
 			[
 				'sysparam_key_id'	=> '2',
@@ -75,19 +75,19 @@ class SysparamTableSeeder extends Seeder {
 			],
 			[
 				'sysparam_key_id'	=> '3',
-				'content'	=> 'Company Name'
+				'content'	=> 'GNT Club'
 			],
 			[
 				'sysparam_key_id'	=> '4',
-				'content'	=> 'Laravel CMS'
+				'content'	=> 'GNT Club System'
 			],
 			[
 				'sysparam_key_id'	=> '5',
-				'content'	=> 'cms'
+				'content'	=> 'gnt'
 			],
 			[
 				'sysparam_key_id'	=> '6',
-				'content'	=> 'Company Name'
+				'content'	=> 'PT. Guna Natur Tulen'
 			],
 			[
 				'sysparam_key_id'	=> '7',

@@ -22,22 +22,16 @@ Edit Data User
     </div>
   </div>
   <div class="form-group">
-    {{ Form::label('first_name', 'First Name:', array('class'=>'col-md-4 control-label')) }}
+    {{ Form::label('username', 'Username:', array('class'=>'col-md-4 control-label')) }}
         <div class="col-sm-8">
-          {{ Form::text('first_name', Input::old('first_name'), array('class'=>'form-control')) }}
-        </div>
-    </div>
-  <div class="form-group">
-    {{ Form::label('last_name', 'Last Name:', array('class'=>'col-md-4 control-label')) }}
-        <div class="col-sm-8">
-          {{ Form::text('last_name', Input::old('last_name'), array('class'=>'form-control')) }}
+          {{ Form::text('username', Input::old('username'), array('class'=>'form-control')) }}
         </div>
   </div>
   <div class="form-group">
-    {{ Form::label('email', 'Email', array('class'=>'col-md-4 control-label')) }}
-        <div class="col-sm-8">
-          {{ Form::text('email', Input::old('email'), array('class'=>'form-control')) }}
-        </div>
+    {{ Form::label('name', 'Name:', array('class'=>'col-md-4 control-label')) }}
+      <div class="col-sm-8">
+        {{ Form::text('name', Input::old('name'), array('class'=>'form-control')) }}
+      </div>
   </div>
   <div class="form-group">
     {{ Form::label('password', 'Password:', array('class'=>'col-md-4 control-label')) }}

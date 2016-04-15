@@ -5,17 +5,16 @@ class PagesController extends \BaseController {
 	public function showHome($username)
 	{
 		// checkmemberexist
-		$member = MemberAPI::getMemberByUserName($username);
-		if(!$member){
+		$memberapi = MemberAPI::getMemberByUserName($username);
+		if(!$memberapi){
 			return Redirect::to('https://www.gntclub.com/');
 		}
-		// return dd($member->member_id);
-		$memberid = $member->member_id;
-
+		$member = User::find($memberapi->member_id);
 		$page = Page::findBySlug('home')->published()->first();
+		$cookie = Cookie::make('member_id', $member->member_id, 60);
 
 		if($page) {
-			return View::make('pages.templates.home', compact('page', 'memberid'));
+			return View::make('pages.templates.home', compact('page', 'member'))->withCookie($cookie);
 		}
 		else {
 			return View::make('layouts.unpublished');
@@ -212,11 +211,6 @@ class PagesController extends \BaseController {
 	    // print_r($searchresults);
 	    // array_sort($searchresults,'updated_at',SORT_DESC); // sort by latest updated
 	    return $searchresults;
-	}
-
-	public function showPHPInfo()
-	{
-		phpinfo();
 	}
 
 	public function slugify($text)

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>{{Sysparam::getValue('web_title')}} - User Login</title>
+<title>{{Sysparam::getValue('web_title')}} - Login</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -47,7 +47,7 @@
 <body class="login">
 <!-- BEGIN LOGO -->
 <div class="logo">
-  {{ HTML::image( Sysparam::getValue('main_logo'), 'Logo', array( 'height' => '150px') ) }}
+  {{ HTML::image( Sysparam::getValue('main_logo'), 'Logo' ) }}
 </div>
 <!-- END LOGO -->
 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -68,10 +68,10 @@
     @endif
     <div class="form-group">
       <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-      <label class="control-label visible-ie8 visible-ie9">Email</label>
+      <label class="control-label visible-ie8 visible-ie9">Username</label>
       <div class="input-icon">
         <i class="fa fa-user"></i>
-        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
       </div>
     </div>
     <div class="form-group">
@@ -95,6 +95,9 @@
 <!-- BEGIN COPYRIGHT -->
 <div class="copyright">
   Hak Cipta &copy; {{Sysparam::getValue('web_title')}}
+  <p><a href="{{Sysparam::getValue('master_web_dashboard')}}" title="Bank to GNT System" style="color:#FFF;">
+     &laquo; Click disini untuk kembali ke Dashboard Master MLM
+  </a></p>
 </div>
 <!-- END COPYRIGHT -->
 

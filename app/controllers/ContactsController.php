@@ -10,7 +10,22 @@ class ContactsController extends \BaseController {
 	public function index()
 	{
 		$contacts = Contact::all();
-		return View::make('contacts.index', compact('contacts'));
+		$memberCollection = MemberAPI::getmemberapiselect(Auth::user()->id);
+		foreach ($memberCollection as $member) {
+			if(!User::find($member->member_id)){
+				$user = new User();
+				$user->id = $member->member_id; 
+				$user->username = $member->username; 
+				$user->name = $member->name; 
+
+				$user->password = Hash::make(rand());
+				$user->active = 1; 
+				$user->save();
+			}
+			$membercontacts = Contact::where('user_id',$member->member_id)->get();
+			$contacts =  $contacts->merge($membercontacts);
+		}
+		return View::make('contacts.index', compact('contacts', 'memberCollection'));
 	}
 
 	public function showMemberContacts()
@@ -19,21 +34,20 @@ class ContactsController extends \BaseController {
 		if(Auth::user()->isAdmin()){
 			$contacts = Contact::all();
 		}else{
-			$contacts = Contact::where('member_id',Auth::user()->id)->get();
+			$contacts = Contact::where('user_id',Auth::user()->id)->get();
 			$memberCollection = MemberAPI::getmemberapiselect(Auth::user()->id);
 			foreach ($memberCollection as $member) {
 				if(!User::find($member->member_id)){
 					$user = new User();
 					$user->id = $member->member_id; 
-					$user->first_name = $member->name; 
-					$user->last_name = ""; 
-					$user->email =$member->name; 
+					$user->username = $member->username; 
+					$user->name = $member->name; 
 
 					$user->password = Hash::make(rand());
 					$user->active = 1; 
 					$user->save();
 				}
-				$membercontacts = Contact::where('member_id',$member->member_id)->get();
+				$membercontacts = Contact::where('user_id',$member->member_id)->get();
 				$contacts =  $contacts->merge($membercontacts);
 			}
 			// return $contacts->toJson();
@@ -42,25 +56,6 @@ class ContactsController extends \BaseController {
 		return View::make('contacts.member', compact('contacts', 'memberCollection'));
 	}
 
-	// public function index()
-	// {
-
-	// 	if(Auth::user()->isAdmin()){
-	// 		$contacts = Contact::all();
-	// 	}else{
-	// 		$member = Member::where('user_id',Auth::user()->id)->first();
-	// 		if($member){
-	// 			$contacts = Contact::where('member_id',$member->id)->get();
-	// 			$memberCollection = $member->members;
-	// 			$memberCollection->add($member);
-	// 		}else{
-	// 			$contacts = null;
-	// 		}
-	// 	}
-
-	// 	return View::make('contacts.index', compact('contacts', 'memberCollection'));
-	// }
-
 	/**
 	 * Show the form for creating a new Contact
 	 *
@@ -68,7 +63,6 @@ class ContactsController extends \BaseController {
 	 */
 	public function create()
 	{
-
 		$active = ['1' => 'Active','0' => 'Not Active'];
 		$automaticFollowUp = ['1' => 'Automatic','0' => 'Manual'];
 		$gender = ['1'=>'Male','0'=>'Female'];
@@ -82,41 +76,37 @@ class ContactsController extends \BaseController {
 	 */
 	public function registercontact()
 	{
-
-		// $contact = Contact::find(60);
-		// $bool = $contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
-		// return $bool;
-
 		$customRule = [
-			'full_name' => 'required',
+			'nama_lengkap' => 'required',
 			'email'	=> 'required|email|unique:contacts',
-			'phone_number' => 'required'
+			'No_telepon' => 'required'
 		];
-		$validator = Validator::make($data = Input::all(), $customRule);
+		$messages = array(
+			'required' => 'Harap mengisi informasi :attribute.',
+			'email' => 'Format email yang diberikan salah.',
+			'unique' => ':attribute sudah terdaftar, mohon menggunakan :attribute lain.'
+		);
+		$validator = Validator::make($data = Input::all(), $customRule, $messages);
 
 		if ($validator->fails())
 		{
-			// return var_dump($validator);
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		// $member = Member::where('user_id',Auth::user()->id)->first();
-
-		// $data['member_id'] = Auth::user()->id;   
 		$data['active'] = 1;
 		$data['isAutomaticFollowUp'] = 1;
 		$data['email_sent'] = "";
 		
 		$contact = new Contact();
-		$contact->member_id = $data['member_id']; 
-		$contact->full_name = ucwords(Input::get('full_name')); 
+		$contact->user_id = $data['member_id']; 
+		$contact->full_name = ucwords(Input::get('nama_lengkap')); 
 		$contact->email = Input::get('email'); 
-		$contact->phone_number = Input::get('phone_number'); 
+		$contact->phone_number = Input::get('no_telepon'); 
 		$contact->email_sent = $data['email_sent']; 
 		$contact->isAutomaticFollowUp = $data['isAutomaticFollowUp']; 
 		$contact->active = $data['active']; 
 		$contact->save();
-		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
+		$contact->insertPoolingSchedule($contact->id,$contact->user_id,1);
 
 		$template = 'emails.registercontact';
 		$data['contact'] = $contact;	
@@ -135,15 +125,13 @@ class ContactsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		// $member = Member::where('user_id',Auth::user()->id)->first();
-
 		$data['member_id'] = Auth::user()->id;   
 		$data['active'] = 1;
 		$data['isAutomaticFollowUp'] = 1;
 		$data['email_sent'] = "";
 		
 		$contact = Contact::create($data);
-		$contact->insertPoolingSchedule($contact->id,$contact->member_id,1);
+		$contact->insertPoolingSchedule($contact->id,$contact->user_id,1);
 		
 		return Redirect::route(Auth::user()->roleString().'.contacts.index');
 	}
@@ -171,12 +159,11 @@ class ContactsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$active = ['1' => 'Active','0' => 'Not Active'];
+		$active = ['1' => 'Aktif','0' => 'Tidak Aktif'];
 		$automaticFollowUp = ['1' => 'Automatic','0' => 'Manual'];
-		$gender = ['1'=>'Male','0'=>'Female'];
 		$contact = Contact::find($id);
 
-		return View::make('contacts.edit', compact('contact', 'active','automaticFollowUp','gender'));
+		return View::make('contacts.edit', compact('contact', 'active','automaticFollowUp'));
 	}
 
 	/**

@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
-			Daftar Semua Post
+			Daftar Artikel
 			<a href="{{route('admin.posts.create')}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
 		</h3>
 		@if (Session::get('message'))
@@ -17,7 +17,7 @@
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th width="10%">Foto Utama</th>
+						<th width="10%">Foto</th>
 						<th width="25%">Judul</th>
 						<th width="10%">Kategori</th>
 						<th width="10%">Views</th>

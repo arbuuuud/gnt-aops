@@ -167,6 +167,15 @@ h1.title {
 	background-color:#fff;
 	padding:21px 10px;
 	cursor:pointer;
+	z-index:10;
+}
+
+#nav-menu-white {
+	background-color: transparent;
+	padding: 21px 20px;
+	cursor: pointer;
+	z-index: 10;
+	color: #fff;
 }
 
 #article-top-bar #nav-menu:hover {
@@ -191,6 +200,18 @@ h1.title {
 	background-repeat: no-repeat;
 	background-size:contain;
 	height:20px;
+}
+
+.menu-icon-white{
+width: 40px;
+margin-top: 5px;
+float: left;
+background-image: url('images/burger-menu-white.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 20px;
+position:relative;
+left:70px;
 }
 
 .article-box {
@@ -290,9 +311,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1c24', end
 
 .peluang-subscribe-button-huge {
 	position: relative;
-	left:25%;
 	width:auto;
-	max-width: 50%;
 	border-radius:10px;
 	/*
 	background: rgb(7, 97, 45);
@@ -369,7 +388,8 @@ h1.testimonial-title {
 }
 
 .testimonial-text {
-	padding-top:5%;
+	padding-top: 2.5%;
+	padding-left: 2.5%;
 }
 
 .testimonial {
@@ -469,15 +489,14 @@ ul#peluang li {
 	width:100%;
 	content:"";
 	background-color:rgba(0,0,0,0.6);
-	z-index:2;
+	z-index:1;
 }
 
 #peluang-banner-text {
 	position:absolute;
-	top:50px;
 	left:15%;
 	width:70%;
-	z-index:10;
+	z-index:2;
 }
 
 #peluang-introduction {
@@ -508,6 +527,10 @@ ul#cross-list li {
 #peluang-textbanner {
 	padding: 10px 20px;
 	margin-bottom: 20px;
+}
+
+#peluang-huge-button {
+	text-align:center;	
 }
 
 .peluang-textbanner {
@@ -650,16 +673,19 @@ a.hoverwhite:hover {
 .bg-fb-blue {
 	background: #3C5A99;
 }
+.color-blue {
+	color: #118E96;
+}
 .margin-bottom {
 	margin-bottom: 10px;
 }
-
+#welcome_member_message {
+	padding-bottom:30px;
+}
 #homepage-gray-background {
 	background-color:#EBEBEA;
 	padding: 20px 0;
-	margin-top:30px;
 }
-
 .box-shadow {
 	-moz-box-shadow: 0 0 10px 3px #ccc;
 	-webkit-box-shadow: 0 0 10px 3px #ccc;
@@ -710,7 +736,7 @@ a.hoverwhite:hover {
 	height:0%;
 	width:100%;
 	background-color:rgba(0,0,0,0.6);
-	z-index:1;
+	z-index:10;
 	overflow:hidden;
 }
 
@@ -1045,4 +1071,11 @@ a.hoverwhite:hover {
 	text-align:center;
 	font-weight:bold;
 }
+
+h2.peluang {
+	font-size: 16px;	
+}
+
+.subscribe-button-superhuge {
+	font-size:26px;
 }

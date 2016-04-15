@@ -29,7 +29,7 @@
                     </li>
                   @endif
                 @endforeach
-              <p>Supported by {{ Sysparam::getValue('web_title') }}</p>
+              <p>Supported by <a href="http://gnt-indonesia.com" title="Visit Website PT. GNT" target="_blank">PT Guna Natur Tulen</a></p>
           </div>
         </div>
     </div>

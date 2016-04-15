@@ -4,9 +4,16 @@ class MemberAPI extends \Eloquent
 	private $_params;
 	const API_KEY = 'APP001';
 	const API_SECRET = '28e336ac6c9423d946ba02d19c6a2632';
+	// const API_TARGET = 'http://healthylifeid.com/aops_listener/';
 	const API_TARGET = 'http://localhost/aops-server/';
 	const API_USERNAME = 'aops';
 	const API_PASSWORD = 'password';
+
+	// const API_KEY = Sysparam::getValue('api_key');
+	// const API_SECRET = Sysparam::getValue('api_secret');
+	// const API_TARGET = Sysparam::getValue('api_target');
+	// const API_USERNAME = Sysparam::getValue('api_username');
+	// const API_PASSWORD = Sysparam::getValue('api_password');
 	
 	public function __construct($params)
 	{
@@ -28,28 +35,33 @@ class MemberAPI extends \Eloquent
 	}
 	public function loginAction(){
 		if(!$this->checkparams()){
-			return 1;
+			return 1; //rengga: return error message
 		}
-		if($this->_params['member_id'] == 1){
-			return 2;
+		if($this->_params['member_id'] == 1){ //kalau admin
+			return 2; //rengga: return error message
 		}
-		$user = User::where('id',$this->_params['member_id'])->where('first_name',$this->_params['username'])->first();
+		$user = User::where('id',$this->_params['member_id'])->where('username',$this->_params['username'])->first();
 		if($user){
 
 		}else{
-			if(!User::where('id', '=', $this->_params['member_id'])->exists()){
+			if(!User::where('id', '=', $this->_params['member_id'])->exists()){ // kalau member belum ada di db aops
 				error_log('ERROR 6');
-			$user = new User();
-			$user->id = $this->_params['member_id']; 
-			$user->first_name = $this->_params['name']; 
-			$user->last_name = $this->_params['username']; 
-			$user->email = $this->_params['name']; 
+				$user = new User();
+				$user->id = $this->_params['member_id']; 
+				$user->username = $this->_params['username']; 
+				$user->name = $this->_params['name'];
 
-			$user->password = Hash::make(rand());
-			$user->active = 1; 
-			$user->save();
+				$user->password = Hash::make(rand());
+				$user->active = 1; 
+				$user->save();
 			}else{
-				$user= User::where('id', '=', $this->_params['member_id'])->first();
+				$user= User::where('id', '=', $this->_params['member_id'])->first(); 
+				$user->username = $this->_params['username']; 
+				$user->name = $this->_params['name']; 
+
+				$user->password = Hash::make(rand());
+				$user->active = 1;
+				$user->save();
 			}
 		}
 		Auth::loginUsingId($user->id,true);
@@ -68,7 +80,7 @@ class MemberAPI extends \Eloquent
 	}
 	public function getmembersAction()
 	{	
-
+		// rengga: ga kepake
 		return "success";
 		// //create a new todo item
 		// $memberItem = MemberItem::getmemberAction($this->_params['username'], $this->_params['userpass']);
@@ -97,8 +109,8 @@ class MemberAPI extends \Eloquent
 	public static function getmemberapiselect($member_id){
 		try{
 			// return null;
-			// $apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,'http://arctabyte.com/dev/aops-server/');
 			$apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
+			// $apicaller = new ApiCaller(MemberAPI::API_KEY, MemberAPI::API_SECRET,MemberAPI::API_TARGET);
 
 			$todo_items = $apicaller->sendRequest(array(
 				'controller' => 'member',
