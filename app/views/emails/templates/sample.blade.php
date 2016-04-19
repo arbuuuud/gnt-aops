@@ -136,7 +136,7 @@
 			</style>
 		<![endif]-->
 	</head>
-	<body bgcolor="#E1E1E1" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+	<body bgcolor="#E1E1E1" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" id="email-template">
 
 		<!-- CENTER THE EMAIL // -->
 		<!--
