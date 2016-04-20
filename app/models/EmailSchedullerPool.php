@@ -26,7 +26,6 @@ class EmailSchedullerPool extends \Eloquent {
         $contact = Contact::findOrFail($contactid);
         $data['contact'] = $contact;
     	$data['idencrypted'] = $contact->encryptContact();
-        /*ARBUD : Need correct if template has been finished*/ 
         $data['emailtemplate'] = EmailTemplate::find($templateid);
         $template = 'emails.templates.default'; 
         Mail::send($template, $data, function($message) use($data) {

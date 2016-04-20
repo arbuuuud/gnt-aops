@@ -96,7 +96,7 @@
 <div class="copyright">
   Hak Cipta &copy; {{Sysparam::getValue('web_title')}}
   <p><a href="{{Sysparam::getValue('master_web_dashboard')}}" title="Bank to GNT System" style="color:#FFF;">
-     &laquo; Click disini untuk kembali ke Dashboard Master MLM
+     &laquo; Click disini untuk kembali ke sistem utama GNT Club
   </a></p>
 </div>
 <!-- END COPYRIGHT -->

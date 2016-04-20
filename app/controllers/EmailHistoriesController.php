@@ -10,7 +10,8 @@ class EmailHistoriesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$email_histories = EmailHistory::all();
+		return View::make('email_history.index', compact('email_histories'));
 	}
 
 	/**

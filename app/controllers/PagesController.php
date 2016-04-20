@@ -40,7 +40,7 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
-		$pages = Page::all();
+		$pages = Page::all()->except(array(1,2));
 
 		return View::make('pages.index', compact('pages'));
 	}
@@ -62,6 +62,7 @@ class PagesController extends \BaseController {
 	 */
 	public function store()
 	{
+		$data = Input::all();
 		$data['slug'] = $this->slugify(Input::get('title'));
 
 		$validator = Validator::make($data, Page::$rules);
@@ -117,9 +118,7 @@ class PagesController extends \BaseController {
 	{
 		$page = Page::findOrFail($id);
 
-		// print_r($data);
-		// exit;
-
+		$data = Input::all();
 		$data['slug'] = $this->slugify(Input::get('title'));
 
 		$validator = Validator::make($data, Page::rules($id));
@@ -131,7 +130,7 @@ class PagesController extends \BaseController {
 
 		$page->update($data);
 
-		return Redirect::route('admin.pages.edit', $page->id)->with("message","Data berhasil disimpan");
+		return Redirect::route('admin.pages.index')->with("message","Data berhasil disimpan");
 	}
 
 	/**

@@ -24,23 +24,6 @@ Route::group(array('prefix' => 'memberapi','before' => 'memberauthapi'), functio
     });
 
 });
-Route::get('sendmail', function()
-{
-    // $a = EmailSchedullerPool::sendmail(2,56,1);
-    // return $a;
-    // $data['member'] = User::findOrFail(2);
-    //     $contact = Contact::findOrFail(56);
-    //     $data['contact'] = $contact;
-    //     $data['idencrypted'] = $contact->encryptContact();
-    //     /*ARBUD : Need correct if template has been finished*/ 
-    //     $data['emailtemplate'] = EmailTemplate::find(2);
-    //     $template = 'emails.templates.default'; 
-    //     Mail::send($template, $data, function($message) use($data) {
-    //         $message->to($data['contact']->email, $data['contact']->full_name)->subject($data['emailtemplate']->subject);
-    //     });
-    //     return 'true';
-    // return 'asd';
-});
 
 Route::get('/', function(){
     return Redirect::to('https://www.gntclub.com/');
@@ -85,19 +68,16 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::get('showtemplate/{html}', array('uses' => 'EmailTemplatesController@showtemplate'));
     Route::get('/', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     Route::get('dashboard', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
-    Route::get('dashboard', array('uses' => 'PostCategoriesController@showDashboard', 'as' => 'admin.postcategories.index'));
-    Route::get('dashboard', array('uses' => 'PostCategoriesController@store', 'as' => 'admin.postcategories.store'));
-    
+
     // Resources
     Route::resource('contacts', 'ContactsController');
     Route::resource('users', 'UsersController', array('except' => array('create', 'store', 'destroy')));
     Route::resource('roles', 'RolesController');
-    Route::resource('pages', 'PostCategoriesController', array('except' => array('create', 'store', 'destroy')));
-    Route::resource('pages', 'PagesController', array('except' => array('create', 'store', 'destroy')));
-    Route::resource('postcategories','PostCategoriesController');
+    Route::resource('pages', 'PagesController');
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'PostCategoriesController');
     Route::resource('member_posts', 'MemberPostsController');
+    Route::resource('emails', 'EmailHistoriesController', array('only' => array('index')));
 
     Route::get('search', array('uses' => 'PagesController@searchAdmin'));
     Route::resource('sysparams', 'SysparamsController');
