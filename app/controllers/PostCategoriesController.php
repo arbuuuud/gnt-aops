@@ -40,7 +40,7 @@ class PostCategoriesController extends \BaseController {
 
 		Postcategory::create($data);
 
-		return Redirect::route('postcategories.index');
+		return Redirect::route('admin.postcategories.index');
 	}
 
 	/**
@@ -114,7 +114,7 @@ class PostCategoriesController extends \BaseController {
 
 		$Postcategory->update($data);
 
-		return Redirect::route('postcategories.index');
+		return Redirect::route('admin.postcategories.index');
 	}
 
 	/**

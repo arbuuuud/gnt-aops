@@ -85,12 +85,16 @@ Route::group(array('prefix' => 'admin','before' => 'auth'), function()
     Route::get('showtemplate/{html}', array('uses' => 'EmailTemplatesController@showtemplate'));
     Route::get('/', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
     Route::get('dashboard', array('uses' => 'AdminController@showDashboard', 'as' => 'admin.dashboard'));
+    Route::get('dashboard', array('uses' => 'PostCategoriesController@showDashboard', 'as' => 'admin.postcategories.index'));
+    Route::get('dashboard', array('uses' => 'PostCategoriesController@store', 'as' => 'admin.postcategories.store'));
     
     // Resources
     Route::resource('contacts', 'ContactsController');
     Route::resource('users', 'UsersController', array('except' => array('create', 'store', 'destroy')));
     Route::resource('roles', 'RolesController');
+    Route::resource('pages', 'PostCategoriesController', array('except' => array('create', 'store', 'destroy')));
     Route::resource('pages', 'PagesController', array('except' => array('create', 'store', 'destroy')));
+    Route::resource('postcategories','PostCategoriesController');
     Route::resource('posts', 'PostsController');
     Route::resource('categories', 'PostCategoriesController');
     Route::resource('member_posts', 'MemberPostsController');
