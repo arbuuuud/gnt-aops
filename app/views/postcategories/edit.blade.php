@@ -5,11 +5,11 @@ Edit Data Artikel
 @stop
 
 @section('form-open')
-{{ Form::model($Postcategory, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array('admin.postcategories.update', $Postcategory->id), 'files' => true)) }}
+{{ Form::model($Postcategory, array('class' => 'form-bordered', 'method' => 'PATCH', 'route' => array('admin.categories.update', $Postcategory->id), 'files' => true)) }}
 @stop
 
 @section('form-actions')
-{{ link_to_route('admin.postcategories.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
+{{ link_to_route('admin.categories.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
 <a href="{{URL::to('admin/posts/'.$Postcategory->id)}}" class="btn red" data-method="delete" data-confirm="Apakah Anda yakin ingin menghapus data ini?">Delete</a>
 @stop

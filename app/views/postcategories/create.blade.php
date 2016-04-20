@@ -5,11 +5,11 @@ Tambah Data Artikel
 @stop
 
 @section('form-open')
-{{ Form::open(array('class' => 'form form-bordered', 'route' => array('admin.postcategories.store'), 'files' => true)) }}
+{{ Form::open(array('class' => 'form form-bordered', 'route' => array('admin.categories.store'), 'files' => true)) }}
 @stop
 
 @section('form-actions')
-{{ link_to_route('admin.postcategories.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
+{{ link_to_route('admin.categories.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
 @stop
 
