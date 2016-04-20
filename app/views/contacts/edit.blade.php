@@ -45,4 +45,18 @@ Edit Data Kontak
           {{ Form::select('active', $active, null, array('class'=>'form-control')) }}
         </div>
   </div>
+</div>
+@stop
+
+@section('form-right')
+<div class="note note-success">
+  <h4 class="block"><i class="fa fa-info-circle"></i> Informasi</h4>
+  <p>Metode Follow-up menunjukkan cara yang digunakan untuk mengirim email, yaitu "Automatic" dan "Manual" :</p>
+  <ul>
+    <li>"Automatic", maka sistem akan mengirimkan email secara berkala ke kontak tersebut.</li>
+    <li>"Manual", maka sistem tidak akan mengirimkan email secara berkala dan Anda bisa menggunakan menu "Kirim Email" untuk mengirim pesan.</li>
+  </ul>
+  <p>Status "Aktif" menunjukkan bahwa kontak tersebut bisa menerima email yang dikirim melalui sistem.</p>
+  <p>Jika status "Tidak Aktif", maka kontak tidak dapat menerima email baik menggunakan metode "Automatic" ataupun "Manual".</p>
+</div>
 @stop

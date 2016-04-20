@@ -132,7 +132,7 @@ FormDropzone.init();
      <div class="portlet light bordered">
       <div class="portlet-title">
         <div class="caption">
-          <i class="fa fa-search"></i> Pratinjau Email Template
+          <i class="fa fa-search"></i> Pratinjau Template Email
         </div>
       </div>
       <div class="portlet-body form email-preview">

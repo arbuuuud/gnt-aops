@@ -66,6 +66,7 @@
 					       <p>{{ HTML::image( $member->welcome_photo, NULL, array( 'style' => 'height:150px;','class' => 'media-object img-circle') ) }}</p>
 					    @endif
 				      	{{ Form::file('welcome_photo') }}
+				      	<span class="help-block">Foto akan ditampilkan dengan ukuran maksimal tinggi 150 px</span>
 					</div>
 					<div class="form-group">
 						{{ Form::label('welcome_phone_number', 'No. Tlp:', array('class'=>'control-label')) }}

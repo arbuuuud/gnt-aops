@@ -186,7 +186,7 @@ jQuery(document).ready(function() {
           processData: false,
           type: 'GET',
           success: function(data){
-              $('.email-preview').html($(data).find('td.textContent-main')); 
+              $('.email-preview').html($(data).find('td#textMessage-main')); 
 //            $("#ajaxContent").html($(response).find("#imageInfo"));
           },
           error: function(jqXHR, textStatus, errorThrown) {
@@ -279,7 +279,7 @@ $('select.template-checker').on('change', function() {
           processData: false,
           type: 'GET',
           success: function(data){
-              $('.email-preview').html($(data).find('td.textContent-main')); 
+              $('.email-preview').html($(data).find('td#textMessage-main')); 
 //            $("#ajaxContent").html($(response).find("#imageInfo"));
           },
           error: function(jqXHR, textStatus, errorThrown) {
@@ -313,7 +313,6 @@ if (str == 8) {
 }*/
 
 });
-
   @section('customjs') 
   @show
 });

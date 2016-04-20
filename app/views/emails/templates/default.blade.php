@@ -95,7 +95,7 @@
 																		<!-- CONTENT TABLE // -->
 																		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 																			<tr>
-																				<td valign="top" class="textContent-main">
+																				<td valign="top" class="textContent-main" id="textMessage-main">
 																					<div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">
 																						@if(isset($emailtemplate->content_body))
 																							{{$emailtemplate->content_body}}
