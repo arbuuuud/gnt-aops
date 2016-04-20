@@ -160,6 +160,7 @@
 @yield('pagelevel-js')
 <script>
 jQuery(document).ready(function() {
+
   Metronic.init(); // init metronic core components
   Layout.init(); // init current layout
   var host = "{{ url('/') }}";
@@ -172,6 +173,27 @@ jQuery(document).ready(function() {
           "disabled": "btn btn-sm default disabled"
       }
   });
+
+   var str = $('select.template-checker').val();
+
+    data = new FormData();
+
+      $.ajax({
+          url: host+"/showemail/"+str,
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          type: 'GET',
+          success: function(data){
+              $('.email-preview').html($(data).find('td.textContent-main')); 
+//            $("#ajaxContent").html($(response).find("#imageInfo"));
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus+" "+errorThrown);
+         }
+});
+
 
   var oTable = table.dataTable({
       // set the initial value
@@ -243,6 +265,7 @@ jQuery( "select.template-checker" )
   .change();
 });
 */
+
 $('select.template-checker').on('change', function() {
   var str = $(this).val();
 
@@ -256,13 +279,14 @@ $('select.template-checker').on('change', function() {
           processData: false,
           type: 'GET',
           success: function(data){
-              $('.email-preview').html($(data).find('td.textContent')); 
+              $('.email-preview').html($(data).find('td.textContent-main')); 
 //            $("#ajaxContent").html($(response).find("#imageInfo"));
           },
           error: function(jqXHR, textStatus, errorThrown) {
             console.log(textStatus+" "+errorThrown);
          }
-      });
+});
+
 /*if (str == 1) {
   $('.test').html('Mengapa kami membuat GNT Club?'); 
 } 
