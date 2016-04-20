@@ -5,8 +5,6 @@
 <title>{{Sysparam::getValue('web_title')}} - Member</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 {{ HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all') }}
 {{ HTML::style('assets/global/plugins/font-awesome/css/font-awesome.min.css') }}
@@ -231,6 +229,67 @@ jQuery(document).ready(function() {
       });
     }
   $(".select2-multiple").select2();
+
+/*
+jQuery(document).ready(function() {
+jQuery( "select.template-checker" )
+  .change(function () {
+    var str = "";
+    jQuery( "select option " ).each(function() {
+      str += jQuery( this ).text() + " ";
+    });
+    jQuery( ".test" ).text( str );
+  })
+  .change();
+});
+*/
+$('select.template-checker').on('change', function() {
+  var str = $(this).val();
+
+    data = new FormData();
+
+      $.ajax({
+          url: host+"/showemail/"+str,
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          type: 'GET',
+          success: function(data){
+              $('.email-preview').html($(data).find('td.textContent')); 
+//            $("#ajaxContent").html($(response).find("#imageInfo"));
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus+" "+errorThrown);
+         }
+      });
+/*if (str == 1) {
+  $('.test').html('Mengapa kami membuat GNT Club?'); 
+} 
+if (str == 2) {
+  $('.test').html('Why GNT Club?'); 
+} 
+if (str == 3) {
+  $('.test').html('Bisnis itu soal kepercayaan'); 
+} 
+if (str == 4) {
+  $('.test').html('Why MLM?'); 
+} 
+if (str == 5) {
+  $('.test').html('Why MLM? (2)'); 
+} 
+if (str == 6) {
+  $('.test').html('Ada yang bilang : "Saya tidak suka MLM karena menguntungkan orang ya..'); 
+} 
+if (str == 7) {
+  $('.test').html('Kisah Nelayan yang Aneh'); 
+} 
+if (str == 8) {
+  $('.test').html('MLM itu Bisnis yang Sulit. Benarkah?'); 
+}*/
+
+});
+
   @section('customjs') 
   @show
 });

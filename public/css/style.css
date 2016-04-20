@@ -165,7 +165,7 @@ h1.title {
 
 #article-top-bar #nav-menu {
 	background-color:#fff;
-	padding:21px 10px;
+	padding:21px 5px;
 	cursor:pointer;
 	z-index:10;
 }
@@ -1024,6 +1024,11 @@ a.hoverwhite:hover {
 .modal-content {
 	border-radius: 0;
 }
+
+.email-preview {
+	padding:20px;
+}
+
 /* RESPONSIVE CSS */
 @media (min-width: 1200px) {
 	.container {

@@ -7,15 +7,13 @@ class Postcategory extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		'title' => 'required',
-		'slug' => 'required|alpha_dash|unique:post_categories'
+		'title' => 'required'
 	];
 
 	public static function rules ($id=0, $merge=[]) {
         return array_merge(
             [
                 'title' => 'required',
-                'slug'  => 'required|alpha_dash|unique:post_categories,slug'.($id ? ",$id" : ''),
             ], 
         $merge);
     }

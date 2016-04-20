@@ -65,7 +65,7 @@ FormDropzone.init();
 @endif
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="portlet box blue">
       <div class="portlet-title">
         <div class="caption">
@@ -93,7 +93,7 @@ FormDropzone.init();
           <div class="form-group">
             {{ Form::label('template_id', 'Template Email:', array('class'=>'col-md-4 control-label')) }}
                 <div class="col-sm-8">
-                  {{ Form::select('template_id', $templates, null, array('class'=>'form-control')) }}
+                  {{ Form::select('template_id', $templates, null, array('class'=>'form-control template-checker')) }}
                 </div>
             </div>
           <div class="form-group">
@@ -106,7 +106,7 @@ FormDropzone.init();
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <!--div class="col-md-4">
      <div class="portlet light bordered">
       <div class="portlet-title">
         <div class="caption">
@@ -123,8 +123,25 @@ FormDropzone.init();
         </ul>
       </div>
     </div>
+  </div-->
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+     <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-search"></i> Pratinjau Email Template
+        </div>
+      </div>
+      <div class="portlet-body form email-preview">
+      </div>
+    </div>
+
   </div>
 </div>
+
 
 {{ Form::close() }}
 
