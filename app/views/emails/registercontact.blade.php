@@ -1,8 +1,8 @@
 <p>Hi {{$contact->full_name}},</p>
 
-<p>Anda menerima email ini karena telah mendaftarkan diri sebagai free member website ini.</p>
+<p>Anda menerima email ini karena tertarik terhadap peluang bisnis ini.</p>
 
-<p>website.com adalah sebuah media untuk menjangkau prospek 
+<p>GNTClub.com adalah sebuah media untuk menjangkau prospek 
 bisnis mlm secara online.</p>
 
 Kami ingin agar semua downline kami menjadi seorang 
@@ -16,13 +16,8 @@ menjangkau prospek Anda secara luas dan cepat, kemudian menindaklanjutinya denga
 sistem pendidikan yang sudah teruji, yaitu ......</p>
 
 <p><a href="{{url('/unsubscribe/'.$contact->encryptContact())}}">Unsubsribe</a> apabila anda tidak lagi mau menerima email newsletter dari kami</p>
-<p>Salam sukses!
-MandiriYes.com
-
-Royal Residence B9/86
-Wiyung, Surabaya,
-Jawa Timur, Indonesia</p>
-<br/>
-<p>Hormat kami,</p>
-<p>{{$contact->full_name}},</p>
-
+<p>Salam sukses!<br/>
+GNTClub.com<br/>
+JL.Krekot I No. 40-i<br/>
+Kel. Pasar Baru, Jakarta Pusat,<br/>
+DKI Jakarta, Indonesia</p>

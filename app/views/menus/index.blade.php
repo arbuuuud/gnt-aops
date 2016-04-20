@@ -24,6 +24,7 @@
 				    <div class="portlet-body">
 				    	{{Form::open(array('class' => 'form-bordered', 'route' => array('admin.menu_items.store')))}}
 				    	{{Form::hidden('menu_id', $currentmenu)}}
+				    	{{Form::hidden('menuitem_type', 'page')}}
 				    	<div class="panel-group accordion" id="accordion1">
 							<div class="panel panel-default">
 								<div class="panel-heading">

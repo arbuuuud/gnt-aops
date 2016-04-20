@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3 class="page-title">
-			Daftar Artikel <strong>{{ $category->title }}</strong>
+			Daftar Artikel Kategori: <strong>{{ $category->title }}</strong>
 			<a href="{{route('admin.posts.create', array('cat' => $category->id))}}" class="pull-right btn btn-primary"><i class="fa fa-plus"></i> Tambah Baru</a>
 		</h3>
 		@if (Session::get('message'))

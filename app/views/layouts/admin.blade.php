@@ -151,6 +151,10 @@
               </li>
             </ul>
           </a>
+        </li>
+        <li>
+          <a href="{{ route('admin.emails.index') }}"><i class="fa fa-envelope"></i> Email Log</a>
+        </li>
       </ul>
       <!-- END SIDEBAR MENU -->
     </div>

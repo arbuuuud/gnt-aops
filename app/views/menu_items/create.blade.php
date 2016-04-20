@@ -15,6 +15,7 @@ Tambah Menu Item
 
 @section('form-left')
 <div class="form-body form-horizontal">
+    {{Form::hidden('menuitem_type', 'custom')}}
 	<div class="form-group">
 		{{ Form::label('name', 'Name:', array('class'=>'col-md-2 control-label')) }}
         <div class="col-sm-10">

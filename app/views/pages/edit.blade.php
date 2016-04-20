@@ -11,6 +11,7 @@ Edit Halaman
 @section('form-actions')
 <button type="submit" class="btn green"><i class="fa fa-check"></i> Save</button>
 {{ link_to_route('admin.pages.index', 'Cancel', null,array('class' => 'btn btn-default')) }}
+<a href="{{URL::to(Auth::user()->roleString().'/pages/'.$page->id)}}" class="btn red" data-method="delete" data-confirm="Are you sure you want to delete this entry?">Delete</a>
 @stop
 
 @section('form-left')

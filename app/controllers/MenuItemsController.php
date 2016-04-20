@@ -37,36 +37,53 @@ class MenuItemsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$inputdata = Input::all();
-		$menu_id = $inputdata['menu_id'];
+		// tergantung tipe menu apa yang ingin disimpan, perilaku setiap tipe berbeda prosesnya
+		$type = Input::get('menuitem_type');
 
-		foreach ($inputdata['menuitems'] as $menuitem) {
-			
-			if(isset($menuitem['id'])) {
+		if ($type == 'page') {
+			$inputdata = Input::all();
+			$menu_id = $inputdata['menu_id'];
 
-				$type = $menuitem['type'];
-				$id = $menuitem['id'];
+			foreach ($inputdata['menuitems'] as $menuitem) {
+				
+				if(isset($menuitem['id'])) {
 
-				// Set the item data based on type, manual code currently for each type. Refer to routes.
-				if($type == 'page') {
+					$type = $menuitem['type'];
+					$id = $menuitem['id'];
 
-					$page = Page::find($id);
+					// Set the item data based on type, manual code currently for each type. Refer to routes.
+					if($type == 'page') {
 
-					$itemdata['name'] = $page->title;
-					$itemdata['link'] = 'pages/'.$page->slug;
-					$itemdata['menu_id'] = $menu_id;
+						$page = Page::find($id);
+
+						$itemdata['name'] = $page->title;
+						$itemdata['link'] = 'pages/'.$page->slug;
+						$itemdata['menu_id'] = $menu_id;
+					}
+
+					// Validate and crate the data
+					$validator = Validator::make($itemdata, MenuItem::$rules);
+
+					if ($validator->fails())
+					{
+						return Redirect::back()->withErrors($validator)->withInput();
+					}
+
+					MenuItem::create($itemdata);
 				}
-
-				// Validate and crate the data
-				$validator = Validator::make($itemdata, MenuItem::$rules);
-
-				if ($validator->fails())
-				{
-					return Redirect::back()->withErrors($validator)->withInput();
-				}
-
-				MenuItem::create($itemdata);
 			}
+		}
+		
+		if ($type == 'custom') {
+			
+			$validator = Validator::make(Input::all(), MenuItem::$rules);
+
+			if ($validator->fails())
+			{
+				return Redirect::back()->withErrors($validator)->withInput();
+			}
+
+			MenuItem::create(Input::except('menuitem_type'));
 		}
 
 		return Redirect::route('admin.menus.index')->with("message","Data berhasil disimpan");

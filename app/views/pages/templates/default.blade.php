@@ -5,8 +5,6 @@
 @stop
 
 @section('content')
-
-
 <div class="container">
     <div class="row">
     	<div class="col-md-12">
@@ -14,12 +12,6 @@
     			<h3 class="page-title text-center text-uppercase text-green"> <strong>{{ $page->title }}</strong></h3>
     		</div>
 			<p>{{ $page->content }}</p>
-			@if($page->social_status == 1)
-            <div class="addthis_sharing_toolbox"></div>
-            @endif
-            @if($page->comment_status == 1)
-            @include('includes.postcomment')
-            @endif
 		</div>
 	</div>
 </div>
