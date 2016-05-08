@@ -1,6 +1,6 @@
 body {
 	font-family: 'Lato', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .nopadding {
@@ -136,6 +136,7 @@ h1.title {
 	width: 50%;
 	position:relative;
 	left:25%;
+	margin-top: 10px;
 }
 
 #product-list{
@@ -358,7 +359,7 @@ ul#mainpage-tick li {
 }
 
 h1.testimonial-title {
-	font-size: 38px;
+	font-size: 30px;
 	font-weight: 900;
 	line-height: 1.5em;
 	margin: 30px 0 20px 0;
@@ -488,14 +489,15 @@ ul#peluang li {
 	height:100%;
 	width:100%;
 	content:"";
-	background-color:rgba(0,0,0,0.6);
+	background-color:rgba(0,0,0,0.3);
 	z-index:1;
 }
 
 #peluang-banner-text {
 	position:absolute;
-	left:15%;
-	width:70%;
+	padding-top:5%;
+	left:5%;
+	width:90%;
 	z-index:2;
 }
 
@@ -635,10 +637,12 @@ h2.peluang-textbanner {
 
 .background-grey {
 	background-color:#F1F1F2;
+	padding-bottom:20px;
 }
 
 .background-white {
 	background-color:#fff;
+	padding-bottom:20px;
 }
 
 .page-title .datepicker-container {

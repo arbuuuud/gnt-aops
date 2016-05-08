@@ -4,69 +4,65 @@
 {{$page->title}}
 @stop
 
-  <div id="main-banner" class="container-fluid">
-    <div class="container-fluid">
-      <div class="row">
+<div id="main-banner">
+  <div class="container-fluid">
+    <div class="row">
 
-        <div class="visible-xs col-xs-12">
-          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
-        </div>
-
-        <div id="registration-box" class="col-sm-4 col-xs-12">
-          {{ Form::open(array('url' => 'registercontact')) }}
-            <h1 class="registration-box">
-              Peluang Terbaik Untuk Meningkatkan Kesejahteraan Hidup Anda
-            </h1> 
-            <h2 class="registration-box">
-            	Silakan DAFTAR DISINI untuk memulai perjalanan Anda menuju kesuksesan dan kesehatan.
-            </h2> 
-
-            @if ($errors->any())
-            <div class="alert alert-danger">
-              <ul>
-                {{ implode('', $errors->all('<li class="error">:message</li>')) }}
-              </ul>
-            </div>
-            @endif
-            
-            {{ Form::hidden('member_id',$member->member_id) }}
-            {{ Form::text('nama_lengkap', Input::old('nama_lengkap'), array('class'=>'form-control','placeholder'=> 'Nama Lengkap')) }}
-            {{ Form::text('email', Input::old('email'), array('class'=>'form-control','placeholder'=> 'Email')) }}
-            {{ Form::text('no_telepon', Input::old('no_telepon'), array('class'=>'form-control','placeholder'=> 'No. Telepon')) }}
-
-            <button id="registration-box-submit">
-              Saya Tertarik!
-            </button>
-          {{ Form::close() }}
-            <h2 class="registration-box">
-              <i>Di halaman selanjutnya Anda akan mendapatkan informasi peluang terbaik yang dapat merubah seluruh hidup Anda, ayo tunggu apa lagi!</i>
-            </h2>
-        </div>
-
-        <div class="col-sm-2 col-sm-offset-6 col-xs-12 hidden-xs">
-          <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
-        </div>
-
+      <div class="visible-xs col-xs-12">
+        <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
       </div>
+
+      <div id="registration-box" class="col-sm-4 col-xs-12">
+        {{ Form::open(array('url' => 'registercontact')) }}
+          <h1 class="registration-box">
+            Dapatkan Peluang Terbaik Untuk Meningkatkan Kesejahteraan Hidup Anda
+          </h1> 
+          <h2 class="registration-box">
+          	Silakan DAFTAR DISINI untuk memulai perjalanan Anda menuju kesuksesan dan kesehatan.
+          </h2> 
+
+          @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              {{ implode('', $errors->all('<li class="error">:message</li>')) }}
+            </ul>
+          </div>
+          @endif
+          
+          {{ Form::hidden('member_id',$member->member_id) }}
+          {{ Form::text('nama_lengkap', Input::old('nama_lengkap'), array('class'=>'form-control','placeholder'=> 'Nama Lengkap')) }}
+          {{ Form::text('email', Input::old('email'), array('class'=>'form-control','placeholder'=> 'Email')) }}
+          {{ Form::text('no_telepon', Input::old('no_telepon'), array('class'=>'form-control','placeholder'=> 'No. Telepon')) }}
+
+          <button id="registration-box-submit">
+            Saya Tertarik!
+          </button>
+        {{ Form::close() }}
+          <h2 class="registration-box">
+            <i>Di halaman selanjutnya Anda akan mendapatkan informasi peluang terbaik yang dapat merubah seluruh hidup Anda, ayo tunggu apa lagi!</i>
+          </h2>
+      </div>
+
+      <div class="col-sm-2 col-sm-offset-6 col-xs-12 hidden-xs">
+        <a href="{{url('/')}}">{{ HTML::image( 'images/logo-2.png', 'logo-image', array( 'class' => 'logo-image' ) ) }}</a>
+      </div>
+
     </div>
   </div>
-</div><!--end .row-->
+</div>
 
 @if($member->welcome_message)
 <div class="container" id="welcome_member_message">
   <div class="row">
-    <div class="col-md-12">
-       <h1 class="testimonial-title text-center text-capital color-blue">Welcome</h1>
-       {{$member->welcome_message}}
-        <div class="media">
-          <div class="media-left">
-             {{ HTML::image( $member->welcome_photo, $member->name, array( 'class' => 'media-object img-circle', 'height' => '150px' ) ) }} 
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading"><strong>{{$member->name}}</strong></h4>
-            <p>GNT Club Member<br/>{{$member->welcome_phone_number}}</p>
-          </div>
-        </div>
+    <h1 class="testimonial-title text-center text-capital color-blue">Welcome</h1>
+    <div class="col-md-2">
+      {{ HTML::image( $member->welcome_photo, $member->name, array( 'class' => 'media-object img-circle', 'height' => '125px' ) ) }}
+      <br/>
+      <h4 class="media-heading"><strong><span class="color-blue">{{$member->name}}</span></strong></h4>
+      <p><i>GNT Club Member</i><br/>{{$member->welcome_phone_number}}</p>
+    </div>
+    <div class="col-md-10">
+       {{$member->welcome_message}} 
       </div>
   </div>
 </div>
@@ -152,40 +148,5 @@
         </div>
       </div>
   </div>
-  <!-- <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-          <h1 class="testimonial-title text-center color-blue">GNT PROFILE</h1>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div id="profile-content" class="col-sm-12">
-          <p>PT Guna Natur Tulen berdiri pada Januari 2012 yang merupakan perusahaan modernisasi yang besar dengan menggabungkan span.color-bluepenelitian dan pengembangan, pemasaran/penjualan dan pelayanan menjadi satu kesatuan dengan menyediakan <strong>produk makanan kesehatan (Health Food)</strong>, <strong>perawatan harian (Personal Care)</strong>, <strong>kecantikan (Beauty Care).</strong></p>
-          <div class="row">
-            <div class="col-sm-2 col-xs-2">
-              {{ HTML::image( 'images/logo1.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              {{ HTML::image( 'images/logo2.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              {{ HTML::image( 'images/logo3.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              {{ HTML::image( 'images/logo4.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              {{ HTML::image( 'images/logo5.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
-            </div>
-            <div class="col-sm-2 col-xs-2">
-              {{ HTML::image( 'images/logo6.png', 'logo-small', array( 'class' => 'profile-image' ) ) }}  
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </div>
- 
 @include('includes.footer')
